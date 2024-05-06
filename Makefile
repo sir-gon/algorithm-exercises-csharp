@@ -79,7 +79,7 @@ build: env dependencies
 	${PACKAGE_TOOL} build --verbosity ${VERBOSITY_LEVEL}
 
 test: build
-	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL}
+	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL} --collect:"Code Coverage"
 
 coverage: dependencies
 

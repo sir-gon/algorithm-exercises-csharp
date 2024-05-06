@@ -1,0 +1,41 @@
+services:
+  algorithm-exercises-csharp:
+    image: algorithm-exercises-csharp:latest
+    build:
+      context: .
+      target: testing
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-INFO} ## (1) ## INFO | DEBUG
+      BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    volumes:
+      - ./coverage:/app/coverage
+    profiles: ["testing"]
+
+  algorithm-exercises-csharp-mdlint:
+    image: algorithm-exercises-ts:mdlint
+    build:
+      context: .
+      target: lint
+    # environment:
+      # LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
+      # BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    volumes:
+      - ./:/app
+    profiles: ["lint"]
+
+  algorithm-exercises-csharp-dev:
+    image: algorithm-exercises-csharp:dev
+    build:
+      context: .
+      target: development
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    volumes:
+      - ./:/app
+    profiles: ["development"]
+
+## REFERENCES:
+## (1) Passing Environment variable with fallback value:
+##    https://stackoverflow.com/a/70772707/6366150
+##

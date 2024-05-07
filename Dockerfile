@@ -8,7 +8,7 @@ FROM node:20.2.0-alpine3.16 AS lint
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-COPY ./src ${WORKDIR}/src
+COPY ./docs ${WORKDIR}/docs
 RUN apk add --update --no-cache make
 RUN npm install -g --ignore-scripts markdownlint-cli
 

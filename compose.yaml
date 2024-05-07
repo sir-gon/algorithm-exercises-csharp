@@ -12,7 +12,7 @@ services:
     profiles: ["testing"]
 
   algorithm-exercises-csharp-mdlint:
-    image: algorithm-exercises-ts:mdlint
+    image: algorithm-exercises-csharp:mdlint
     build:
       context: .
       target: lint

@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+
+on:
+  push:
+    branches: [ main, develop, feature/* ]
+  pull_request:
+      branches: [ main ]
+
+permissions: read-all
+
+jobs:
+
+  build:
+    name: Build & Test in Docker
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: make compose/rebuild
+    - name: Run test in Docker image
+      run: make compose/run
+    - name: Tag Docker image
+      run: docker tag algorithm-exercises-csharp:latest algorithm-exercises-csharp:${{ github.sha }}
+

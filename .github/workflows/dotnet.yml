@@ -11,9 +11,16 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    name: "Run CI"
+    strategy:
+        fail-fast: false
+        matrix:
+          os: [
+            "windows-latest",
+            "ubuntu-latest",
+            "macOS-latest"
+          ]
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET

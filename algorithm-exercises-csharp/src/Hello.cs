@@ -11,4 +11,8 @@ public class HelloWorld
   {
     return "Hello World!";
   }
+
+  public static HelloWorld Create() {
+    return new HelloWorld();
+  }
 }

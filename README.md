@@ -1,5 +1,13 @@
 # Algorithm Exercises (C# / .NET 8.0)
 
+[![.NET](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet.yml)
+[![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-csharp/graph/badge.svg?token=C8JJA96CQR)](https://codecov.io/gh/sir-gon/algorithm-exercises-csharp)
+[![Markdown Lint](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/markdown-lint.yml)
+
+![GitHub](https://img.shields.io/github/license/sir-gon/algorithm-exercises-csharp)
+![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-csharp)
+![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/algorithm-exercises-csharp)
+
 ## What is this?
 
 [Project Euler](https://algorithm-exercises.net/) provide some algorithms and
@@ -141,4 +149,8 @@ dotnet --version
 
 ### License
 
+See [LICENSE](LICENSE)
+
 ### Coverage
+
+[![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-csharp/graphs/tree.svg?token=C8JJA96CQR)](https://codecov.io/gh/sir-gon/algorithm-exercises-csharp)

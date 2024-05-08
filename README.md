@@ -56,7 +56,7 @@ Unit test has test cases and input data to solve the problem.
 Run all tests:
 
 ```text
-# TODO add command to run just one test
+dotnet test --verbosity normal
 ```
 
 ### Testing with full logs

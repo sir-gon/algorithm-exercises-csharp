@@ -9,6 +9,8 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
 
+    <SonarQubeTestProject>true</SonarQubeTestProject>
+
     <!-- Coverage -->
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>lcov</CoverletOutputFormat>

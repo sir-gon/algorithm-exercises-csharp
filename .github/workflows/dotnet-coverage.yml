@@ -1,7 +1,7 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: .NET Tests
+name: .NET Coverage
 
 on:
   push:
@@ -15,11 +15,7 @@ jobs:
     strategy:
         fail-fast: false
         matrix:
-          os: [
-            "windows-latest",
-            "ubuntu-latest",
-            "macOS-latest"
-          ]
+          os: ["windows-latest"]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
@@ -28,8 +24,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore --verbosity normal
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore --verbosity normal
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.3.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}

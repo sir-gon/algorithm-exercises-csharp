@@ -35,6 +35,7 @@ ENV BRUTEFORCE=false
 
 WORKDIR /app
 
+COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
 RUN ls -alh
 
 CMD ["dotnet", "test"]

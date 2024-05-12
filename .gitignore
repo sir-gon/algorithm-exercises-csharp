@@ -138,5 +138,7 @@ _NCrunch*
 
 # Coverage
 coverage.cobertura.xml
+coverage.opencover.xml
+coverage.info
 coverage.json
 lcov.info

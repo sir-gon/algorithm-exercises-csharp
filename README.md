@@ -8,6 +8,12 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-csharp)
 ![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/algorithm-exercises-csharp)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-csharp&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-csharp)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-csharp&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-csharp)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-csharp&metric=bugs)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-csharp)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-csharp&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-csharp)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-csharp&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-csharp)
+
 ## What is this?
 
 [Project Euler](https://algorithm-exercises.net/) provide some algorithms and

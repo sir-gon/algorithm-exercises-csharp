@@ -3,7 +3,14 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0.204-alpine3.19-amd64 AS base
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-FROM node:20.2.0-alpine3.16 AS lint
+FROM node:22.1.0-alpine3.19 AS lint
+
+ENV WORKDIR=/app
+WORKDIR ${WORKDIR}
+
+COPY ./docs ${WORKDIR}/docs
+RUN apk add --update --no-cache make
+RUN npm install -g markdownlint-cli
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}

@@ -7,14 +7,15 @@ public class HelloWorld
   const string message = "Hello World!";
 
   [ExcludeFromCodeCoverage]
-  protected HelloWorld() {}
+  protected HelloWorld() { }
 
   public static string Hello()
   {
     return HelloWorld.message;
   }
 
-  public static HelloWorld Create() {
+  public static HelloWorld Create()
+  {
     return new HelloWorld();
   }
 }

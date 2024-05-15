@@ -74,6 +74,10 @@ lint: test/static test/styling mdlint
 test/static: dependencies
 
 test/styling: dependencies
+	${PACKAGE_TOOL} format --verify-no-changes --verbosity ${VERBOSITY_LEVEL}
+
+format:
+	${PACKAGE_TOOL} format --verbosity ${VERBOSITY_LEVEL}
 
 build: env dependencies
 	${PACKAGE_TOOL} build --verbosity ${VERBOSITY_LEVEL}

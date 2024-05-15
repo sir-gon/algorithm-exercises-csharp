@@ -34,3 +34,15 @@ insert_final_newline = true
 # Use tabs for indentation (Makefiles require tabs)
 indent_style = tab
 indent_size = 2
+
+###############################
+# .NET C# Coding Conventions  #
+###############################
+
+[*.cs]
+#IDE1006
+dotnet_naming_style.camel_case.capitalization = camel_case
+dotnet_naming_symbols.private_symbols.applicable_accessibilities = private
+dotnet_naming_rule.camel_case_for_private.severity = warning
+dotnet_naming_rule.camel_case_for_private.symbols  = private_symbols
+dotnet_naming_rule.camel_case_for_private.style = camel_case

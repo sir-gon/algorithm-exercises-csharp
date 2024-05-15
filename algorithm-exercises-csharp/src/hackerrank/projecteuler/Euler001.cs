@@ -7,9 +7,10 @@ using System.Diagnostics.CodeAnalysis;
 public class Euler001Problem
 {
   [ExcludeFromCodeCoverage]
-  protected Euler001Problem() {}
+  protected Euler001Problem() { }
 
-  public static int SuOfArithmeticProgression(int n, int d) {
+  public static int SuOfArithmeticProgression(int n, int d)
+  {
     int new_n = n / d;
 
     return new_n * (1 + new_n) * d / 2;
@@ -19,7 +20,7 @@ public class Euler001Problem
   {
     if (v != 0)
     {
-        return GCD(v, u % v);
+      return GCD(v, u % v);
     }
     return u;
   }

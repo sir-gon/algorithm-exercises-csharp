@@ -7,10 +7,12 @@ using System.Diagnostics.CodeAnalysis;
 public class Euler003Problem
 {
   [ExcludeFromCodeCoverage]
-  protected Euler003Problem() {}
+  protected Euler003Problem() { }
 
-  public static int? PrimeFactor(int n) {
-    if (n < 2) {
+  public static int? PrimeFactor(int n)
+  {
+    if (n < 2)
+    {
       return null;
     }
 
@@ -18,16 +20,21 @@ public class Euler003Problem
     int? max_prime_factor = null;
 
     int i = 2;
-    while (i <= Math.Sqrt(divisor)) {
-        if (0 == divisor % i) {
-            divisor = divisor / i;
-            max_prime_factor = divisor;
-        } else {
-          i += 1;
-        }
+    while (i <= Math.Sqrt(divisor))
+    {
+      if (0 == divisor % i)
+      {
+        divisor = divisor / i;
+        max_prime_factor = divisor;
+      }
+      else
+      {
+        i += 1;
+      }
     }
 
-    if (max_prime_factor is null) {
+    if (max_prime_factor is null)
+    {
       return n;
     }
 

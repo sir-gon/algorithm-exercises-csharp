@@ -55,3 +55,8 @@ dotnet_naming_rule.all_methods_must_be_camel_case.symbols  = all_methods
 dotnet_naming_rule.all_methods_must_be_camel_case.style    = camel_case_style
 # and setting the severity.
 dotnet_naming_rule.all_methods_must_be_camel_case.severity = warning
+
+# Due clean code suggestion
+[*.{cs,vb}]
+dotnet_diagnostic.IDE0054.severity = none
+dotnet_diagnostic.IDE0074.severity = none

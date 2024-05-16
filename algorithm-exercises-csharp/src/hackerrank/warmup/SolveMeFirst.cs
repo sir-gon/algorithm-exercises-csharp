@@ -1,6 +1,6 @@
 // @link Problem definition [[docs/hackerrank/SolveMeFirst.md]]
 
-namespace algorithm_exercises_csharp;
+namespace algorithm_exercises_csharp.hackerrank;
 
 using System.Diagnostics.CodeAnalysis;
 

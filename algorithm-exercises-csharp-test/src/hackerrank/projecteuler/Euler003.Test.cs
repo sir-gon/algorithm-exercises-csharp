@@ -3,7 +3,7 @@
 // @link [[docs/hackerrank/projecteuler/euler003-solution-notes.md]]
 
 
-namespace algorithm_exercises_csharp.hackerrank.prohecteuler;
+namespace algorithm_exercises_csharp.hackerrank.projecteuler;
 
 [TestClass]
 public class Euler003Test

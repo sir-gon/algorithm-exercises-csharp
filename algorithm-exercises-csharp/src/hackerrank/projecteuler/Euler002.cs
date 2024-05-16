@@ -1,6 +1,6 @@
 // @link Problem definition [[docs/hackerrank/projecteuler/euler002.md]]
 
-namespace algorithm_exercises_csharp.hackerrank.prohecteuler;
+namespace algorithm_exercises_csharp.hackerrank.projecteuler;
 
 using System.Diagnostics.CodeAnalysis;
 

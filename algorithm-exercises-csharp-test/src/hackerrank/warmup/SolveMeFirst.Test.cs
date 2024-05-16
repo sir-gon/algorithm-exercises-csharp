@@ -1,4 +1,4 @@
-namespace algorithm_exercises_csharp;
+namespace algorithm_exercises_csharp.hackerrank;
 
 [TestClass]
 public class SolveMeFirstTest

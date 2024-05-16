@@ -41,8 +41,17 @@ indent_size = 2
 
 [*.cs]
 #IDE1006
-dotnet_naming_style.camel_case.capitalization = camel_case
-dotnet_naming_symbols.private_symbols.applicable_accessibilities = private
-dotnet_naming_rule.camel_case_for_private.severity = warning
-dotnet_naming_rule.camel_case_for_private.symbols  = private_symbols
-dotnet_naming_rule.camel_case_for_private.style = camel_case
+# Defining the 'all_methods' symbol group
+dotnet_naming_symbols.all_methods.applicable_kinds = method
+dotnet_naming_symbols.public_symbols.applicable_accessibilities = public
+dotnet_naming_symbols.public_symbols.required_modifiers         = readonly
+# Defining the 'first_word_upper_case_style' naming style
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+# Defining the 'all_methods_must_be_camel_case' naming rule, by setting the
+# symbol group to the 'public symbols' symbol group,
+dotnet_naming_rule.all_methods_must_be_camel_case.symbols  = all_methods
+# setting the naming style to the 'first_word_upper_case_style' naming style,
+dotnet_naming_rule.all_methods_must_be_camel_case.style    = camel_case_style
+# and setting the severity.
+dotnet_naming_rule.all_methods_must_be_camel_case.severity = warning

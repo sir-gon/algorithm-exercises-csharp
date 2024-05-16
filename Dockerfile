@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0.300-alpine3.19-amd64 AS base
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-FROM node:22.1.0-alpine3.19 AS lint
+FROM node:22.2.0-alpine3.19 AS lint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}

@@ -1,3 +1,5 @@
+// @link Problem definition [[docs/hackerrank/SolveMeFirst.md]]
+
 namespace algorithm_exercises_csharp;
 
 using System.Diagnostics.CodeAnalysis;

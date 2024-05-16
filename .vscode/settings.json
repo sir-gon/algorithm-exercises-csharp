@@ -1,8 +1,13 @@
 {
-    "sonarlint.connectedMode.project": {
-        "connectionId": "sir-gon",
-        "projectKey": "sir-gon_algorithm-exercises-csharp"
-    },
-    "editor.defaultFormatter": "ms-dotnettools.csdevkit",
-    "editor.formatOnSave": true
+  "sonarlint.connectedMode.project": {
+    "connectionId": "sir-gon",
+    "projectKey": "sir-gon_algorithm-exercises-csharp"
+  },
+  "editor.formatOnSave": true,
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -1,4 +1,4 @@
-namespace algorithm_exercises_csharp.hackerrank.prohecteuler;
+namespace algorithm_exercises_csharp.hackerrank.projecteuler;
 
 [TestClass]
 public class Euler001Test

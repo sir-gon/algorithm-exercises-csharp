@@ -4,7 +4,7 @@ namespace algorithm_exercises_csharp;
 public class SolveMeFirstTest
 {
   [TestMethod]
-  public void TestSolveMeFirst()
+  public void testSolveMeFirst()
   {
     int expectedAnswer = 5;
     int a = 2;

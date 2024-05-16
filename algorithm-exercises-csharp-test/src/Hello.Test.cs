@@ -4,10 +4,10 @@ namespace algorithm_exercises_csharp;
 public class HelloWorldTest
 {
   [TestMethod]
-  public void TestInstance()
+  public void testInstance()
   {
-    HelloWorld a = HelloWorld.Create();
-    HelloWorld b = HelloWorld.Create();
+    HelloWorld a = HelloWorld.create();
+    HelloWorld b = HelloWorld.create();
 
     Type knownType = typeof(HelloWorld);
     Type resultType = a.GetType();
@@ -28,10 +28,10 @@ public class HelloWorldTest
   }
 
   [TestMethod]
-  public void TestHello()
+  public void testHello()
   {
     string expected = "Hello World!";
-    string result = HelloWorld.Hello();
+    string result = HelloWorld.hello();
 
     Assert.AreEqual(expected, result);
 

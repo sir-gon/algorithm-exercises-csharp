@@ -17,13 +17,13 @@ public class Euler001Test
   ];
 
   [TestMethod]
-  public void Euler001ProblemTest()
+  public void euler001Test()
   {
     int result;
 
     foreach (Euler001TestCase test in tests)
     {
-      result = Euler001Problem.Euler001(test.a, test.b, test.n);
+      result = Euler001.euler001(test.a, test.b, test.n);
       Assert.AreEqual(test.answer, result);
     }
   }

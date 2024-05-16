@@ -4,12 +4,12 @@ namespace algorithm_exercises_csharp.hackerrank.prohecteuler;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class Euler002Problem
+public class Euler002
 {
   [ExcludeFromCodeCoverage]
-  protected Euler002Problem() { }
+  protected Euler002() { }
 
-  public static int FiboEvenSum(int n)
+  public static int fiboEvenSum(int n)
   {
     int total = 0;
     int fibo;
@@ -32,8 +32,8 @@ public class Euler002Problem
   }
 
   // Function to find the sum of all multiples of a and b below n
-  public static int Euler002(int n)
+  public static int euler002(int n)
   {
-    return FiboEvenSum(n);
+    return fiboEvenSum(n);
   }
 }

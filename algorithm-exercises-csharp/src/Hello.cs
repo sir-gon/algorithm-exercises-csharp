@@ -4,17 +4,17 @@ using System.Diagnostics.CodeAnalysis;
 
 public class HelloWorld
 {
-  const string message = "Hello World!";
+  const string __message = "Hello World!";
 
   [ExcludeFromCodeCoverage]
   protected HelloWorld() { }
 
-  public static string Hello()
+  public static string hello()
   {
-    return HelloWorld.message;
+    return __message;
   }
 
-  public static HelloWorld Create()
+  public static HelloWorld create()
   {
     return new HelloWorld();
   }

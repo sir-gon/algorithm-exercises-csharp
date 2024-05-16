@@ -4,36 +4,36 @@ namespace algorithm_exercises_csharp.hackerrank.prohecteuler;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class Euler001Problem
+public class Euler001
 {
   [ExcludeFromCodeCoverage]
-  protected Euler001Problem() { }
+  protected Euler001() { }
 
-  public static int SuOfArithmeticProgression(int n, int d)
+  public static int sumOfArithmeticProgression(int n, int d)
   {
     int new_n = n / d;
 
     return new_n * (1 + new_n) * d / 2;
   }
 
-  public static int GCD(int u, int v)
+  public static int gcd(int u, int v)
   {
     if (v != 0)
     {
-      return GCD(v, u % v);
+      return gcd(v, u % v);
     }
     return u;
   }
 
   // Function to find the sum of all multiples of a and b below n
-  public static int Euler001(int a, int b, int n)
+  public static int euler001(int a, int b, int n)
   {
     // Since, we need the sum of multiples less than N
     int new_n = n - 1;
-    int lcm = a * b / GCD(a, b);
+    int lcm = a * b / gcd(a, b);
 
-    return SuOfArithmeticProgression(new_n, a) +
-      SuOfArithmeticProgression(new_n, b) -
-      SuOfArithmeticProgression(new_n, lcm);
+    return sumOfArithmeticProgression(new_n, a) +
+      sumOfArithmeticProgression(new_n, b) -
+      sumOfArithmeticProgression(new_n, lcm);
   }
 }

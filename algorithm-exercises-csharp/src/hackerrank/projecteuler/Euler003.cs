@@ -4,12 +4,12 @@ namespace algorithm_exercises_csharp.hackerrank.prohecteuler;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class Euler003Problem
+public class Euler003
 {
   [ExcludeFromCodeCoverage]
-  protected Euler003Problem() { }
+  protected Euler003() { }
 
-  public static int? PrimeFactor(int n)
+  public static int? primeFactor(int n)
   {
     if (n < 2)
     {
@@ -42,8 +42,8 @@ public class Euler003Problem
   }
 
   // Function to find the sum of all multiples of a and b below n
-  public static int? Euler003(int n)
+  public static int? euler003(int n)
   {
-    return PrimeFactor(n);
+    return primeFactor(n);
   }
 }

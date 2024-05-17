@@ -32,6 +32,9 @@ RUNTIME_TOOL=dotnet
 PACKAGE_TOOL=dotnet
 VERBOSITY_LEVEL=normal
 
+PROJECT_DIRECTORY=algorithm-exercises-csharp
+TEST_PROJECT_DIRECTORY=algorithm-exercises-csharp-test
+
 help: list
 	@echo ""
 	@echo "Note: create and activate the environment in your local shell type (example):"
@@ -97,6 +100,16 @@ upgrade:
 
 clean:
 	${PACKAGE_TOOL} clean --verbosity ${VERBOSITY_LEVEL}
+
+	rm -vfr .mono/ || true
+	find ${PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
+	find ${PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
+	find ${PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -fr {} ';' || true
+
+	find ${TEST_PROJECT_DIRECTORY} -path "*/coverage*" -print -exec rm -vfr {} ';' || true
+	find ${TEST_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
+	find ${TEST_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -fr {} ';' || true
+	find ${TEST_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -fr {} ';' || true
 
 compose/build: env
 	docker-compose --profile testing build

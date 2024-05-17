@@ -1,6 +1,6 @@
 // @link Problem definition [[docs/hackerrank/warmup/simple_array_sum.md]]
 
-namespace algorithm_exercises_csharp;
+namespace algorithm_exercises_csharp.hackerrank;
 
 using System.Diagnostics.CodeAnalysis;
 

@@ -88,9 +88,11 @@ build: env dependencies
 test: build
 	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL} --collect:"Code Coverage"
 
-coverage: dependencies
+coverage: dependencies test
+	cat coverage-report/Summary.txt
 
-coverage/html: coverage
+coverage/html: dependencies test
+	open coverage-report/index.html
 
 outdated:
 
@@ -102,6 +104,7 @@ clean:
 	${PACKAGE_TOOL} clean --verbosity ${VERBOSITY_LEVEL}
 
 	rm -vfr .mono/ || true
+	rm -vfr coverage-report/ || true
 	find ${PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
 	find ${PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
 	find ${PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -fr {} ';' || true

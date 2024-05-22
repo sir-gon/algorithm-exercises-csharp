@@ -142,4 +142,4 @@ coverage.opencover.xml
 coverage.info
 coverage.json
 lcov.info
-html-coverage-report/*
+coverage-report/*

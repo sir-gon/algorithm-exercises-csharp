@@ -25,5 +25,11 @@ public class MiniMaxSumTest
       Assert.AreEqual(test.expected, result);
     }
   }
+
+  [TestMethod]
+  public void testMiniMaxSumEmptyInput()
+  {
+    Assert.ThrowsException<ArgumentException>(() => MiniMaxSum.miniMaxSum([]));
+  }
 }
 

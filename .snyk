@@ -3,4 +3,4 @@
 ---
 exclude:
     global:
-        - html-coverage-report/**
+        - coverage-report/**

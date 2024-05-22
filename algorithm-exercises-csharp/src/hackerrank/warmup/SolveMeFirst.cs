@@ -1,4 +1,4 @@
-// @link Problem definition [[docs/hackerrank/SolveMeFirst.md]]
+// @link Problem definition [[docs/hackerrank/warmup/solve_me_first.md]]
 
 namespace algorithm_exercises_csharp.hackerrank;
 

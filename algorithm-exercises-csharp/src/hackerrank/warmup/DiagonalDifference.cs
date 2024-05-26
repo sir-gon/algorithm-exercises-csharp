@@ -15,26 +15,13 @@ public class DiagonalDifference
     int diag2 = 0;
     int last = _arr.Count - 1;
 
-    int i = 0;
-    foreach (List<int> line in _arr)
+    for (int i = 0; i < _arr.Count; i++)
     {
-      int j = 0;
-      foreach (int cell in line)
-      {
-        if (i == j)
-        {
-          diag1 += cell;
-          diag2 += _arr[last - i][j];
-        }
-
-        j += 1;
-      }
-
-      i += 1;
+      diag1 += _arr[i][i];
+      diag2 += _arr[last - i][i];
     }
 
     int result = Math.Abs(diag1 - diag2);
     return result;
   }
-
 }

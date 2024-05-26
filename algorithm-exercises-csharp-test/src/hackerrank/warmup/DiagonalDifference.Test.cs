@@ -14,7 +14,9 @@ public class DiagonalDifferenceTest
     int expectedAnswer = 15;
     int result = DiagonalDifference.diagonalDifference(arr);
 
-    Assert.AreEqual(expectedAnswer, result);
+    Assert.AreEqual(expectedAnswer, result,
+      String.Format("DiagonalDifference.diagonalDifference answer must be: {0}", expectedAnswer)
+    );
   }
 }
 

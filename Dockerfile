@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0.300-alpine3.19-amd64 AS base
+FROM mcr.microsoft.com/dotnet/sdk:8.0.301-alpine3.19-amd64 AS base
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}

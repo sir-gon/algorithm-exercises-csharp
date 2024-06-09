@@ -12,13 +12,6 @@ WORKDIR ${WORKDIR}
 
 COPY ./docs ${WORKDIR}/docs
 RUN apk add --update --no-cache make
-RUN npm install -g markdownlint-cli
-
-ENV WORKDIR=/app
-WORKDIR ${WORKDIR}
-
-COPY ./docs ${WORKDIR}/docs
-RUN apk add --update --no-cache make
 RUN npm install -g --ignore-scripts markdownlint-cli
 
 ###############################################################################

@@ -5,7 +5,7 @@ ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 ###############################################################################
-FROM node:22.2.0-alpine3.19 AS lint
+FROM node:20.14.0-alpine3.20 AS mdlint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}

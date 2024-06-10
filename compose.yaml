@@ -11,8 +11,8 @@ services:
       - ./coverage:/app/coverage
     profiles: ["testing"]
 
-  algorithm-exercises-csharp-mdlint:
-    image: algorithm-exercises-csharp:mdlint
+  algorithm-exercises-csharp-lint:
+    image: algorithm-exercises-csharp:lint
     build:
       context: .
       target: mdlint

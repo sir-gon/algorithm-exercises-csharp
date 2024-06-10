@@ -15,10 +15,10 @@ services:
     image: algorithm-exercises-csharp:mdlint
     build:
       context: .
-      target: lint
+      target: mdlint
     # environment:
-      # LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
-      # BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    # LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
+    # BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
     volumes:
       - ./:/app
     profiles: ["lint"]
@@ -34,7 +34,6 @@ services:
     volumes:
       - ./:/app
     profiles: ["development"]
-
 ## REFERENCES:
 ## (1) Passing Environment variable with fallback value:
 ##    https://stackoverflow.com/a/70772707/6366150

@@ -5,14 +5,7 @@ ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 ###############################################################################
-FROM node:22.2.0-alpine3.19 AS lint
-
-ENV WORKDIR=/app
-WORKDIR ${WORKDIR}
-
-COPY ./docs ${WORKDIR}/docs
-RUN apk add --update --no-cache make
-RUN npm install -g markdownlint-cli
+FROM node:20.14.0-alpine3.20 AS mdlint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}

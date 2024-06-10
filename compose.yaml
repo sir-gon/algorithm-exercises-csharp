@@ -16,7 +16,7 @@ services:
     image: algorithm-exercises-csharp:lint
     build:
       context: .
-      target: mdlint
+      target: lint
     # environment:
     #    LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
     #    BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false

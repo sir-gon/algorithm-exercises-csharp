@@ -1,35 +1,39 @@
+# yamllint disable rule:line-length
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+# yamllint enable rule:line-length
+
+---
 
 name: .NET Coverage
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
-    branches: [ main, develop, feature/* ]
+    branches: ["main", "develop", "feature/*"]
   pull_request:
-    branches: [ main ]
+    branches: ["main"]
 
 jobs:
   build:
     name: "Run CI"
     strategy:
-        fail-fast: false
-        matrix:
-          os: ["windows-latest"]
+      fail-fast: false
+      matrix:
+        os: ["windows-latest"]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore --verbosity normal
-    - name: Build
-      run: dotnet build --no-restore --verbosity normal
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4.4.1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: dotnet restore --verbosity normal
+      - name: Build
+        run: dotnet build --no-restore --verbosity normal
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.4.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

@@ -1,3 +1,6 @@
+---
+# yamllint disable rule:line-length
+
 # Example markdownlint configuration with all properties set to their default value
 
 # Default state for all rules
@@ -203,9 +206,7 @@ MD042: true
 # MD043/required-headings/required-headers - Required heading structure
 MD043:
   # List of headings
-  headings: [
-    "*"
-  ]
+  headings: ["*"]
   # Match case of headings
   match_case: false
 
@@ -255,3 +256,4 @@ MD053:
   # Ignored definitions
   ignored_definitions:
     - "//"
+# yamllint enable rule:line-length

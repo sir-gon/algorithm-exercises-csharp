@@ -69,10 +69,12 @@ dependencies:
 	${PACKAGE_TOOL} restore --verbosity ${VERBOSITY_LEVEL}
 	@echo "################################################################################"
 
-mdlint:
-	markdownlint '**/*.md' --ignore '**/bin/*' && echo '✔  Your code looks good.'
+lint/markdown:
+	markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
+lint/yaml:
+	yamllint --stric . && echo '✔  Your code looks good.'
 
-lint: test/static test/styling mdlint
+lint: lint/markdown lint/yaml test/styling test/static
 
 test/static: dependencies
 
@@ -115,20 +117,26 @@ clean:
 	find ${TEST_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -fr {} ';' || true
 
 compose/build: env
+	docker-compose --profile lint build
 	docker-compose --profile testing build
 
 compose/rebuild: env
 	docker-compose --profile lint build --no-cache
 	docker-compose --profile testing build --no-cache
 
-compose/mdlint: env
-	docker-compose --profile lint build
-	docker-compose --profile lint run --rm algorithm-exercises-csharp-mdlint make mdlint
+compose/lint/markdown: compose/build
+	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make lint/markdown
+
+compose/lint/yaml: compose/build
+	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make lint/yaml
+
+compose/test/styling: compose/build
+	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make test/styling
 
 compose/test/static: compose/build
 	docker-compose --profile testing run --rm algorithm-exercises-csharp make test/static
 
-compose/lint: compose/test/static compose/mdlint
+compose/lint: compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
 
 compose/run: compose/build
 	docker-compose --profile testing run --rm algorithm-exercises-csharp make test

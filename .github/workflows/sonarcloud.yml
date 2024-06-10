@@ -1,6 +1,8 @@
+---
+
 name: SonarCloud
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
@@ -16,10 +18,12 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 21
-          distribution: 'temurin' # Alternative distribution options are available.
+          # Alternative distribution options are available.
+          distribution: 'temurin'
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
       - name: Cache SonarCloud packages
         uses: actions/cache@v4
         with:
@@ -41,13 +45,19 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"sir-gon_algorithm-exercises-csharp" /o:"sir-gon" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
+          .\.sonar\scanner\dotnet-sonarscanner begin `
+          /k:"sir-gon_algorithm-exercises-csharp" `
+          /o:"sir-gon" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" `
+          /d:sonar.host.url="https://sonarcloud.io" `
+          /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
 
           dotnet restore
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\dotnet-sonarscanner end `
+          /d:sonar.token="${{ secrets.SONAR_TOKEN }}"

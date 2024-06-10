@@ -5,13 +5,15 @@ ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 ###############################################################################
-FROM node:20.14.0-alpine3.20 AS mdlint
+FROM base AS lint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 COPY ./docs ${WORKDIR}/docs
-RUN apk add --update --no-cache make
+RUN apk add --update --no-cache make nodejs npm
+RUN apk add --update --no-cache yamllint
+
 RUN npm install -g --ignore-scripts markdownlint-cli
 
 ###############################################################################

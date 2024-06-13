@@ -1,7 +1,7 @@
 ---
 services:
-  algorithm-exercises-csharp:
-    image: algorithm-exercises-csharp:latest
+  algorithm-exercises-csharp-test:
+    image: algorithm-exercises-csharp:test
     build:
       context: .
       target: testing
@@ -18,8 +18,8 @@ services:
       context: .
       target: lint
     # environment:
-    #    LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
-    #    BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    #   LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
+    #   BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
     volumes:
       - ./:/app
     profiles: ["lint"]
@@ -35,6 +35,19 @@ services:
     volumes:
       - ./:/app
     profiles: ["development"]
+
+  algorithm-exercises-csharp:
+    image: algorithm-exercises-csharp:latest
+    build:
+      context: .
+      target: production
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    # volumes:
+    #   - ./:/app
+    profiles: ["production"]
+
 ## REFERENCES:
 ## (1) Passing Environment variable with fallback value:
 ##    https://stackoverflow.com/a/70772707/6366150

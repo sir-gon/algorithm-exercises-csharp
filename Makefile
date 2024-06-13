@@ -87,6 +87,9 @@ format:
 build: env dependencies
 	${PACKAGE_TOOL} build --verbosity ${VERBOSITY_LEVEL}
 
+release: dependencies
+	${PACKAGE_TOOL} publish --verbosity ${VERBOSITY_LEVEL}
+
 test: build
 	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL} --collect:"Code Coverage"
 
@@ -119,10 +122,12 @@ clean:
 compose/build: env
 	docker-compose --profile lint build
 	docker-compose --profile testing build
+	docker-compose --profile production build
 
 compose/rebuild: env
 	docker-compose --profile lint build --no-cache
 	docker-compose --profile testing build --no-cache
+	docker-compose --profile production build --no-cache
 
 compose/lint/markdown: compose/build
 	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make lint/markdown
@@ -134,11 +139,17 @@ compose/test/styling: compose/build
 	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make test/styling
 
 compose/test/static: compose/build
-	docker-compose --profile testing run --rm algorithm-exercises-csharp make test/static
+	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make test/static
 
 compose/lint: compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
 
+compose/test: compose/build
+	docker-compose --profile testing run --rm algorithm-exercises-csharp-test make test
+
 compose/run: compose/build
-	docker-compose --profile testing run --rm algorithm-exercises-csharp make test
+	docker-compose --profile production run --rm algorithm-exercises-csharp make run
 
 all: lint coverage
+
+run:
+	ls -alh

@@ -4,30 +4,67 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0.302-alpine3.19-amd64 AS base
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
+RUN apk add --update --no-cache make
+
 ###############################################################################
 FROM base AS lint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-COPY ./docs ${WORKDIR}/docs
 RUN apk add --update --no-cache make nodejs npm
 RUN apk add --update --no-cache yamllint
 
 RUN npm install -g --ignore-scripts markdownlint-cli
 
+# [!TIP] Use a bind-mount to "/app" to override following "copys"
+# for lint and test against "current" sources in this stage
+
+# YAML sources
+COPY ./.github ${WORKDIR}/
+COPY ./compose.yaml ${WORKDIR}/
+
+# Markdown sources
+COPY ./docs ${WORKDIR}/
+COPY ./README.md ${WORKDIR}/
+COPY ./LICENSE.md ${WORKDIR}/
+COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
+
+# Code source
+COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
+COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
+COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
+COPY ./Makefile ${WORKDIR}/
+
+# code linting conf
+COPY ./.editorconfig ${WORKDIR}/
+
+# markdownlint conf
+COPY ./.markdownlint.yaml ${WORKDIR}/
+
+# yamllint conf
+COPY ./.yamllint ${WORKDIR}/
+COPY ./.yamlignore ${WORKDIR}/
+
 ###############################################################################
 FROM base AS development
 
-RUN apk add --update --no-cache make
+COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
+COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
+COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
+COPY ./Makefile ${WORKDIR}/
 
+RUN make build
+RUN ls -alh
+
+# CMD []
 ###############################################################################
 FROM development AS builder
 
-COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
-COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
-COPY ./Makefile ${WORKDIR}/
+RUN dotnet publish --self-contained --runtime linux-musl-x64
 RUN ls -alh
+
+CMD ["ls", "-alh"]
 
 ###############################################################################
 ### In testing stage, can't use USER, due permissions issue
@@ -35,37 +72,39 @@ RUN ls -alh
 ##
 ## https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions
 ##
-FROM builder AS testing
+FROM development AS testing
 
 ENV LOG_LEVEL=INFO
 ENV BRUTEFORCE=false
 
 WORKDIR /app
 
-COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
 RUN ls -alh
 
-CMD ["dotnet", "test"]
+CMD ["make", "test"]
 
 ###############################################################################
 ### In production stage
 ## in the production phase, "good practices" such as
-## WORKSPACE and USER are maintained
+## WORKDIR and USER are maintained
 ##
-FROM builder AS production
+FROM mcr.microsoft.com/dotnet/runtime:8.0.3-alpine3.19-amd64 AS production
 
-ENV LOG_LEVEL=INFO
+ENV LOG_LEVEL=info
 ENV BRUTEFORCE=false
+ENV WORKDIR=/app
+WORKDIR ${WORKDIR}
 
 RUN adduser -D worker
 RUN mkdir -p /app
 RUN chown worker:worker /app
 
-WORKDIR /app
+RUN apk add --update --no-cache make
+COPY ./Makefile ${WORKDIR}/
+COPY --from=builder /app/algorithm-exercises-csharp/bin/Release/net8.0/algorithm-exercises-csharp.dll ${WORKDIR}/
+COPY --from=builder /app/algorithm-exercises-csharp/bin/Release/net8.0/algorithm-exercises-csharp.runtimeconfig.json ${WORKDIR}/
 
-COPY ./.pylintrc ${WORKDIR}/
-COPY ./.coveragerc ${WORKDIR}/
 RUN ls -alh
 
 USER worker
-CMD ["make", "test", "-e", "{DEBUG}"]
+CMD ["make", "run"]

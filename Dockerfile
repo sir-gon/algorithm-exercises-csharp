@@ -46,6 +46,8 @@ COPY ./.markdownlint.yaml ${WORKDIR}/
 COPY ./.yamllint ${WORKDIR}/
 COPY ./.yamlignore ${WORKDIR}/
 
+CMD ["make", "lint"]
+
 ###############################################################################
 FROM base AS development
 

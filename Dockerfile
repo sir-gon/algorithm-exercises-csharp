@@ -88,7 +88,7 @@ CMD ["make", "test"]
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM mcr.microsoft.com/dotnet/runtime:8.0.3-alpine3.19-amd64 AS production
+FROM mcr.microsoft.com/dotnet/runtime:8.0.6-alpine3.19-amd64 AS production
 
 ENV LOG_LEVEL=info
 ENV BRUTEFORCE=false

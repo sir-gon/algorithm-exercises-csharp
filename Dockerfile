@@ -110,3 +110,5 @@ RUN ls -alh
 
 USER worker
 CMD ["make", "run"]
+
+# checkov:skip= CKV_DOCKER_2: production image isn't a service process (yet)

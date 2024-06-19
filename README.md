@@ -98,8 +98,9 @@ dotnet test --verbosity normal
 #### Test run with alternative behaviors
 
 > [!IMPORTANT]
-> BRUTEFORCE and LOG_LEVEL Not yet implemented
-> Currently, tests only have one behavior
+> BRUTEFORCE and LOG_LEVEL environment variables not yet implemented.
+>
+> Currently tests only have one behavior.
 
 ~~You can change test running behaviour using some environment variables as follows:~~
 
@@ -115,8 +116,9 @@ dotnet test --verbosity normal
 #### Examples running tests with alternative behaviors
 
 > [!IMPORTANT]
-> BRUTEFORCE and LOG_LEVEL Not yet implemented
-> Currently, tests only have one behavior
+> BRUTEFORCE and LOG_LEVEL environment variables not yet implemented.
+>
+> Currently tests only have one behavior.
 
 ### Install and Run using make
 

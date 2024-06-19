@@ -32,6 +32,7 @@ COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
 
 # Code source
 COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
+COPY ./algorithm-exercises-csharp-base ${WORKDIR}/algorithm-exercises-csharp-base
 COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
 COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
 COPY ./Makefile ${WORKDIR}/
@@ -52,6 +53,7 @@ CMD ["make", "lint"]
 FROM base AS development
 
 COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
+COPY ./algorithm-exercises-csharp-base ${WORKDIR}/algorithm-exercises-csharp-base
 COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
 COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
 COPY ./Makefile ${WORKDIR}/

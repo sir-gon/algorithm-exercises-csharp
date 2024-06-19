@@ -91,7 +91,9 @@ release: dependencies
 	${PACKAGE_TOOL} publish --verbosity ${VERBOSITY_LEVEL}
 
 test: build
-	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL} --collect:"Code Coverage"
+	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL} \
+		--collect:"Code Coverage" \
+		--logger "console;verbosity=detailed"
 
 coverage: dependencies test
 	cat coverage-report/Summary.txt

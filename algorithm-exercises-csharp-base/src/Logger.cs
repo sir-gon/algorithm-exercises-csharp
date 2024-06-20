@@ -5,7 +5,7 @@ using System;
 
 public sealed class LoggerSingleton
 {
-  private static readonly Lazy<LoggerSingleton> _instance = new Lazy<LoggerSingleton>(() => new LoggerSingleton());
+  private static readonly Lazy<LoggerSingleton> _instance = new(() => new LoggerSingleton());
 
   public static LoggerSingleton Instance => _instance.Value;
 
@@ -26,7 +26,7 @@ public sealed class LoggerSingleton
     {
       builder
               .AddConsole()
-              .SetMinimumLevel(logLevel); // Configura el nivel mínimo de logging
+              .SetMinimumLevel(logLevel); // set minimum logging level
     });
 
     Logger = loggerFactory.CreateLogger("GlobalLogger");
@@ -47,23 +47,31 @@ public static class Log
     return LoggerSingleton.Instance.Logger;
   }
 
-  public static void info(string message)
+  public static void info(string message, params object?[] args)
   {
-    LoggerSingleton.Instance.Logger.LogInformation(message);
+#pragma warning disable CA2254 // Template should be a static expression
+    LoggerSingleton.Instance.Logger.LogInformation(message, args);
+#pragma warning restore CA2254 // Template should be a static expression
   }
 
-  public static void warning(string message)
+  public static void warning(string message, params object?[] args)
   {
+#pragma warning disable CA2254 // Template should be a static expression
     LoggerSingleton.Instance.Logger.LogWarning(message);
+#pragma warning restore CA2254 // Template should be a static expression
   }
 
-  public static void error(string message)
+  public static void error(string message, params object?[] args)
   {
+#pragma warning disable CA2254 // Template should be a static expression
     LoggerSingleton.Instance.Logger.LogError(message);
+#pragma warning restore CA2254 // Template should be a static expression
   }
 
-  public static void debug(string message)
+  public static void debu(string message, params object?[] args)
   {
+#pragma warning disable CA2254 // Template should be a static expression
     LoggerSingleton.Instance.Logger.LogDebug(message);
+#pragma warning restore CA2254 // Template should be a static expression
   }
 }

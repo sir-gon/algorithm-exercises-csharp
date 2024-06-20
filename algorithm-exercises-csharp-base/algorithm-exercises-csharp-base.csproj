@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
+    <SonarQubeExclude>true</SonarQubeExclude>
+
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
 
     <!-- Static Analysis -->

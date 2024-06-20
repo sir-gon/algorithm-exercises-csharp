@@ -38,4 +38,7 @@ jobs:
       - name: Lint (codestyle)
         run: dotnet format --verify-no-changes --verbosity normal
       - name: Test
-        run: dotnet test --no-build --verbosity normal
+        run: >
+          dotnet test --no-build
+          --verbosity normal
+          --logger "console;verbosity=detailed"

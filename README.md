@@ -82,7 +82,7 @@ require docker-compose and make installed.
 Using a dotnet 8.0 stack in your SO. You must install dependencies:
 
 ```bash
-dotnet restore --verbosity=normal
+dotnet restore --verbosity normal
 ```
 
 Every problem is a function with unit test.
@@ -91,34 +91,46 @@ Unit test has test cases and input data to solve the problem.
 
 Run all tests (skips static analysis, and "clean" test cache before running):
 
+By default, there are no log outputs from the application or tests to the console.
+"--verbosity \<LEVEL\>" only control verbosity of dotnet proccess
+(building, test running, ...)
+
 ```bash
-dotnet test --verbosity normal
+dotnet clean && dotnet test --verbosity normal
+```
+
+To enable console detailed output use:
+
+```bash
+dotnet test --logger "console;verbosity=detailed"
 ```
 
 #### Test run with alternative behaviors
 
-> [!IMPORTANT]
-> BRUTEFORCE and LOG_LEVEL environment variables not yet implemented.
->
-> Currently tests only have one behavior.
-
-~~You can change test running behaviour using some environment variables as follows:~~
+You can change test running behaviour using some environment variables as follows:
 
 | Variable | Values | Default |
 | ------ | ------ | ------ |
 | LOG_LEVEL  | `debug`, `warning`, `error`, `info` | `info` |
 | BRUTEFORCE | `true`, `false`| `false` |
 
-- ~~`LOG_LEVEL`: change verbosity level in outputs.~~
-- ~~`BRUTEFORCE`: enable or disable running large tests.
-(long time, large amount of data, high memory consumition).~~
+- `LOG_LEVEL`: change verbosity level in outputs.
+- `BRUTEFORCE`: enable or disable running large tests.
+(long time, large amount of data, high memory consumition).
 
 #### Examples running tests with alternative behaviors
 
-> [!IMPORTANT]
-> BRUTEFORCE and LOG_LEVEL environment variables not yet implemented.
->
-> Currently tests only have one behavior.
+Run tests with debug outputs:
+
+```bash
+LOG_LEVEL=debug dotnet test --logger "console;verbosity=detailed"
+```
+
+Run brute-force tests with debug outputs:
+
+```bash
+BRUTEFORCE=true LOG_LEVEL=debug dotnet test --logger "console;verbosity=detailed"
+```
 
 ### Install and Run using make
 
@@ -129,6 +141,24 @@ Run tests (libraries are installed as dependency task in make):
 
 ```bash
 make test
+```
+
+Run tests with debug outputs:
+
+```bash
+make test -e LOG_LEVEL=debug
+```
+
+Run brute-force tests with debug outputs:
+
+```bash
+make test -e BRUTEFORCE=true -e LOG_LEVEL=debug
+```
+
+Alternative way, use environment variables as prefix:
+
+```bash
+BRUTEFORCE=true LOG_LEVEL=debug make test
 ```
 
 ### Install and Running with Docker 🐳
@@ -143,11 +173,39 @@ environment using docker-compose.
 docker-compose --profile testing run --rm algorithm-exercises-csharp-test
 ```
 
+To change behavior using environment variables, you can pass to containers
+in the following ways:
+
+From host using docker-compose (compose.yaml) mechanism:
+
+```bash
+BRUTEFORCE=true docker-compose --profile testing run --rm algorithm-exercises-csharp-test
+```
+
+Overriding docker CMD, as parameter of make "-e":
+
+```bash
+docker-compose --profile testing run --rm algorithm-exercises-csharp-test make test -e BRUTEFORCE=true
+```
+
+```bash
+docker-compose --profile testing run --rm algorithm-exercises-csharp-test make test -e LOG_LEVEL=DEBUG -e BRUTEFORCE=true
+```
+
 ### Install and Running with Docker 🐳 using make
 
 ```bash
 make compose/build
 make compose/test
+```
+
+To pass environment variables you can use docker-compose
+or overriding CMD and passing to make as "-e" argument.
+
+Passing environment variables using docker-compose (compose.yaml mechanism):
+
+```bash
+BRUTEFORCE=true LOG_LEVEL=debug make compose/test
 ```
 
 ## Development workflow using Docker / docker-compose
@@ -164,6 +222,16 @@ docker-compose build --compress algorithm-exercises-csharp-dev
 
 # Run ephemeral container and override command to run test
 docker-compose run --rm algorithm-exercises-csharp-dev dotnet test --verbosity normal
+```
+
+Or with detailed output to terminal:
+
+```bash
+# Build development target image
+docker-compose build --compress algorithm-exercises-csharp-dev
+
+# Run ephemeral container and override command to run test
+docker-compose run --rm algorithm-exercises-csharp-dev dotnet test --logger "console;verbosity=detailed"
 ```
 
 ## Run complete workflow (Docker + make)

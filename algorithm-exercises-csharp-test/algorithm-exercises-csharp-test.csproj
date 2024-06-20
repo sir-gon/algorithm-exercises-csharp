@@ -35,6 +35,11 @@
     <PackageReference Include="ReportGenerator" Version="5.3.6" />
   </ItemGroup>
 
+  <!-- Exclude test project from coverage -->
+  <ItemGroup>
+      <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+  </ItemGroup>
+
   <ItemGroup>
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>

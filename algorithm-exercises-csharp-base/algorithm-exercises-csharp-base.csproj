@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
+    <SonarQubeExclude>true</SonarQubeExclude>
+
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
 
     <!-- Static Analysis -->
@@ -15,7 +17,15 @@
 
   </PropertyGroup>
 
+  <!-- Exclude test project from coverage -->
   <ItemGroup>
-    <ProjectReference Include="../algorithm-exercises-csharp-base/algorithm-exercises-csharp-base.csproj" />
+      <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+  </ItemGroup>
+
+
 </Project>

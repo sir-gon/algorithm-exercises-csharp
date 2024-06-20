@@ -3,6 +3,12 @@ namespace algorithm_exercises_csharp;
 [TestClass]
 public class HelloWorldTest
 {
+  [TestInitialize]
+  public void testInitialize()
+  {
+    Log.info("Hello World");
+  }
+
   [TestMethod]
   public void testInstance()
   {
@@ -34,7 +40,6 @@ public class HelloWorldTest
     string result = HelloWorld.hello();
 
     Assert.AreEqual(expected, result);
-
   }
 }
 

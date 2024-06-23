@@ -5,6 +5,15 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 
+public class InvalidValueException : ApplicationException
+{
+  // constructor for the InvalidAgeException class
+  public InvalidValueException(string msg)
+  {
+    Console.WriteLine(msg);
+  }
+}
+
 public class RansomNote
 {
   [ExcludeFromCodeCoverage]
@@ -28,11 +37,15 @@ public class RansomNote
 
     foreach (string word in note)
     {
-      if (dictionary.TryGetValue(word, out int value) && value > 0)
+      try
       {
         dictionary[word] -= 1;
+        if (dictionary[word] < 0)
+        {
+          throw new InvalidValueException("Value can't go below 0");
+        }
       }
-      else
+      catch
       {
         return false;
       }

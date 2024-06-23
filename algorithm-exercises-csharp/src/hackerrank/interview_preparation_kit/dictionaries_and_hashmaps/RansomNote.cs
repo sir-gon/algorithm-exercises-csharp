@@ -15,23 +15,20 @@ public class RansomNote
 
   public static bool checkMagazineCompute(List<string> magazine, List<string> note)
   {
-    Dictionary<string, int?> dictionary = [];
+    Dictionary<string, int> dictionary = [];
 
     foreach (string word in magazine)
     {
-      if (dictionary.TryGetValue(word, out int? value))
+      if (!dictionary.TryAdd(word, 1))
       {
-        dictionary[word] += 1;
-      }
-      else
-      {
-        dictionary[word] = 1;
+        int currentValue = dictionary[word];
+        dictionary[word] = currentValue + 1;
       }
     }
 
     foreach (string word in note)
     {
-      if (dictionary.TryGetValue(word, out int? value) && value > 0)
+      if (dictionary.TryGetValue(word, out int value) && value > 0)
       {
         dictionary[word] -= 1;
       }

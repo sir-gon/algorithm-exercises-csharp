@@ -143,3 +143,7 @@ coverage.info
 coverage.json
 lcov.info
 coverage-report/*
+
+# Static Analysis Results Interchange Format
+*.sarif
+.dccache

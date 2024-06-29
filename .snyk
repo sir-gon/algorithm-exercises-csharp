@@ -1,6 +1,9 @@
-# Snyk (<https://snyk.io>) policy file
+# Snyk (<https://snyk.io>) policy file, patches or ignores known vulnerabilities
 
----
 exclude:
-    global:
-        - coverage-report/**
+  global:
+    - coverage-report/**
+    - .trunk/**
+version: v1.25.0
+ignore: {}
+patch: {}

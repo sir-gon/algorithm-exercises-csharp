@@ -9,10 +9,10 @@ public class FindMergeNode
   [ExcludeFromCodeCoverage]
   protected FindMergeNode() { }
 
-  public static int? findMergeNode(LinkedList.Node head1, LinkedList.Node head2)
+  public static int? findMergeNode(LinkedList<int>.Node head1, LinkedList<int>.Node head2)
   {
-    List<LinkedList.Node> llindex = [];
-    LinkedList.Node? node = head1;
+    List<LinkedList<int>.Node> llindex = [];
+    LinkedList<int>.Node? node = head1;
     int? result = null;
 
     while (node != null)

@@ -6,8 +6,8 @@ public class FindMergeNodeTest
   class FindMergeNodeTestCase()
   {
     public string title = "";
-    public LinkedList.Node llist1 = new(0);
-    public LinkedList.Node llist2 = new(0);
+    public LinkedList<int>.Node llist1 = new(0);
+    public LinkedList<int>.Node llist2 = new(0);
     public int expected;
   }
 
@@ -24,13 +24,13 @@ public class FindMergeNodeTest
     //   /
     //  1
     //
-    LinkedList.Node tc0_ll1_1 = new(1);
-    LinkedList.Node tc0_ll1_2 = new(2);
-    LinkedList.Node tc0_ll1_3 = new(3);
+    LinkedList<int>.Node tc0_ll1_1 = new(1);
+    LinkedList<int>.Node tc0_ll1_2 = new(2);
+    LinkedList<int>.Node tc0_ll1_3 = new(3);
     tc0_ll1_1.next = tc0_ll1_2;
     tc0_ll1_2.next = tc0_ll1_3;
 
-    LinkedList.Node tc0_ll2_1 = new(1);
+    LinkedList<int>.Node tc0_ll2_1 = new(1);
     tc0_ll2_1.next = tc0_ll1_2;
 
     // Test Case 1
@@ -41,13 +41,13 @@ public class FindMergeNodeTest
     //       /
     //      1
     //
-    LinkedList.Node tc1_ll1_1 = new(1);
-    LinkedList.Node tc1_ll1_2 = new(2);
-    LinkedList.Node tc1_ll1_3 = new(3);
+    LinkedList<int>.Node tc1_ll1_1 = new(1);
+    LinkedList<int>.Node tc1_ll1_2 = new(2);
+    LinkedList<int>.Node tc1_ll1_3 = new(3);
     tc1_ll1_1.next = tc1_ll1_2;
     tc1_ll1_2.next = tc1_ll1_3;
 
-    LinkedList.Node tc1_ll2_1 = new(1);
+    LinkedList<int>.Node tc1_ll2_1 = new(1);
     tc1_ll2_1.next = tc1_ll1_3;
 
     tests = [

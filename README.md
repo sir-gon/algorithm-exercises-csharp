@@ -7,6 +7,7 @@
 ![GitHub](https://img.shields.io/github/license/sir-gon/algorithm-exercises-csharp)
 ![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-csharp)
 ![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/algorithm-exercises-csharp)
+[![CodeFactor](https://www.codefactor.io/repository/github/sir-gon/algorithm-exercises-csharp/badge)](https://www.codefactor.io/repository/github/sir-gon/algorithm-exercises-csharp)
 [![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-csharp/graph/badge.svg?token=C8JJA96CQR)](https://codecov.io/gh/sir-gon/algorithm-exercises-csharp)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-csharp&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-csharp)

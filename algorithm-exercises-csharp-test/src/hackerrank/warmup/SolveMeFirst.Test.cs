@@ -12,7 +12,6 @@ public class SolveMeFirstTest
     int result = SolveMeFirst.solveMeFirst(a, b);
 
     Assert.AreEqual(expectedAnswer, result);
-
   }
 }
 

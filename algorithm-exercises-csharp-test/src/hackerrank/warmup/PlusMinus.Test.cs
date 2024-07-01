@@ -11,7 +11,6 @@ public class PlusMinusTest
     string result = PlusMinus.plusMinus(a);
 
     Assert.AreEqual(expectedAnswer, result);
-
   }
 }
 

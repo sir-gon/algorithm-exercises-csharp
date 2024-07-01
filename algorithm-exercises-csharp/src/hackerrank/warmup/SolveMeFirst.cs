@@ -13,5 +13,4 @@ public class SolveMeFirst
   {
     return _a + _b;
   }
-
 }

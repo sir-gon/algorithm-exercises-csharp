@@ -37,7 +37,6 @@ public class ArraysLeftRotationTest
     }
   }
 
-
   [TestMethod]
   public void testRotLeft()
   {

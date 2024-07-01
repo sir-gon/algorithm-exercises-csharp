@@ -31,5 +31,4 @@ public class MiniMaxSum
 
     return string.Format("{0} {1}", tsum - tmax, tsum - tmin);
   }
-
 }

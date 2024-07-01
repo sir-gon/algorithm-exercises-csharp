@@ -34,5 +34,4 @@ public class Staircase
     }
     return String.Join("\n", result);
   }
-
 }

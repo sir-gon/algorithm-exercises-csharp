@@ -32,7 +32,6 @@ public class PlusMinus
       }
     }
 
-
     List<string> result = [];
     var nfi = new NumberFormatInfo() { NumberDecimalSeparator = "." };
 

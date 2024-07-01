@@ -23,7 +23,6 @@ public class ArraysLeftRotation
     return input;
   }
 
-
   /**
    * This implementation does not mutate the input list.
    */

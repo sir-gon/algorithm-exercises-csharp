@@ -6,7 +6,7 @@ public class NodeTest
   class NodeTestCase
   {
     public string title = "";
-    public LinkedList.Node? llist;
+    public LinkedList<int>.Node? llist;
     public string separator = "";
     public string expected = "";
   }
@@ -17,11 +17,11 @@ public class NodeTest
   public void testInitialize()
   {
     // Linked list sample data:
-    LinkedList.Node ll1_1 = new(1);
-    LinkedList.Node ll1_2 = new(2);
-    LinkedList.Node ll1_3 = new(3);
-    LinkedList.Node ll1_4 = new(4);
-    LinkedList.Node ll1_5 = new(5);
+    LinkedList<int>.Node ll1_1 = new(1);
+    LinkedList<int>.Node ll1_2 = new(2);
+    LinkedList<int>.Node ll1_3 = new(3);
+    LinkedList<int>.Node ll1_4 = new(4);
+    LinkedList<int>.Node ll1_5 = new(5);
 
     ll1_1.next = ll1_2;
     ll1_2.next = ll1_3;
@@ -46,14 +46,14 @@ public class NodeTest
     {
       StringWriter sw = new();
 
-      LinkedList.printSinglyLinkedList(test.llist, test.separator, sw);
+      LinkedList<int>.printSinglyLinkedList(test.llist, test.separator, sw);
 
       string result = sw.ToString();
       Assert.AreEqual(
         test.expected,
         result,
         String.Format(
-          "{0} testPrintLinkedList(<Node>, {1}, <Textwriter>) => must be: {2}",
+          "{0} testPrintLinkedList<int>(<Node>, {1}, <Textwriter>) => must be: {2}",
           test.title,
           test.separator,
           test.expected

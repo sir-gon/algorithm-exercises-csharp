@@ -1,10 +1,10 @@
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 
-public class LinkedList
+public class LinkedList<T>
 {
-  public class Node(int nodeData)
+  public class Node(T nodeData)
   {
-    public int data { get; set; } = nodeData;
+    public T data { get; set; } = nodeData;
     public Node? next { get; set; } = null;
   }
 

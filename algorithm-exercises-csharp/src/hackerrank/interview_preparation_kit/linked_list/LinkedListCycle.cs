@@ -9,11 +9,11 @@ public class LinkedListCycle
   [ExcludeFromCodeCoverage]
   protected LinkedListCycle() { }
 
-  public static bool hasCycle(LinkedList.Node? head)
+  public static bool hasCycle(LinkedList<int>.Node? head)
   {
-    List<LinkedList.Node> llindex = [];
+    List<LinkedList<int>.Node> llindex = [];
 
-    LinkedList.Node? node = head;
+    LinkedList<int>.Node? node = head;
 
     while (node != null)
     {

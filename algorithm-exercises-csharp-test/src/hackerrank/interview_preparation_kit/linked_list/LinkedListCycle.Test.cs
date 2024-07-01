@@ -6,7 +6,7 @@ public class LinkedListCycleTest
   class LinkedListCycleTestCase
   {
     public string title = "";
-    public LinkedList.Node? llist;
+    public LinkedList<int>.Node? llist;
     public bool expected;
   }
 
@@ -16,11 +16,11 @@ public class LinkedListCycleTest
   public void testInitialize()
   {
     // Linked list sample data:
-    LinkedList.Node ll1_1 = new(1);
-    LinkedList.Node ll1_2 = new(2);
-    LinkedList.Node ll1_3 = new(3);
-    LinkedList.Node ll1_4 = new(4);
-    LinkedList.Node ll1_5 = new(5);
+    LinkedList<int>.Node ll1_1 = new(1);
+    LinkedList<int>.Node ll1_2 = new(2);
+    LinkedList<int>.Node ll1_3 = new(3);
+    LinkedList<int>.Node ll1_4 = new(4);
+    LinkedList<int>.Node ll1_5 = new(5);
 
     ll1_1.next = ll1_2;
     ll1_2.next = ll1_3;
@@ -28,9 +28,9 @@ public class LinkedListCycleTest
     ll1_4.next = ll1_5;
     ll1_4.next = ll1_3; // <- cycle
 
-    LinkedList.Node ll2_1 = new(1);
-    LinkedList.Node ll2_2 = new(2);
-    LinkedList.Node ll2_3 = new(3);
+    LinkedList<int>.Node ll2_1 = new(1);
+    LinkedList<int>.Node ll2_2 = new(2);
+    LinkedList<int>.Node ll2_3 = new(3);
 
     ll2_1.next = ll2_2;
     ll2_2.next = ll2_3;

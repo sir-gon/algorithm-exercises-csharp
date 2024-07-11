@@ -1,10 +1,24 @@
 ###############################################################################
-FROM mcr.microsoft.com/dotnet/sdk:8.0.302-1-alpine3.19-amd64 AS base
+FROM mcr.microsoft.com/dotnet/sdk:8.0.302-1-alpine3.19-amd64 AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 RUN apk add --update --no-cache make
+
+###############################################################################
+FROM init AS base
+
+ENV WORKDIR=/app
+WORKDIR ${WORKDIR}
+
+COPY ./Makefile ${WORKDIR}/
+COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
+COPY ./algorithm-exercises-csharp/algorithm-exercises-csharp.csproj ${WORKDIR}/algorithm-exercises-csharp/algorithm-exercises-csharp.csproj
+COPY ./algorithm-exercises-csharp-base/algorithm-exercises-csharp-base.csproj ${WORKDIR}/algorithm-exercises-csharp-base/algorithm-exercises-csharp-base.csproj
+COPY ./algorithm-exercises-csharp-test/algorithm-exercises-csharp-test.csproj ${WORKDIR}/algorithm-exercises-csharp-test/algorithm-exercises-csharp-test.csproj
+
+RUN make dependencies
 
 ###############################################################################
 FROM base AS lint
@@ -35,7 +49,6 @@ COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
 COPY ./algorithm-exercises-csharp-base ${WORKDIR}/algorithm-exercises-csharp-base
 COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
 COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
-COPY ./Makefile ${WORKDIR}/
 
 # code linting conf
 COPY ./.editorconfig ${WORKDIR}/
@@ -56,7 +69,6 @@ COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
 COPY ./algorithm-exercises-csharp-base ${WORKDIR}/algorithm-exercises-csharp-base
 COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
 COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
-COPY ./Makefile ${WORKDIR}/
 
 RUN make build
 RUN ls -alh

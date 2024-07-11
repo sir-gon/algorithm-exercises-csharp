@@ -33,6 +33,7 @@ PACKAGE_TOOL=dotnet
 VERBOSITY_LEVEL=normal
 
 PROJECT_DIRECTORY=algorithm-exercises-csharp
+BASE_PROJECT_DIRECTORY=algorithm-exercises-csharp-base
 TEST_PROJECT_DIRECTORY=algorithm-exercises-csharp-test
 
 help: list
@@ -114,12 +115,16 @@ clean:
 	rm -vfr coverage-report/ || true
 	find ${PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
 	find ${PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
-	find ${PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -fr {} ';' || true
+	find ${PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
+
+	find ${BASE_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
+	find ${BASE_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
+	find ${BASE_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
 
 	find ${TEST_PROJECT_DIRECTORY} -path "*/coverage*" -print -exec rm -vfr {} ';' || true
 	find ${TEST_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
-	find ${TEST_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -fr {} ';' || true
-	find ${TEST_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -fr {} ';' || true
+	find ${TEST_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
+	find ${TEST_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
 
 compose/build: env
 	docker-compose --profile lint build

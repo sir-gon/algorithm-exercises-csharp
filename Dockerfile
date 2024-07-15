@@ -1,5 +1,5 @@
 ###############################################################################
-FROM mcr.microsoft.com/dotnet/sdk:8.0.302-1-alpine3.19-amd64 AS init
+FROM mcr.microsoft.com/dotnet/sdk:8.0.303-alpine3.19-amd64 AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}

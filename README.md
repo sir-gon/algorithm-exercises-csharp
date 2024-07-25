@@ -18,7 +18,14 @@
 
 ## TL;DR
 
-[Install and run](#install-and-run)
+Algorithms Exercises solved in [C# / .NET](https://dotnet.microsoft.com/languages/csharp),
+running with with MSTest test runner. Developed with TDD.
+
+[![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)](https://dotnet.microsoft.com/languages/csharp)
+[![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+
+Go to [Install and run](#install-and-run)
 
 ## What is this?
 

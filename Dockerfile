@@ -1,5 +1,5 @@
 ###############################################################################
-FROM mcr.microsoft.com/dotnet/sdk:8.0.303-alpine3.19-amd64 AS init
+FROM mcr.microsoft.com/dotnet/sdk:8.0.400-alpine3.19-amd64 AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
@@ -104,7 +104,7 @@ CMD ["make", "test"]
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM mcr.microsoft.com/dotnet/runtime:8.0.7-alpine3.19-amd64 AS production
+FROM mcr.microsoft.com/dotnet/runtime:8.0.8-alpine3.19-amd64 AS production
 
 ENV LOG_LEVEL=info
 ENV BRUTEFORCE=false

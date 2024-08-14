@@ -23,6 +23,7 @@ BRUTEFORCE :=$(shell echo '${BRUTEFORCE}'| tr '[:lower:]' '[:upper:]'| tr -d '[:
 
 # DOCKER
 BUILDKIT_PROGRESS=plain
+DOCKER_COMPOSE=docker compose
 
 .MAIN: test
 .PHONY: all clean dependencies help list test

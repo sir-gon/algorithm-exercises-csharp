@@ -13,8 +13,8 @@ ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 COPY ./Makefile ${WORKDIR}/
-COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
-COPY ./algorithm-exercises-csharp/algorithm-exercises-csharp.csproj ${WORKDIR}/algorithm-exercises-csharp/algorithm-exercises-csharp.csproj
+COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
+COPY ./algorithm_exercises_csharp/algorithm_exercises_csharp.csproj ${WORKDIR}/algorithm_exercises_csharp/algorithm_exercises_csharp.csproj
 COPY ./algorithm-exercises-csharp-base/algorithm-exercises-csharp-base.csproj ${WORKDIR}/algorithm-exercises-csharp-base/algorithm-exercises-csharp-base.csproj
 COPY ./algorithm-exercises-csharp-test/algorithm-exercises-csharp-test.csproj ${WORKDIR}/algorithm-exercises-csharp-test/algorithm-exercises-csharp-test.csproj
 
@@ -26,10 +26,9 @@ FROM base AS lint
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN apk add --update --no-cache make nodejs npm
-RUN apk add --update --no-cache yamllint
-
-RUN npm install -g --ignore-scripts markdownlint-cli
+RUN  apk add --update --no-cache make nodejs npm \
+  && apk add --update --no-cache yamllint \
+  && npm install -g --ignore-scripts markdownlint-cli
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage
@@ -45,10 +44,10 @@ COPY ./LICENSE.md ${WORKDIR}/
 COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
 
 # Code source
-COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
+COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
+COPY ./algorithm_exercises_csharp ${WORKDIR}/algorithm_exercises_csharp
 COPY ./algorithm-exercises-csharp-base ${WORKDIR}/algorithm-exercises-csharp-base
 COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
-COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
 
 # code linting conf
 COPY ./.editorconfig ${WORKDIR}/
@@ -65,20 +64,20 @@ CMD ["make", "lint"]
 ###############################################################################
 FROM base AS development
 
-COPY ./algorithm-exercises-csharp ${WORKDIR}/algorithm-exercises-csharp
+COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
+COPY ./algorithm_exercises_csharp ${WORKDIR}/algorithm_exercises_csharp
 COPY ./algorithm-exercises-csharp-base ${WORKDIR}/algorithm-exercises-csharp-base
 COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
-COPY ./algorithm-exercises-csharp.sln ${WORKDIR}/algorithm-exercises-csharp.sln
 
-RUN make build
-RUN ls -alh
+RUN  make build \
+  && ls -alh
 
 # CMD []
 ###############################################################################
 FROM development AS builder
 
-RUN dotnet publish --self-contained --runtime linux-musl-x64
-RUN ls -alh
+RUN  dotnet publish --self-contained --runtime linux-musl-x64 \
+  && ls -alh
 
 CMD ["ls", "-alh"]
 
@@ -106,19 +105,20 @@ CMD ["make", "test"]
 ##
 FROM mcr.microsoft.com/dotnet/runtime:8.0.8-alpine3.19-amd64 AS production
 
+RUN apk add --update --no-cache make
+
 ENV LOG_LEVEL=info
 ENV BRUTEFORCE=false
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN adduser -D worker
-RUN mkdir -p /app
-RUN chown worker:worker /app
+RUN  adduser -D worker \
+  && mkdir -p /app \
+  && chown worker:worker /app
 
-RUN apk add --update --no-cache make
 COPY ./Makefile ${WORKDIR}/
-COPY --from=builder /app/algorithm-exercises-csharp/bin/Release/net8.0/algorithm-exercises-csharp.dll ${WORKDIR}/
-COPY --from=builder /app/algorithm-exercises-csharp/bin/Release/net8.0/algorithm-exercises-csharp.runtimeconfig.json ${WORKDIR}/
+COPY --from=builder /app/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.dll ${WORKDIR}/
+COPY --from=builder /app/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.runtimeconfig.json ${WORKDIR}/
 
 RUN ls -alh
 

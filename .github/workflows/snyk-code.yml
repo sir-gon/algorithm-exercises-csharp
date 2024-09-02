@@ -27,12 +27,12 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: Restore dependencies
-        run: dotnet restore algorithm-exercises-csharp.sln
+        run: dotnet restore algorithm_exercises_csharp.sln
       - name: Run Snyk to check for vulnerabilities
         continue-on-error: true # To make sure that SARIF upload gets called
         run: >
           snyk test
-          algorithm-exercises-csharp/
+          algorithm_exercises_csharp/
           algorithm-exercises-csharp-base/
           algorithm-exercises-csharp-test/
           --sarif-file-output=snyk-code.sarif

@@ -34,7 +34,7 @@ jobs:
           snyk test
           algorithm_exercises_csharp/
           algorithm_exercises_csharp_base/
-          algorithm-exercises-csharp-test/
+          algorithm_exercises_csharp_test/
           --sarif-file-output=snyk-code.sarif
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

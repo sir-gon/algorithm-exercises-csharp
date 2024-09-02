@@ -35,7 +35,7 @@ VERBOSITY_LEVEL=normal
 
 MAIN_PROJECT_DIRECTORY=algorithm_exercises_csharp
 BASE_PROJECT_DIRECTORY=algorithm_exercises_csharp_base
-TEST_PROJECT_DIRECTORY=algorithm-exercises-csharp-test
+TEST_PROJECT_DIRECTORY=algorithm_exercises_csharp_test
 
 help: list
 	@echo ""

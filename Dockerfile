@@ -16,7 +16,7 @@ COPY ./Makefile ${WORKDIR}/
 COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
 COPY ./algorithm_exercises_csharp/algorithm_exercises_csharp.csproj ${WORKDIR}/algorithm_exercises_csharp/algorithm_exercises_csharp.csproj
 COPY ./algorithm_exercises_csharp_base/algorithm_exercises_csharp_base.csproj ${WORKDIR}/algorithm_exercises_csharp_base/algorithm_exercises_csharp_base.csproj
-COPY ./algorithm-exercises-csharp-test/algorithm-exercises-csharp-test.csproj ${WORKDIR}/algorithm-exercises-csharp-test/algorithm-exercises-csharp-test.csproj
+COPY ./algorithm_exercises_csharp_test/algorithm_exercises_csharp_test.csproj ${WORKDIR}/algorithm_exercises_csharp_test/algorithm_exercises_csharp_test.csproj
 
 RUN make dependencies
 
@@ -47,7 +47,7 @@ COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
 COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
 COPY ./algorithm_exercises_csharp ${WORKDIR}/algorithm_exercises_csharp
 COPY ./algorithm_exercises_csharp_base ${WORKDIR}/algorithm_exercises_csharp_base
-COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
+COPY ./algorithm_exercises_csharp_test ${WORKDIR}/algorithm_exercises_csharp_test
 
 # code linting conf
 COPY ./.editorconfig ${WORKDIR}/
@@ -67,7 +67,7 @@ FROM base AS development
 COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
 COPY ./algorithm_exercises_csharp ${WORKDIR}/algorithm_exercises_csharp
 COPY ./algorithm_exercises_csharp_base ${WORKDIR}/algorithm_exercises_csharp_base
-COPY ./algorithm-exercises-csharp-test ${WORKDIR}/algorithm-exercises-csharp-test
+COPY ./algorithm_exercises_csharp_test ${WORKDIR}/algorithm_exercises_csharp_test
 
 RUN  make build \
   && ls -alh

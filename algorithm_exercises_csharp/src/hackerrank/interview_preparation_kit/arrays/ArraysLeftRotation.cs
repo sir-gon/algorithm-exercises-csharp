@@ -1,4 +1,4 @@
-// @link Problem definition [[docs/hackerrank/projecteuler/euler001.md]]
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/ctci_array_left_rotation.md]]
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 

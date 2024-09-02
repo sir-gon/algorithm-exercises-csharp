@@ -32,6 +32,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.5.2" />
     <PackageReference Include="MSTest.TestFramework" Version="3.5.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReportGenerator" Version="5.3.8" />
   </ItemGroup>
 
@@ -45,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../algorithm-exercises-csharp/algorithm-exercises-csharp.csproj" />
+    <ProjectReference Include="../algorithm_exercises_csharp/algorithm_exercises_csharp.csproj" />
   </ItemGroup>
 
   <Target Name="GenerateHtmlCoverageReport" AfterTargets="GenerateCoverageResultAfterTest">

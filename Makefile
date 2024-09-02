@@ -33,9 +33,9 @@ RUNTIME_TOOL=dotnet
 PACKAGE_TOOL=dotnet
 VERBOSITY_LEVEL=normal
 
-PROJECT_DIRECTORY=algorithm-exercises-csharp
-BASE_PROJECT_DIRECTORY=algorithm-exercises-csharp-base
-TEST_PROJECT_DIRECTORY=algorithm-exercises-csharp-test
+MAIN_PROJECT_DIRECTORY=algorithm_exercises_csharp
+BASE_PROJECT_DIRECTORY=algorithm_exercises_csharp_base
+TEST_PROJECT_DIRECTORY=algorithm_exercises_csharp_test
 
 help: list
 	@echo ""
@@ -114,9 +114,9 @@ clean:
 
 	rm -vfr .mono/ || true
 	rm -vfr coverage-report/ || true
-	find ${PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
-	find ${PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
-	find ${PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
+	find ${MAIN_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
+	find ${MAIN_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
+	find ${MAIN_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
 
 	find ${BASE_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
 	find ${BASE_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
@@ -128,34 +128,34 @@ clean:
 	find ${TEST_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
 
 compose/build: env
-	docker-compose --profile lint build
-	docker-compose --profile testing build
-	docker-compose --profile production build
+	${DOCKER_COMPOSE} --profile lint build
+	${DOCKER_COMPOSE} --profile testing build
+	${DOCKER_COMPOSE} --profile production build
 
 compose/rebuild: env
-	docker-compose --profile lint build --no-cache
-	docker-compose --profile testing build --no-cache
-	docker-compose --profile production build --no-cache
+	${DOCKER_COMPOSE} --profile lint build --no-cache
+	${DOCKER_COMPOSE} --profile testing build --no-cache
+	${DOCKER_COMPOSE} --profile production build --no-cache
 
 compose/lint/markdown: compose/build
-	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make lint/markdown
+	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-csharp-lint make lint/markdown
 
 compose/lint/yaml: compose/build
-	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make lint/yaml
+	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-csharp-lint make lint/yaml
 
 compose/test/styling: compose/build
-	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make test/styling
+	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-csharp-lint make test/styling
 
 compose/test/static: compose/build
-	docker-compose --profile lint run --rm algorithm-exercises-csharp-lint make test/static
+	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-csharp-lint make test/static
 
 compose/lint: compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
 
 compose/test: compose/build
-	docker-compose --profile testing run --rm algorithm-exercises-csharp-test make test
+	${DOCKER_COMPOSE} --profile testing run --rm algorithm-exercises-csharp-test make test
 
 compose/run: compose/build
-	docker-compose --profile production run --rm algorithm-exercises-csharp make run
+	${DOCKER_COMPOSE} --profile production run --rm algorithm-exercises-csharp make run
 
 all: lint coverage
 

@@ -5,7 +5,7 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 
-public class InvalidValueException : ApplicationException
+public class InvalidValueException : Exception
 {
   // constructor for the InvalidAgeException class
   public InvalidValueException(string msg)

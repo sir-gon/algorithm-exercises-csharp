@@ -16,6 +16,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../algorithm-exercises-csharp-base/algorithm-exercises-csharp-base.csproj" />
+    <ProjectReference Include="../algorithm_exercises_csharp_base/algorithm_exercises_csharp_base.csproj" />
   </ItemGroup>
 </Project>

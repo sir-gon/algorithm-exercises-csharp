@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algorithm-exercises-csharp-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algorithm_exercises_csharp", "algorithm_exercises_csharp\algorithm_exercises_csharp.csproj", "{B162EE62-90C6-4871-B278-390804615987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algorithm-exercises-csharp-base", "algorithm-exercises-csharp-base\algorithm-exercises-csharp-base.csproj", "{1BC65C42-83A6-486D-84DB-0DC63002FA24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algorithm_exercises_csharp_base", "algorithm_exercises_csharp_base\algorithm_exercises_csharp_base.csproj", "{1BC65C42-83A6-486D-84DB-0DC63002FA24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

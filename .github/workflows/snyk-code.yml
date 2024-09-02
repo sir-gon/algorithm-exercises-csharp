@@ -33,7 +33,7 @@ jobs:
         run: >
           snyk test
           algorithm_exercises_csharp/
-          algorithm-exercises-csharp-base/
+          algorithm_exercises_csharp_base/
           algorithm-exercises-csharp-test/
           --sarif-file-output=snyk-code.sarif
         env:

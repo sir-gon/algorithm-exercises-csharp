@@ -68,7 +68,7 @@ public static class Log
 #pragma warning restore CA2254 // Template should be a static expression
   }
 
-  public static void debu(string message, params object?[] args)
+  public static void debug(string message, params object?[] args)
   {
 #pragma warning disable CA2254 // Template should be a static expression
     LoggerSingleton.Instance.Logger.LogDebug(message);

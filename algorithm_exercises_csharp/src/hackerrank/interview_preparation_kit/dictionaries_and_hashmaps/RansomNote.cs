@@ -5,17 +5,17 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 
-public class InvalidValueException : Exception
-{
-  // constructor for the InvalidAgeException class
-  public InvalidValueException(string msg)
-  {
-    Console.WriteLine(msg);
-  }
-}
-
 public class RansomNote
 {
+  public class InvalidValueException : Exception
+  {
+    // constructor for the InvalidAgeException class
+    public InvalidValueException(string msg)
+    {
+      Console.WriteLine(msg);
+    }
+  }
+
   [ExcludeFromCodeCoverage]
   protected RansomNote() { }
 

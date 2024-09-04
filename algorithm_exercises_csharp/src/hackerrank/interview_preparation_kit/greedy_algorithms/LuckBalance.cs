@@ -4,14 +4,14 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class Competition(int _luck, int _important)
-{
-  public int luck => _luck;
-  public int important => _important;
-}
-
 public class LuckBalance
 {
+  public class Competition(int _luck, int _important)
+  {
+    public int luck => _luck;
+    public int important => _important;
+  }
+
   [ExcludeFromCodeCoverage]
   protected LuckBalance() { }
 

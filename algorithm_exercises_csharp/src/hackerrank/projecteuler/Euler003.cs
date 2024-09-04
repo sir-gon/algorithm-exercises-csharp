@@ -22,7 +22,7 @@ public class Euler003
     int i = 2;
     while (i <= Math.Sqrt(divisor))
     {
-      if (0 == divisor % i)
+      if (divisor % i == 0)
       {
         divisor = divisor / i;
         max_prime_factor = divisor;

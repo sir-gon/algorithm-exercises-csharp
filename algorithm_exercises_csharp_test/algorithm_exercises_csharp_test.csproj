@@ -59,10 +59,6 @@
   </Target>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources/hackerrank/interview_preparation_kit/arrays/ctci_array_left_rotation.testcases.json" />
-    <EmbeddedResource Include="Resources/hackerrank/interview_preparation_kit/arrays/crush.testcases.json" />
-    <EmbeddedResource Include="Resources/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/ctci_ransom_note.testcases.json" />
-    <EmbeddedResource Include="Resources/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/two_strings.testcases.json" />
-    <EmbeddedResource Include="Resources/hackerrank/interview_preparation_kit/greedy_algorithms/luck_balance.testcases.json" />
+    <EmbeddedResource Include="Resources/**/*.json" />
   </ItemGroup>
 </Project>

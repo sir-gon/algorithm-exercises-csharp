@@ -1,9 +1,10 @@
-// @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/ctci_array_left_rotation.md]]
-
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 
 using System.Diagnostics.CodeAnalysis;
 
+/**
+  * @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/ctci_array_left_rotation.md]]
+  */
 public class ArraysLeftRotation
 {
   [ExcludeFromCodeCoverage]

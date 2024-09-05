@@ -1,13 +1,13 @@
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+
+using System.Diagnostics.CodeAnalysis;
+
 /**
  * Crush (Optimized).
  *
  * @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/crush.md]]
  * @link Solution notes [[docs/hackerrank/interview_preparation_kit/arrays/crush_optimized-solution-notes.md]]
  */
-
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
-
-using System.Diagnostics.CodeAnalysis;
 
 public class CrushOptimized
 {

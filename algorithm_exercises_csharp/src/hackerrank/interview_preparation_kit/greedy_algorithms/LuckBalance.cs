@@ -1,9 +1,11 @@
-// @link Problem definition [[docs/hackerrank/interview_preparation_kit/greedy_algorithms/luck-balance.md]]
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 
 using System.Diagnostics.CodeAnalysis;
 
+/**
+ * @link Problem definition [[docs/hackerrank/interview_preparation_kit/greedy_algorithms/luck-balance.md]]
+ */
 public class LuckBalance
 {
   public class Competition(int _luck, int _important)

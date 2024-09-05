@@ -1,9 +1,10 @@
-// @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/ctci-ransom-note.md]]
-
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
 
 using System.Diagnostics.CodeAnalysis;
 
+/**
+  * @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/two-strings.md]]
+  */
 public class TwoStrings
 {
   [ExcludeFromCodeCoverage]

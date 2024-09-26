@@ -1,5 +1,4 @@
 ---
-
 name: Docker Image CI
 
 on: # yamllint disable-line rule:truthy
@@ -15,7 +14,6 @@ env:
   ARTIFACT_NAME: algorithm-exercises-csharp_${{ github.sha }}
 
 jobs:
-
   build:
     name: "Build Docker images"
     runs-on: ubuntu-latest
@@ -157,7 +155,7 @@ jobs:
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'snyk.sarif'
+          sarif_file: "snyk.sarif"
   scan:
     name: "Trivy (sarif)"
     runs-on: ubuntu-latest
@@ -182,13 +180,15 @@ jobs:
         uses: aquasecurity/trivy-action@0.24.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+          format: "sarif"
+          output: "trivy-results.sarif"
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: "trivy-results.sarif"
+        env:
+          ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   report:
     name: "Trivy (report)"
@@ -210,4 +210,6 @@ jobs:
         uses: aquasecurity/trivy-action@0.24.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          format: 'table'
+          format: "table"
+        env:
+          ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}

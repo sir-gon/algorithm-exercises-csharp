@@ -4,11 +4,13 @@
 # yamllint enable rule:line-length
 
 ---
-
 name: .NET Snyk Code analysis
 
 on: # yamllint disable-line rule:truthy
   push:
+    branches:
+      - "**" # matches every branch
+      - "!dependabot/**" # excludes master
   pull_request:
   workflow_dispatch:
 

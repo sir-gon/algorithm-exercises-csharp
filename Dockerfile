@@ -4,7 +4,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0.402-alpine3.19-amd64 AS init
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN apk add --update --no-cache make
+RUN   apk add --update --no-cache make \
+  &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.
 
 ###############################################################################
 FROM init AS base
@@ -105,7 +106,8 @@ CMD ["make", "test"]
 ##
 FROM mcr.microsoft.com/dotnet/runtime:8.0.8-alpine3.19-amd64 AS production
 
-RUN apk add --update --no-cache make
+RUN   apk add --update --no-cache make \
+  &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.
 
 ENV LOG_LEVEL=info
 ENV BRUTEFORCE=false

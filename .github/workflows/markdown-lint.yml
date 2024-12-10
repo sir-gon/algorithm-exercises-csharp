@@ -13,6 +13,7 @@ permissions: read-all
 
 jobs:
   markdownlint:
+    name: Markdown Lint
     runs-on: ubuntu-24.04
 
     strategy:

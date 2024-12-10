@@ -4,8 +4,7 @@
 # yamllint enable rule:line-length
 
 ---
-
-name: .NET Tests
+name: dotNET Tests
 
 on: # yamllint disable-line rule:truthy
   push:
@@ -16,8 +15,8 @@ on: # yamllint disable-line rule:truthy
   workflow_dispatch:
 
 jobs:
-  build:
-    name: "Run CI"
+  test:
+    name: "Run Tests"
     strategy:
       fail-fast: false
       matrix:

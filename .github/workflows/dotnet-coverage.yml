@@ -4,8 +4,7 @@
 # yamllint enable rule:line-length
 
 ---
-
-name: .NET Coverage
+name: dotNET Coverage
 
 on: # yamllint disable-line rule:truthy
   push:
@@ -16,12 +15,12 @@ on: # yamllint disable-line rule:truthy
   workflow_dispatch:
 
 jobs:
-  build:
-    name: "Run CI"
+  coverage:
+    name: "Run Coverage"
     strategy:
       fail-fast: false
       matrix:
-        os: ["windows-latest"]
+        os: ["windows-2022"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

@@ -1,5 +1,4 @@
 ---
-
 name: SonarCloud
 
 on: # yamllint disable-line rule:truthy
@@ -12,14 +11,14 @@ on: # yamllint disable-line rule:truthy
 jobs:
   build:
     name: Build and analyze
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
           java-version: 21
           # Alternative distribution options are available.
-          distribution: 'temurin'
+          distribution: "temurin"
       - uses: actions/checkout@v4
         with:
           # Shallow clones should be disabled for a better relevancy of analysis

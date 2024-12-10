@@ -16,7 +16,7 @@ env:
 jobs:
   build:
     name: "Build Docker images"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
@@ -71,7 +71,7 @@ jobs:
 
   lint:
     name: "Run in docker: LINT"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Download artifact
@@ -91,7 +91,7 @@ jobs:
 
   test:
     name: "Run in docker: TEST"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Download artifact
@@ -111,7 +111,7 @@ jobs:
 
   security:
     name: "Snyk Container"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     permissions:
       actions: read
@@ -158,7 +158,7 @@ jobs:
           sarif_file: "snyk.sarif"
   scan:
     name: "Trivy"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     permissions:
       actions: read

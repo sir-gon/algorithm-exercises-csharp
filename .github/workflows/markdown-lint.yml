@@ -1,5 +1,4 @@
 ---
-
 name: Markdown Lint
 
 on: # yamllint disable-line rule:truthy
@@ -13,20 +12,19 @@ on: # yamllint disable-line rule:truthy
 permissions: read-all
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  markdownlint:
+    name: Markdown Lint
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
         node-version: [22.x]
         # See supported Node.js release schedule
         # at https://nodejs.org/en/about/releases/
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4

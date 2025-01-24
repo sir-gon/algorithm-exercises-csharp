@@ -20,9 +20,6 @@ public class HelloWorldTest
     Assert.IsInstanceOfType(a, knownType);
     Assert.IsInstanceOfType(a, resultType);
 
-    int resultHashCode = a.GetHashCode();
-    Assert.IsNotNull(resultHashCode);
-
     bool expectedEquals = true;
     bool expectedNotEquals = false;
     Assert.AreEqual(expectedEquals, a.Equals(a));

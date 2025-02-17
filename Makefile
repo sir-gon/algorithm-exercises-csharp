@@ -33,10 +33,6 @@ RUNTIME_TOOL=dotnet
 PACKAGE_TOOL=dotnet
 VERBOSITY_LEVEL=normal
 
-MAIN_PROJECT_DIRECTORY=algorithm_exercises_csharp
-BASE_PROJECT_DIRECTORY=algorithm_exercises_csharp_base
-TEST_PROJECT_DIRECTORY=algorithm_exercises_csharp_test
-
 help: list
 	@echo ""
 	@echo "Note: create and activate the environment in your local shell type (example):"
@@ -114,18 +110,11 @@ clean:
 
 	rm -vfr .mono/ || true
 	rm -vfr coverage-report/ || true
-	find ${MAIN_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
-	find ${MAIN_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
-	find ${MAIN_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
-
-	find ${BASE_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
-	find ${BASE_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
-	find ${BASE_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
-
-	find ${TEST_PROJECT_DIRECTORY} -path "*/coverage*" -print -exec rm -vfr {} ';' || true
-	find ${TEST_PROJECT_DIRECTORY} -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
-	find ${TEST_PROJECT_DIRECTORY} -path "*/bin/*" -print -exec rm -vfr {} ';' || true
-	find ${TEST_PROJECT_DIRECTORY} -path "*/obj/*" -print -exec rm -vfr {} ';' || true
+	find ./src/ -path "*/TestResults/*" -type d -print -exec rm -vfr {} ';' || true
+	find ./src/ -path "*/bin/*" -print -exec rm -vfr {} ';' || true
+	find ./src/ -path "*/obj/*" -print -exec rm -vfr {} ';' || true
+	find ./src/ -path "*/coverage*" -print -exec rm -vfr {} ';' || true
+	find . -type d -print -empty -delete || true
 
 compose/build: env
 	${DOCKER_COMPOSE} --profile lint build

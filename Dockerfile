@@ -15,9 +15,9 @@ WORKDIR ${WORKDIR}
 
 COPY ./Makefile ${WORKDIR}/
 COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
-COPY ./algorithm_exercises_csharp/algorithm_exercises_csharp.csproj ${WORKDIR}/algorithm_exercises_csharp/algorithm_exercises_csharp.csproj
-COPY ./algorithm_exercises_csharp_base/algorithm_exercises_csharp_base.csproj ${WORKDIR}/algorithm_exercises_csharp_base/algorithm_exercises_csharp_base.csproj
-COPY ./algorithm_exercises_csharp_test/algorithm_exercises_csharp_test.csproj ${WORKDIR}/algorithm_exercises_csharp_test/algorithm_exercises_csharp_test.csproj
+COPY ./src/algorithm_exercises_csharp/algorithm_exercises_csharp.csproj ${WORKDIR}/src/algorithm_exercises_csharp/algorithm_exercises_csharp.csproj
+COPY ./src/algorithm_exercises_csharp_base/algorithm_exercises_csharp_base.csproj ${WORKDIR}/src/algorithm_exercises_csharp_base/algorithm_exercises_csharp_base.csproj
+COPY ./src/algorithm_exercises_csharp_test/algorithm_exercises_csharp_test.csproj ${WORKDIR}/src/algorithm_exercises_csharp_test/algorithm_exercises_csharp_test.csproj
 
 RUN make dependencies
 
@@ -46,9 +46,9 @@ COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
 
 # Code source
 COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
-COPY ./algorithm_exercises_csharp ${WORKDIR}/algorithm_exercises_csharp
-COPY ./algorithm_exercises_csharp_base ${WORKDIR}/algorithm_exercises_csharp_base
-COPY ./algorithm_exercises_csharp_test ${WORKDIR}/algorithm_exercises_csharp_test
+COPY ./src/algorithm_exercises_csharp ${WORKDIR}/src/algorithm_exercises_csharp
+COPY ./src/algorithm_exercises_csharp_base ${WORKDIR}/src/algorithm_exercises_csharp_base
+COPY ./src/algorithm_exercises_csharp_test ${WORKDIR}/src/algorithm_exercises_csharp_test
 
 # code linting conf
 COPY ./.editorconfig ${WORKDIR}/
@@ -66,9 +66,9 @@ CMD ["make", "lint"]
 FROM base AS development
 
 COPY ./algorithm_exercises_csharp.sln ${WORKDIR}/algorithm_exercises_csharp.sln
-COPY ./algorithm_exercises_csharp ${WORKDIR}/algorithm_exercises_csharp
-COPY ./algorithm_exercises_csharp_base ${WORKDIR}/algorithm_exercises_csharp_base
-COPY ./algorithm_exercises_csharp_test ${WORKDIR}/algorithm_exercises_csharp_test
+COPY ./src/algorithm_exercises_csharp ${WORKDIR}/src/algorithm_exercises_csharp
+COPY ./src/algorithm_exercises_csharp_base ${WORKDIR}/src/algorithm_exercises_csharp_base
+COPY ./src/algorithm_exercises_csharp_test ${WORKDIR}/src/algorithm_exercises_csharp_test
 
 RUN  make build \
   && ls -alh
@@ -119,8 +119,8 @@ RUN  adduser -D worker \
   && chown worker:worker /app
 
 COPY ./Makefile ${WORKDIR}/
-COPY --from=builder /app/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.dll ${WORKDIR}/
-COPY --from=builder /app/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.runtimeconfig.json ${WORKDIR}/
+COPY --from=builder /app/src/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.dll ${WORKDIR}/
+COPY --from=builder /app/src/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.runtimeconfig.json ${WORKDIR}/
 
 RUN ls -alh
 

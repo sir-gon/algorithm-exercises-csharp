@@ -55,7 +55,7 @@
   </ItemGroup>
 
   <Target Name="GenerateHtmlCoverageReport" AfterTargets="GenerateCoverageResultAfterTest">
-    <ReportGenerator ReportFiles="@(CoverletReport)" TargetDirectory="../coverage-report" ReportTypes="TextSummary;Html" />
+    <ReportGenerator ReportFiles="@(CoverletReport)" TargetDirectory="../../coverage-report" ReportTypes="TextSummary;Html" />
   </Target>
 
   <ItemGroup>

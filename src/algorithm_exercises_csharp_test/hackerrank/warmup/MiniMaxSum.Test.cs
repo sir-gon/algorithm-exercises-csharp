@@ -30,7 +30,7 @@ public class MiniMaxSumTest
   [TestMethod]
   public void testMiniMaxSumEmptyInput()
   {
-    Assert.ThrowsException<ArgumentException>(() => MiniMaxSum.miniMaxSum([]));
+    Assert.ThrowsExactly<ArgumentException>(() => _ = MiniMaxSum.miniMaxSum([]));
   }
 }
 

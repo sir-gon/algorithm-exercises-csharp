@@ -30,7 +30,7 @@ public class BirthdayCakeCandlesTest
   [TestMethod]
   public void testMiniMaxSumEmptyInput()
   {
-    Assert.ThrowsException<ArgumentException>(() => BirthdayCakeCandles.birthdayCakeCandles([]));
+    Assert.ThrowsExactly<ArgumentException>(() => _ = BirthdayCakeCandles.birthdayCakeCandles([]));
   }
 }
 

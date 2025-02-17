@@ -1,4 +1,5 @@
-namespace algorithm_exercises_csharp.hackerrank;
+namespace algorithm_exercises_csharp_test.hackerrank.warmup;
+using algorithm_exercises_csharp.hackerrank.warmup;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

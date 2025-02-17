@@ -1,9 +1,8 @@
 // @link Problem definition [[docs/hackerrank/warmup/birthday_cake_candles.md]]
 
-namespace algorithm_exercises_csharp.hackerrank;
+namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
-using System.Linq.Expressions;
 
 public class BirthdayCakeCandles
 {

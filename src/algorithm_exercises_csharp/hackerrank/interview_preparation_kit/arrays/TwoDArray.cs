@@ -1,12 +1,8 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/2d_array.md]]
+
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays;
 
 using System.Diagnostics.CodeAnalysis;
-
-/**
-  * 2D Array - DS.
-  *
-  * @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/2d_array.md]]
-  */
 
 public class TwoDArray
 {

@@ -1,13 +1,9 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/new_year_chaos.md]]
+
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays;
 
 using System.Diagnostics.CodeAnalysis;
 
-
-/**
- * New Year Chaos.
- *
- * @link Problem definition [[docs/hackerrank/interview_preparation_kit/arrays/new_year_chaos.md]]
- */
 public class NewYearChaos
 {
   [ExcludeFromCodeCoverage]

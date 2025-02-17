@@ -1,9 +1,8 @@
 // @link Problem definition [[docs/hackerrank/warmup/solve_me_first.md]]
 
-namespace algorithm_exercises_csharp.hackerrank;
+namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 public class MiniMaxSum
 {

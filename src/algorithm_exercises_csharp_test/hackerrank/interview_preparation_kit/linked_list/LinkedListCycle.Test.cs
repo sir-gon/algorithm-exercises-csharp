@@ -1,4 +1,6 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.linked_list;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
 
 [TestClass]
 public class LinkedListCycleTest

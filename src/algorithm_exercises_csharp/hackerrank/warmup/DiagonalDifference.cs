@@ -1,6 +1,6 @@
 // @link Problem definition [[docs/hackerrank/warmup/diagonal_difference.md]]
 
-namespace algorithm_exercises_csharp.hackerrank;
+namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
 

@@ -1,10 +1,10 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/ctci_linked_list_cycle.md]]
+
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
 
 using System.Diagnostics.CodeAnalysis;
 
-/**
- * @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/ctci_linked_list_cycle.md]]
- */
 public class LinkedListCycle
 {
   [ExcludeFromCodeCoverage]

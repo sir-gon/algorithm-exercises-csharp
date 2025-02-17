@@ -1,4 +1,6 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.greedy_algorithms;
+using algorithm_exercises_csharp_test.lib;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.greedy_algorithms;
 
 [TestClass]
 public class LuckBalanceTest

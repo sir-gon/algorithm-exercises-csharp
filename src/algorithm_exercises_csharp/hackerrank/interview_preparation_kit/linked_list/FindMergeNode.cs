@@ -1,10 +1,10 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/find-the-merge-point-of-two-joined-linked-lists.md]]
+
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
 
 using System.Diagnostics.CodeAnalysis;
 
-/**
- * @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/find-the-merge-point-of-two-joined-linked-lists.md]]
- */
 public class FindMergeNode
 {
   [ExcludeFromCodeCoverage]

@@ -1,6 +1,6 @@
 // @link Problem definition [[docs/hackerrank/warmup/plus_minus.md]]
 
-namespace algorithm_exercises_csharp.hackerrank;
+namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;

@@ -1,6 +1,6 @@
 // @link Problem definition [[docs/hackerrank/warmup/staircase.md]]
 
-namespace algorithm_exercises_csharp.hackerrank;
+namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Text;
 using System.Diagnostics.CodeAnalysis;

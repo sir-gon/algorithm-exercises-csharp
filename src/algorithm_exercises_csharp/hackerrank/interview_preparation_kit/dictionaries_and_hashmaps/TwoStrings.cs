@@ -1,10 +1,9 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/two-strings.md]]
+
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
 using System.Diagnostics.CodeAnalysis;
 
-/**
-  * @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/two-strings.md]]
-  */
 public class TwoStrings
 {
   [ExcludeFromCodeCoverage]

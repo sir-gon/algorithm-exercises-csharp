@@ -1,12 +1,10 @@
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/ctci-ransom-note.md]]
 
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit;
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 
-/**
- * @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/ctci-ransom-note.md]]
- */
 public class RansomNote
 {
   public class InvalidValueException : Exception

@@ -1,8 +1,5 @@
-// @link Problem definition [[docs/hackerrank/projecteuler/euler003.md]]
-// Notes about final solution please see:
-// @link [[docs/hackerrank/projecteuler/euler003-solution-notes.md]]
-
-namespace algorithm_exercises_csharp.hackerrank.projecteuler;
+namespace algorithm_exercises_csharp_test.hackerrank.projecteuler;
+using algorithm_exercises_csharp.hackerrank.projecteuler;
 
 [TestClass]
 public class Euler003Test

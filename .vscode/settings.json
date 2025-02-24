@@ -7,9 +7,12 @@
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
   },
-  "omnisharp.enableEditorConfigSupport": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "omnisharp.enableEditorConfigSupport": true,
   "snyk.advanced.additionalParameters": "--exclude=.trunk,coverage-report"
 }

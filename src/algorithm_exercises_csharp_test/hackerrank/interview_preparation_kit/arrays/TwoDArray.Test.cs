@@ -33,5 +33,16 @@ public class TwoDArrayTest
       Assert.AreEqual(test.expected, result);
     }
   }
+
+
+  [TestMethod]
+  public void testHourglassSumEdgeCases()
+  {
+    List<List<int>> input = [];
+    int expected = 0;
+    int result = TwoDArray.hourglassSum(input);
+
+    Assert.AreEqual(expected, result);
+  }
 }
 

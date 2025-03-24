@@ -21,13 +21,17 @@ jobs:
       fail-fast: false
       matrix:
         os: ["windows-2022", "ubuntu-24.04", "macos-14"]
+        dotnet-version: [8.0.x, 9.0.x]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - name: Setup .NET
+      - name: Setup .NET ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Tooling check
+        run: >
+          dotnet --version
       - name: Restore dependencies
         run: dotnet restore
       - name: Build

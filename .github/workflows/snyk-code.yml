@@ -4,7 +4,6 @@
 # yamllint enable rule:line-length
 
 ---
-
 name: .NET Snyk Code analysis
 
 on: # yamllint disable-line rule:truthy
@@ -21,7 +20,6 @@ jobs:
       security-events: write
     steps:
       - uses: actions/checkout@master
-      - uses: snyk/actions/setup@master
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -29,16 +27,16 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore algorithm_exercises_csharp.sln
       - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/dotnet@master
         continue-on-error: true # To make sure that SARIF upload gets called
-        run: >
-          snyk test
-          algorithm_exercises_csharp/
-          algorithm_exercises_csharp_base/
-          algorithm_exercises_csharp_test/
-          --sarif-file-output=snyk-code.sarif
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: code test
+          args: >
+            --all-projects
+            --sarif-file-output=snyk-code.sarif
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: snyk-code.sarif
+          sarif_file: "snyk-code.sarif"

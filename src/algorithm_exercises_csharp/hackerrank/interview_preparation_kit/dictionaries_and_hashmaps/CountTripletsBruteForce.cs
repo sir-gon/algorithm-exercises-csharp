@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 public class CountTripletsBruteForce
 {
+  [ExcludeFromCodeCoverage]
+  protected CountTripletsBruteForce() { }
+
   public static long countTriplets(List<long> arr, long r)
   {
     long size = arr.Count;

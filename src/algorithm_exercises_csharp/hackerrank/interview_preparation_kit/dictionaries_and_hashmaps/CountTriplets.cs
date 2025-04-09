@@ -4,10 +4,14 @@
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 
 public class CountTriplets
 {
+  [ExcludeFromCodeCoverage]
+  protected CountTriplets() { }
+
   public static long countTriplets(List<long> arr, long r)
   {
     Dictionary<long, long> aCounter = [];

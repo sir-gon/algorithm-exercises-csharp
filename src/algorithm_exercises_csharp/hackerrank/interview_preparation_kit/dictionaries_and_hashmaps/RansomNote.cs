@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 public class RansomNote
 {
+  [ExcludeFromCodeCoverage]
+  protected RansomNote() { }
+
   public class InvalidValueException : Exception
   {
     // constructor for the InvalidAgeException class
@@ -15,9 +18,6 @@ public class RansomNote
       Console.WriteLine(msg);
     }
   }
-
-  [ExcludeFromCodeCoverage]
-  protected RansomNote() { }
 
   private static readonly string __YES__ = "Yes";
   private static readonly string __NO__ = "No";

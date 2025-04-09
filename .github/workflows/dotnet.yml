@@ -20,8 +20,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["windows-2022", "ubuntu-24.04", "macos-14"]
-        dotnet-version: [8.0.x, 9.0.x]
+        os: ["windows-2022", "windows-2025", "ubuntu-24.04", "macos-14"]
+        dotnet-version: [8.x, 9.x]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

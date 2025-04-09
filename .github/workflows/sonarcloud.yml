@@ -11,7 +11,7 @@ on: # yamllint disable-line rule:truthy
 jobs:
   build:
     name: Build and analyze
-    runs-on: windows-2022
+    runs-on: windows-2025
     steps:
       - name: Set up JDK
         uses: actions/setup-java@v4

@@ -15,7 +15,7 @@ public class TimeConversion
     meridian = meridian.ToLower();
 
     string time_str = _s[0..(_s.Length - 2)];
-    List<string> time = new(time_str.Split(":"));
+    List<string> time = [.. time_str.Split(":")];
 
     int hour = Int32.Parse(time[0]);
 

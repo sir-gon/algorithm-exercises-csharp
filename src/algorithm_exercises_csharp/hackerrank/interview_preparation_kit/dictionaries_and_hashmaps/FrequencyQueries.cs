@@ -124,7 +124,6 @@ public class FrequencyQueries
    */
   public static List<int> freqQuery(List<List<int>> queries)
   {
-
     FrequencyQueries fq = factory();
 
     foreach (List<int> query in queries)

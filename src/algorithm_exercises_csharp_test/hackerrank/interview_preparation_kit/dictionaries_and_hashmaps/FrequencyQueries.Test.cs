@@ -5,7 +5,6 @@ using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionari
 [TestClass]
 public class FrequencyQueriesTest
 {
-
   public class FrequencyQueriesTestCase
   {
     public string title { get; set; } = default!;
@@ -57,7 +56,6 @@ public class FrequencyQueriesTest
 
     foreach (FrequencyQueriesTestCase test in testCase6)
     {
-
       solutionFound = FrequencyQueries.freqQuery(test.input);
       CollectionAssert.AreEqual(test.expected, solutionFound, String.Format("%s(%s) answer must be: %s" +
               "FrequencyQueriesTest.freqQuery",

@@ -7,9 +7,8 @@ using System.Collections.Generic;
 
 public class FrequencyQueries
 {
-  private FrequencyQueries()
-  {
-  }
+  [ExcludeFromCodeCoverage]
+  private FrequencyQueries() { }
 
   private static readonly long __INITIAL__ = 1L;
 
@@ -19,8 +18,6 @@ public class FrequencyQueries
 
   private static readonly int __NOT_FOUND__ = 0;
   private static readonly int __FOUND__ = 1;
-
-  private const string OPERATION_ERROR = "Operation %d not supported";
 
   readonly Dictionary<long, long> valueFreqs = [];
   readonly Dictionary<long, List<long>> freqDictionary = [];
@@ -145,8 +142,7 @@ public class FrequencyQueries
           fq.select(value);
           break;
         default:
-          throw new InvalidOperationException(
-             String.Format(OPERATION_ERROR, operation));
+          throw new InvalidOperationException($"Operation {operation} not supported");
       }
     }
 

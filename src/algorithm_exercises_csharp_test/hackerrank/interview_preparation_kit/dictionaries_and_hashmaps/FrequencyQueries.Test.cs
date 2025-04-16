@@ -45,7 +45,11 @@ public class FrequencyQueriesTest
     foreach (FrequencyQueriesTestCase test in testCases)
     {
       solutionFound = FrequencyQueries.freqQuery(test.input);
-      CollectionAssert.AreEqual(test.expected, solutionFound);
+      CollectionAssert.AreEqual(
+        test.expected,
+        solutionFound,
+        $"FrequencyQueries.freqQuery({test.input}) answer must be: {test.expected}"
+      );
     }
   }
 
@@ -57,10 +61,11 @@ public class FrequencyQueriesTest
     foreach (FrequencyQueriesTestCase test in testCase6)
     {
       solutionFound = FrequencyQueries.freqQuery(test.input);
-      CollectionAssert.AreEqual(test.expected, solutionFound, String.Format("%s(%s) answer must be: %s" +
-              "FrequencyQueriesTest.freqQuery",
-              test.input.ToString(),
-              test.expected.ToString()));
+      CollectionAssert.AreEqual(
+        test.expected,
+        solutionFound,
+        $"FrequencyQueries.freqQuery({test.input}) answer must be: {test.expected}"
+      );
     }
   }
 
@@ -72,10 +77,11 @@ public class FrequencyQueriesTest
     foreach (FrequencyQueriesTestCase test in testCaseBorderCases)
     {
       solutionFound = FrequencyQueries.freqQuery(test.input);
-      CollectionAssert.AreEqual(test.expected, solutionFound, String.Format("%s(%s) answer must be: %s" +
-              "FrequencyQueriesTest.freqQuery",
-              test.input.ToString(),
-              test.expected.ToString()));
+      CollectionAssert.AreEqual(
+        test.expected,
+        solutionFound,
+        $"FrequencyQueries.freqQuery({test.input}) answer must be: {test.expected}"
+      );
     }
   }
 

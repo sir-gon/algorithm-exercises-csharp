@@ -1,4 +1,4 @@
-// @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_Dictionarys/frequency-queries.md]]
+// @link Problem definition [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/frequency-queries.md]]
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 

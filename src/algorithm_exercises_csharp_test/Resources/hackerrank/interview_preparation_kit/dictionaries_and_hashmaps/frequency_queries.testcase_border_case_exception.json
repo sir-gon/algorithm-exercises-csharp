@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Test Case Border Case when operation doesn't exists",
+    "input": [
+      [4, 1]
+    ],
+    "expected": []
+  }
+]

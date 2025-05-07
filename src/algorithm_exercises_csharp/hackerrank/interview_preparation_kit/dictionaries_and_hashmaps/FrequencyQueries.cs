@@ -8,7 +8,10 @@ using System.Collections.Generic;
 public class FrequencyQueries
 {
   [ExcludeFromCodeCoverage]
-  private FrequencyQueries() { }
+  private FrequencyQueries()
+  {
+    reset();
+  }
 
   private static readonly long __INITIAL__ = 1L;
 
@@ -108,20 +111,12 @@ public class FrequencyQueries
     result.Add(freqDictionary.ContainsKey(value) ? __FOUND__ : __NOT_FOUND__);
   }
 
-  static FrequencyQueries factory()
-  {
-    FrequencyQueries fq = new();
-    fq.reset();
-
-    return fq;
-  }
-
   /**
    * FrequencyQueries.
    */
   public static List<int> freqQuery(List<List<int>> queries)
   {
-    FrequencyQueries fq = factory();
+    FrequencyQueries fq = new();
 
     foreach (List<int> query in queries)
     {

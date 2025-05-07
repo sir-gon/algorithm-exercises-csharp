@@ -1,5 +1,8 @@
+ARG BUILDTIME_IMAGE=mcr.microsoft.com/dotnet/sdk:8.0.402-alpine3.19
+ARG RUNTIME_IMAGE=mcr.microsoft.com/dotnet/runtime:8.0.8-alpine3.19
+
 ###############################################################################
-FROM mcr.microsoft.com/dotnet/sdk:8.0.402-alpine3.19-amd64 AS init
+FROM ${BUILDTIME_IMAGE} AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
@@ -104,7 +107,7 @@ CMD ["make", "test"]
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM mcr.microsoft.com/dotnet/runtime:8.0.8-alpine3.19-amd64 AS production
+FROM ${RUNTIME_IMAGE} AS production
 
 RUN   apk add --update --no-cache make \
   &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.

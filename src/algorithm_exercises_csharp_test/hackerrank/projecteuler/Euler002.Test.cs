@@ -6,25 +6,25 @@ public class Euler002Test
 {
   public class Euler002TestCase
   {
-    public int n; public int answer;
+    public int N { get; set; }
+    public int Answer { get; set; }
   }
 
-  // dotnet_style_readonly_field = true
   private static readonly Euler002TestCase[] tests = [
-    new() { n = 10, answer = 10 },
-    new() { n = 100, answer = 44 }
+    new() { N = 10, Answer = 10 },
+    new() { N = 100, Answer = 44 }
   ];
 
   [TestMethod]
   public void euler002Test()
   {
     int result;
-
     foreach (Euler002TestCase test in tests)
     {
-      result = Euler002.euler002(test.n);
-      Assert.AreEqual(test.answer, result);
+      result = Euler002.euler002(test.N);
+      Assert.AreEqual(test.Answer, result);
     }
   }
 }
+
 

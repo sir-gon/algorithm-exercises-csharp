@@ -7,9 +7,9 @@ public class ArraysLeftRotationTest
 {
   public class ArraysLeftRotationsTestCase
   {
-    public List<int> input { get; } = default!;
+    public List<int> input { get; set; } = default!;
     public int d { get; set; }
-    public List<int> expected { get; } = default!;
+    public List<int> expected { get; set; } = default!;
   }
 
   private List<ArraysLeftRotationsTestCase> testCases = default!;

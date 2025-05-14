@@ -54,4 +54,14 @@ public class RansomNoteTest
       Assert.AreEqual(test.Expected, result);
     }
   }
+
+  [TestMethod]
+  public void testException()
+  {
+#pragma warning disable CA2201 // No provocar tipos de excepción reservados
+    Assert.ThrowsExactly<RansomNote.InvalidValueException>(() => throw new RansomNote.InvalidValueException());
+
+    Assert.ThrowsExactly<RansomNote.InvalidValueException>(() => throw new RansomNote.InvalidValueException("test exception", new Exception("test exception")));
+#pragma warning restore CA2201 // No provocar tipos de excepción reservados
+  }
 }

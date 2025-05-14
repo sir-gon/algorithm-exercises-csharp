@@ -8,7 +8,7 @@ public class CrushBruteForceTest
   public class CrushBruteForceTestCase
   {
     public string title { get; set; } = default!;
-    public List<List<int>> queries { get; set; } = default!;
+    public List<List<int>> queries { get; } = default!;
     public int n { get; set; } = default!;
     public long expected { get; set; } = default!;
   }

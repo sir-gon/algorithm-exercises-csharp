@@ -57,6 +57,26 @@ dotnet_naming_rule.all_methods_must_be_camel_case.style    = camel_case_style
 dotnet_naming_rule.all_methods_must_be_camel_case.severity = warning
 
 # Due clean code suggestion
+
+# CA1034: Los tipos anidados no deben ser visibles
+dotnet_diagnostic.CA1034.severity = none
+
+# CA1002: No exponer listas genéricas
+dotnet_diagnostic.CA1002.severity = none
+
+# CA1707: Los identificadores no deben contener caracteres de subrayado
+dotnet_diagnostic.CA1707.severity = none
+
+# CA1308: Normalizar las cadenas en mayúsculas
+dotnet_diagnostic.CA1308.severity = none
+
+
 [*.{cs,vb}]
+# Default severity for analyzer diagnostics with category 'Style'
+dotnet_analyzer_diagnostic.category-Style.severity = none
+
 dotnet_diagnostic.IDE0054.severity = none
 dotnet_diagnostic.IDE0074.severity = none
+
+# CA1515: Consider making public types internal
+dotnet_diagnostic.CA1515.severity = none

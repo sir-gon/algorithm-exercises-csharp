@@ -18,6 +18,10 @@ public static class RansomNote
     public InvalidValueException()
     {
     }
+
+    public InvalidValueException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
   }
 
   private const string __YES__ = "Yes";

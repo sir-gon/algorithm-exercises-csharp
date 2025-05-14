@@ -5,12 +5,32 @@ using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionari
 [TestClass]
 public class CountTripletsTest
 {
-  public class CountTripletsTestCase
+  public class CountTripletsTestCase(string title, long[] input, int r, long expected)
   {
-    public string title { get; set; } = default!;
-    public List<long> input { get; set; } = default!;
-    public int r { get; set; } = default!;
-    public long expected { get; set; } = default!;
+    private readonly string title = title;
+    private readonly List<long> input = [.. input];
+    private readonly int r = r;
+    private readonly long expected = expected;
+
+    public string Title
+    {
+      get { return title; }
+    }
+
+    public List<long> Input
+    {
+      get { return input; }
+    }
+
+    public int R
+    {
+      get { return r; }
+    }
+
+    public long Expected
+    {
+      get { return expected; }
+    }
   }
 
   private List<CountTripletsTestCase> testCases { get; set; } = default!;
@@ -35,14 +55,14 @@ public class CountTripletsTest
 
     foreach (CountTripletsTestCase test in testCases)
     {
-      result = CountTriplets.countTriplets(test.input, test.r);
-      Assert.AreEqual(test.expected, result);
+      result = CountTriplets.countTriplets(test.Input, test.R);
+      Assert.AreEqual(test.Expected, result);
     }
 
     foreach (CountTripletsTestCase test in bigTestCases)
     {
-      result = CountTriplets.countTriplets(test.input, test.r);
-      Assert.AreEqual(test.expected, result);
+      result = CountTriplets.countTriplets(test.Input, test.R);
+      Assert.AreEqual(test.Expected, result);
     }
   }
 }

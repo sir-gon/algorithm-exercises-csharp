@@ -6,7 +6,6 @@ using System.Diagnostics.CodeAnalysis;
 
 public static class MinimumAbsoluteDifferenceInAnArray
 {
-
   /**
    * minimumAbsoluteDifference.
    */

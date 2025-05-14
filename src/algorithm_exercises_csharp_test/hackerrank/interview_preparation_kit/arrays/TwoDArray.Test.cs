@@ -5,11 +5,24 @@ using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays;
 [TestClass]
 public class TwoDArrayTest
 {
-  public class TwoDArrayTestCase
+  public class TwoDArrayTestCase(string title, List<List<int>> input, long expected)
   {
-    public string title { get; set; } = default!;
-    public List<List<int>> input { get; set; } = default!;
-    public long expected { get; set; } = default!;
+    private string title = title;
+    private List<List<int>> input = input;
+    private long expected = expected;
+
+    public string Title
+    {
+      get { return title; }
+    }
+    public List<List<int>> Input
+    {
+      get { return input; }
+    }
+    public long Expected
+    {
+      get { return expected; }
+    }
   }
 
   private List<TwoDArrayTestCase> testCases { get; set; } = default!;
@@ -29,8 +42,8 @@ public class TwoDArrayTest
 
     foreach (TwoDArrayTestCase test in testCases)
     {
-      result = TwoDArray.hourglassSum(test.input);
-      Assert.AreEqual(test.expected, result);
+      result = TwoDArray.hourglassSum(test.Input);
+      Assert.AreEqual(test.Expected, result);
     }
   }
 

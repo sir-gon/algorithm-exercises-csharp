@@ -7,7 +7,6 @@ using System.Numerics;
 
 public static class SherlockAndAnagrams
 {
-
   /**
    * factorial().
    */

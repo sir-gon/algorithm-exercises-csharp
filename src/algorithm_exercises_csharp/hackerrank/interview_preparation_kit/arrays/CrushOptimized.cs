@@ -7,7 +7,6 @@ using System.Diagnostics.CodeAnalysis;
 
 public static class CrushOptimized
 {
-
   /**
   // arrayManipulation.
    */

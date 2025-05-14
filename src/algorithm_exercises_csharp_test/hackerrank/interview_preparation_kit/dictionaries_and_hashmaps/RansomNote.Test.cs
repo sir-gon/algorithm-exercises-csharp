@@ -5,12 +5,32 @@ using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionari
 [TestClass]
 public class RansomNoteTest
 {
-  public class RansomNoteTestCase
+  public class RansomNoteTestCase(string title, List<string> magazine, List<string> note, string expected)
   {
-    public string title { get; set; } = default!;
-    public List<string> magazine { get; set; } = default!;
-    public List<string> note { get; set; } = default!;
-    public string expected { get; set; } = default!;
+    private readonly string title = title;
+    private readonly List<string> magazine = [.. magazine];
+    private readonly List<string> note = [.. note];
+    private readonly string expected = expected;
+
+    public string Title
+    {
+      get { return title; }
+    }
+
+    public List<string> Magazine
+    {
+      get { return magazine; }
+    }
+
+    public List<string> Note
+    {
+      get { return note; }
+    }
+
+    public string Expected
+    {
+      get { return expected; }
+    }
   }
 
   private List<RansomNoteTestCase> testCases { get; set; } = default!;
@@ -30,8 +50,8 @@ public class RansomNoteTest
 
     foreach (RansomNoteTestCase test in testCases)
     {
-      result = RansomNote.checkMagazine(test.magazine, test.note);
-      Assert.AreEqual(test.expected, result);
+      result = RansomNote.checkMagazine(test.Magazine, test.Note);
+      Assert.AreEqual(test.Expected, result);
     }
   }
 }

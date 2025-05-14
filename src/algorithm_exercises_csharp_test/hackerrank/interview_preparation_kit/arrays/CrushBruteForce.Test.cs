@@ -5,12 +5,28 @@ using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays;
 [TestClass]
 public class CrushBruteForceTest
 {
-  public class CrushBruteForceTestCase
+  public class CrushBruteForceTestCase(string title, List<List<int>> queries, int n, long expected)
   {
-    public string title { get; set; } = default!;
-    public List<List<int>> queries { get; set; } = default!;
-    public int n { get; set; } = default!;
-    public long expected { get; set; } = default!;
+    private string title = title;
+    private List<List<int>> queries = queries;
+    private int n = n;
+    private long expected = expected;
+    public string Title
+    {
+      get { return title; }
+    }
+    public List<List<int>> Queries
+    {
+      get { return queries; }
+    }
+    public int N
+    {
+      get { return n; }
+    }
+    public long Expected
+    {
+      get { return expected; }
+    }
   }
 
   private List<CrushBruteForceTestCase> testCases { get; set; } = default!;
@@ -30,8 +46,8 @@ public class CrushBruteForceTest
 
     foreach (CrushBruteForceTestCase test in testCases)
     {
-      result = CrushBruteForce.arrayManipulation(test.n, test.queries);
-      Assert.AreEqual(test.expected, result);
+      result = CrushBruteForce.arrayManipulation(test.N, test.Queries);
+      Assert.AreEqual(test.Expected, result);
     }
   }
 }

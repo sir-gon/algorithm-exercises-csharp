@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays
 
 using System.Diagnostics.CodeAnalysis;
 
-public class ArraysLeftRotation
+public static class ArraysLeftRotation
 {
-  [ExcludeFromCodeCoverage]
-  protected ArraysLeftRotation() { }
-
   public const int FIRST_POSITION = 0;
 
   /**

@@ -4,16 +4,13 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.greedy
 
 using System.Diagnostics.CodeAnalysis;
 
-public class LuckBalance
+public static class LuckBalance
 {
   public class Competition(int _luck, int _important)
   {
     public int luck => _luck;
     public int important => _important;
   }
-
-  [ExcludeFromCodeCoverage]
-  protected LuckBalance() { }
 
   public static int luckBalance(int k, List<List<int>> contests)
   {

@@ -2,6 +2,8 @@
 
 namespace algorithm_exercises_csharp.hackerrank.warmup;
 
+using System.Diagnostics.CodeAnalysis;
+
 public static class SimpleArraySum
 {
   public static int simpleArraySum(List<int> ar)

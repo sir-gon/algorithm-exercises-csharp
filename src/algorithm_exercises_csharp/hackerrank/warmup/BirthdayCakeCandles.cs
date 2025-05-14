@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class BirthdayCakeCandles
+public static class BirthdayCakeCandles
 {
-  [ExcludeFromCodeCoverage]
-  protected BirthdayCakeCandles() { }
-
   public static int birthdayCakeCandles(List<int> _arr)
   {
     ArgumentNullException.ThrowIfNull(_arr);

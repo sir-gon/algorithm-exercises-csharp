@@ -5,11 +5,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictio
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 
-public class RansomNote
+public static class RansomNote
 {
-  [ExcludeFromCodeCoverage]
-  protected RansomNote() { }
-
   public class InvalidValueException : Exception
   {
     // constructor for the InvalidAgeException class
@@ -17,10 +14,14 @@ public class RansomNote
     {
       Console.WriteLine(msg);
     }
+
+    public InvalidValueException()
+    {
+    }
   }
 
-  private static readonly string __YES__ = "Yes";
-  private static readonly string __NO__ = "No";
+  private const string __YES__ = "Yes";
+  private const string __NO__ = "No";
 
   public static bool checkMagazineCompute(List<string> magazine, List<string> note)
   {

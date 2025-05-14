@@ -6,11 +6,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictio
 
 using System.Collections.Generic;
 
-public class CountTriplets
+public static class CountTriplets
 {
-  [ExcludeFromCodeCoverage]
-  protected CountTriplets() { }
-
   public static long countTriplets(List<long> arr, long r)
   {
     ArgumentNullException.ThrowIfNull(arr);

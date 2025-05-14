@@ -5,11 +5,8 @@ using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_lis
 
 using System.Diagnostics.CodeAnalysis;
 
-public class FindMergeNode
+public static class FindMergeNode
 {
-  [ExcludeFromCodeCoverage]
-  protected FindMergeNode() { }
-
   public static int? findMergeNode(LinkedList<int>.Node head1, LinkedList<int>.Node head2)
   {
     List<LinkedList<int>.Node> llindex = [];

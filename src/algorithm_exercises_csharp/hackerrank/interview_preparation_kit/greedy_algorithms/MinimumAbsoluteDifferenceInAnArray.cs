@@ -4,12 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.greedy
 
 using System.Diagnostics.CodeAnalysis;
 
-public class MinimumAbsoluteDifferenceInAnArray
+public static class MinimumAbsoluteDifferenceInAnArray
 {
-  [ExcludeFromCodeCoverage]
-  private MinimumAbsoluteDifferenceInAnArray()
-  {
-  }
 
   /**
    * minimumAbsoluteDifference.

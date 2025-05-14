@@ -5,11 +5,8 @@ using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_lis
 
 using System.Diagnostics.CodeAnalysis;
 
-public class LinkedListCycle
+public static class LinkedListCycle
 {
-  [ExcludeFromCodeCoverage]
-  protected LinkedListCycle() { }
-
   public static bool hasCycle<T>(LinkedList<T>.Node? head)
   {
     List<LinkedList<T>.Node> llindex = [];

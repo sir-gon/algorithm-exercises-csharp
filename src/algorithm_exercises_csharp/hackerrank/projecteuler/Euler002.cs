@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.projecteuler;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class Euler002
+public static class Euler002
 {
-  [ExcludeFromCodeCoverage]
-  protected Euler002() { }
-
   public static int fiboEvenSum(int n)
   {
     Log.info("fiboEvenSum({n})", n);

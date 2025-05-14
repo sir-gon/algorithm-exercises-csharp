@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class DiagonalDifference
+public static class DiagonalDifference
 {
-  [ExcludeFromCodeCoverage]
-  protected DiagonalDifference() { }
-
   public static int diagonalDifference(List<List<int>> _arr)
   {
     ArgumentNullException.ThrowIfNull(_arr);

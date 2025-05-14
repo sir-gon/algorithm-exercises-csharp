@@ -5,10 +5,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictio
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
-public class SherlockAndAnagrams
+public static class SherlockAndAnagrams
 {
-  [ExcludeFromCodeCoverage]
-  protected SherlockAndAnagrams() { }
 
   /**
    * factorial().

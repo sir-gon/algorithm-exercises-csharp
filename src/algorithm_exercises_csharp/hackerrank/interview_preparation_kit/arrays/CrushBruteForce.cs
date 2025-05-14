@@ -5,11 +5,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays
 
 using System.Diagnostics.CodeAnalysis;
 
-public class CrushBruteForce
+public static class CrushBruteForce
 {
-  [ExcludeFromCodeCoverage]
-  protected CrushBruteForce() { }
-
   private const int INITIALIZER = 0;
 
   public static long arrayManipulation(int n, List<List<int>> queries)

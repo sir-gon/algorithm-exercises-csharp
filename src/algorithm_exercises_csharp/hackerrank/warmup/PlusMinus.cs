@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Globalization;
 
-public class PlusMinus
+public static class PlusMinus
 {
-  [ExcludeFromCodeCoverage]
-  protected PlusMinus() { }
-
   public static string plusMinus(List<int> arr)
   {
     ArgumentNullException.ThrowIfNull(arr);

@@ -34,7 +34,8 @@ public class LuckBalanceTest
       Assert.AreEqual(
         test.expected,
         result,
-        String.Format(
+        string.Format(
+          System.Globalization.CultureInfo.InvariantCulture,
           "testLuckBalance({0}, {1}) => must be: {2}",
           test.k,
           test.contests.ToString(),

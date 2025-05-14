@@ -43,16 +43,16 @@ public static class NewYearChaos
   /**
    * minimumBribes.
    */
-  public static String minimumBribesText(List<int> q)
+  public static string minimumBribesText(List<int> q)
   {
     try
     {
       int bribes = minimumBribesCalculate(q);
-      return String.Format("{0}", bribes);
+      return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", bribes);
     }
     catch (InvalidOperationException e)
     {
-      return String.Format(e.Message);
+      return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", e.Message);
     }
   }
 
@@ -61,6 +61,6 @@ public static class NewYearChaos
    */
   public static void minimumBribes(List<int> q)
   {
-    Console.WriteLine("{0}", minimumBribesText(q));
+    Console.WriteLine(minimumBribesText(q));
   }
 }

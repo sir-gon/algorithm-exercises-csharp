@@ -33,7 +33,8 @@ public class MinimumAbsoluteDifferenceInAnArrayTest
       Assert.AreEqual(
         test.expected,
         result,
-        String.Format(
+        string.Format(
+          System.Globalization.CultureInfo.InvariantCulture,
           "minimumAbsoluteDifference({0}) => must be: {1}",
           test.input.ToString(),
           test.expected

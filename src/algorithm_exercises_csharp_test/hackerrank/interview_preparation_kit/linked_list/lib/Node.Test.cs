@@ -1,5 +1,5 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.linked_list.lib;
-using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.common;
 
 [TestClass]
 public class NodeTest

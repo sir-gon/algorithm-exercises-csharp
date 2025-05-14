@@ -2,15 +2,12 @@
 
 namespace algorithm_exercises_csharp.hackerrank.warmup;
 
-using System.Diagnostics.CodeAnalysis;
-
-public class MiniMaxSum
+public static class MiniMaxSum
 {
-  [ExcludeFromCodeCoverage]
-  protected MiniMaxSum() { }
-
   public static string miniMaxSum(List<int> arr)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     if (arr.Count == 0)
     {
       throw new ArgumentException("Parameter cannot be empty", nameof(arr));
@@ -28,6 +25,6 @@ public class MiniMaxSum
       tmax = Math.Max(tmax, value);
     }
 
-    return string.Format("{0} {1}", tsum - tmax, tsum - tmin);
+    return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0} {1}", tsum - tmax, tsum - tmin);
   }
 }

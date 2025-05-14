@@ -24,6 +24,9 @@ public class RansomNote
 
   public static bool checkMagazineCompute(List<string> magazine, List<string> note)
   {
+    ArgumentNullException.ThrowIfNull(magazine);
+    ArgumentNullException.ThrowIfNull(note);
+
     Dictionary<string, int> dictionary = [];
 
     foreach (string word in magazine)

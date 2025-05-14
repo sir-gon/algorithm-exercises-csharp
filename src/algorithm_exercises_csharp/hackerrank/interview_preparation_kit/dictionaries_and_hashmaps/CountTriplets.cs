@@ -4,7 +4,6 @@
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
-using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 
 public class CountTriplets
@@ -14,6 +13,8 @@ public class CountTriplets
 
   public static long countTriplets(List<long> arr, long r)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     Dictionary<long, long> aCounter = [];
     Dictionary<long, long> bCounter = [];
     long triplets = 0L;

@@ -31,6 +31,8 @@ public class TwoDArray
 
   public static int hourglassSum(List<List<int>> arr)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     int matrixSize = arr.Count;
 
     int matrixStartIndex = 1;

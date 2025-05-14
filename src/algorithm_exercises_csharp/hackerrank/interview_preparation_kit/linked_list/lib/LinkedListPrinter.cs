@@ -4,6 +4,8 @@ public static class LinkedListPrinter
 {
   public static void printSinglyLinkedList<T>(LinkedList<T>.Node? node, string sep, TextWriter textWriter)
   {
+    ArgumentNullException.ThrowIfNull(textWriter);
+
     var pointTo = node;
 
     while (pointTo != null)

@@ -116,6 +116,8 @@ public class FrequencyQueries
    */
   public static List<int> freqQuery(List<List<int>> queries)
   {
+    ArgumentNullException.ThrowIfNull(queries);
+
     FrequencyQueries fq = new();
 
     foreach (List<int> query in queries)

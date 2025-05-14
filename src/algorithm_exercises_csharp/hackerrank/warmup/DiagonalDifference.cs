@@ -11,6 +11,8 @@ public class DiagonalDifference
 
   public static int diagonalDifference(List<List<int>> _arr)
   {
+    ArgumentNullException.ThrowIfNull(_arr);
+
     int diag1 = 0;
     int diag2 = 0;
     int last = _arr.Count - 1;

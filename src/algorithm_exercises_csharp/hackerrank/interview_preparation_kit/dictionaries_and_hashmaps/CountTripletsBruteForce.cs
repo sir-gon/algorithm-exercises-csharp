@@ -12,6 +12,8 @@ public class CountTripletsBruteForce
 
   public static long countTriplets(List<long> arr, long r)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     long size = arr.Count;
     long counter = 0L;
 

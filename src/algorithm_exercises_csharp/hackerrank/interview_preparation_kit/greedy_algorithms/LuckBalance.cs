@@ -17,6 +17,8 @@ public class LuckBalance
 
   public static int luckBalance(int k, List<List<int>> contests)
   {
+    ArgumentNullException.ThrowIfNull(contests);
+
     List<Competition> important_competitions = [];
     List<Competition> nonimportant_competitions = [];
 

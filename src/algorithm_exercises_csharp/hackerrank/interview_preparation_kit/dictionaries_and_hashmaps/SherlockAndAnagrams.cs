@@ -26,6 +26,8 @@ public class SherlockAndAnagrams
 
   public static int sherlockAndAnagrams(string s)
   {
+    ArgumentException.ThrowIfNullOrEmpty(s);
+
     Dictionary<string, List<string>> candidates = [];
 
     int size = s.Length;

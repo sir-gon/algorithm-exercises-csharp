@@ -16,6 +16,8 @@ public class MinimumAbsoluteDifferenceInAnArray
    */
   public static int minimumAbsoluteDifference(List<int> arr)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     List<int> sortedNums = [.. arr.ConvertAll(x => x).OrderBy(x => x).ToList()];
 
     // Find the minimum absolute difference

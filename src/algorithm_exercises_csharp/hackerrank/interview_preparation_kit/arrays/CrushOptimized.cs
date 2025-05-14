@@ -15,6 +15,8 @@ public class CrushOptimized
    */
   public static long arrayManipulation(int n, List<List<int>> queries)
   {
+    ArgumentNullException.ThrowIfNull(queries);
+
     // why adding 2?
     //   first slot to adjust 1-based index and
     //   last slot for storing accumSum result

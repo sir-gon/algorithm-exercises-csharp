@@ -15,7 +15,10 @@ public class TwoStrings
 
   public static bool twoStringsCompute(string s1, string s2)
   {
-    char occurrence = s1.FirstOrDefault(c => s2.Contains(c), __EMPTY_CHAR__);
+    ArgumentException.ThrowIfNullOrEmpty(s1);
+    ArgumentException.ThrowIfNullOrEmpty(s2);
+
+    char occurrence = s1.FirstOrDefault(s2.Contains, __EMPTY_CHAR__);
 
     if (occurrence != __EMPTY_CHAR__)
     {

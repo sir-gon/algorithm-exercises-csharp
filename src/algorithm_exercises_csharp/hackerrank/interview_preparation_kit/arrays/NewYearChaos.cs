@@ -2,20 +2,17 @@
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays;
 
-using System.Diagnostics.CodeAnalysis;
-
-public class NewYearChaos
+public static class NewYearChaos
 {
-  [ExcludeFromCodeCoverage]
-  protected NewYearChaos() { }
-
-  public const String TOO_CHAOTIC_ERROR = "Too chaotic";
+  public const string TOO_CHAOTIC_ERROR = "Too chaotic";
 
   /**
    * minimumBribesCalculate.
    */
   public static int minimumBribesCalculate(List<int> q)
   {
+    ArgumentNullException.ThrowIfNull(q);
+
     int bribes = 0;
     int i = 0;
 

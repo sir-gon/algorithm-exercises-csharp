@@ -14,6 +14,8 @@ public class CrushBruteForce
 
   public static long arrayManipulation(int n, List<List<int>> queries)
   {
+    ArgumentNullException.ThrowIfNull(queries);
+
     // why adding 1?
     //   first slot to adjust 1-based index and
     int[] result = new int[n + 1];

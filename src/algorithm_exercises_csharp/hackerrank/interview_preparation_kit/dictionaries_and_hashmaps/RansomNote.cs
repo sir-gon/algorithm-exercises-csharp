@@ -45,7 +45,7 @@ public class RansomNote
           throw new InvalidValueException("Value can't go below 0");
         }
       }
-      catch
+      catch (InvalidValueException)
       {
         return false;
       }

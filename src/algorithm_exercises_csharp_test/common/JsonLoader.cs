@@ -1,4 +1,5 @@
-namespace algorithm_exercises_csharp_test.lib;
+namespace algorithm_exercises_csharp_test.common;
+
 using algorithm_exercises_csharp;
 
 using System.Reflection;

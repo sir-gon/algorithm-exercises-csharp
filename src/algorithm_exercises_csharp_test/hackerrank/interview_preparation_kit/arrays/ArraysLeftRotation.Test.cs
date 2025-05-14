@@ -1,23 +1,24 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.arrays;
-using algorithm_exercises_csharp_test.lib;
+
+using algorithm_exercises_csharp_test.common;
 using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays;
 
 [TestClass]
 public class ArraysLeftRotationTest
 {
-  public class ArraysLeftRotationsTestCase(int[] input, int d, int[] expected)
+  public class ArraysLeftRotationsTestCase(List<int> input, int d_rotations, List<int> expected)
   {
-    private readonly List<int> input = [.. input];
-    private readonly int d = d;
-    private readonly List<int> expected = [.. expected];
+    private List<int> input = input;
+    private int d_rotations = d_rotations;
+    private List<int> expected = expected;
 
     public List<int> Input
     {
       get { return input; }
     }
-    public int D
+    public int D_rotations
     {
-      get { return d; }
+      get { return d_rotations; }
     }
     public List<int> Expected
     {
@@ -42,7 +43,7 @@ public class ArraysLeftRotationTest
 
     foreach (ArraysLeftRotationsTestCase test in testCases)
     {
-      result = ArraysLeftRotation.rotLeft(test.Input, test.D);
+      result = ArraysLeftRotation.rotLeft(test.Input, test.D_rotations);
       CollectionAssert.AreEquivalent(test.Expected, result);
     }
   }

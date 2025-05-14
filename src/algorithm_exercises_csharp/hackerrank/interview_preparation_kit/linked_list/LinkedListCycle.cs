@@ -1,7 +1,7 @@
 // @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/ctci_linked_list_cycle.md]]
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list;
-using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.common;
 
 using System.Diagnostics.CodeAnalysis;
 

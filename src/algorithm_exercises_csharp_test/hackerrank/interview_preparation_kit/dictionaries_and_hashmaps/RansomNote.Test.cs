@@ -1,5 +1,6 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
-using algorithm_exercises_csharp_test.lib;
+
+using algorithm_exercises_csharp_test.common;
 using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
 [TestClass]
@@ -53,5 +54,15 @@ public class RansomNoteTest
       result = RansomNote.checkMagazine(test.Magazine, test.Note);
       Assert.AreEqual(test.Expected, result);
     }
+  }
+
+  [TestMethod]
+  public void testException()
+  {
+#pragma warning disable CA2201 // No provocar tipos de excepción reservados
+    Assert.ThrowsExactly<RansomNote.InvalidValueException>(() => throw new RansomNote.InvalidValueException());
+
+    Assert.ThrowsExactly<RansomNote.InvalidValueException>(() => throw new RansomNote.InvalidValueException("test exception", new Exception("test exception")));
+#pragma warning restore CA2201 // No provocar tipos de excepción reservados
   }
 }

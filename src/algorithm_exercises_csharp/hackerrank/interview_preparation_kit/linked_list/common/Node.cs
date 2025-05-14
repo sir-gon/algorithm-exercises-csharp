@@ -1,4 +1,4 @@
-namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
+namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.common;
 
 public static class LinkedList<T>
 {

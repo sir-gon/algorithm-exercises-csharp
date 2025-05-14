@@ -1,7 +1,8 @@
 namespace algorithm_exercises_csharp_test.hackerrank.warmup;
+
 using algorithm_exercises_csharp.hackerrank.warmup;
 
-using algorithm_exercises_csharp_test.lib;
+using algorithm_exercises_csharp_test.common;
 
 [TestClass]
 public class BirthdayCakeCandlesTest

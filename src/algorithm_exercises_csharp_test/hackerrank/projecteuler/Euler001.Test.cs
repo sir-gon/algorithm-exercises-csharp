@@ -6,15 +6,16 @@ public class Euler001Test
 {
   public class Euler001TestCase
   {
-    public int a; public int b; public int n; public int answer;
+    public int A { get; set; }
+    public int B { get; set; }
+    public int N { get; set; }
+    public int Answer { get; set; }
   }
 
-  // dotnet_style_readonly_field = true
   private static readonly Euler001TestCase[] tests = [
-    new() { a = 3, b = 5, n = 10, answer = 23 },
-    new() { a = 3, b = 5, n = 100, answer = 2318 },
-    new() { a = 3, b = 5, n = 1000, answer = 233168 },
-
+    new() { A = 3, B = 5, N = 10, Answer = 23 },
+    new() { A = 3, B = 5, N = 100, Answer = 2318 },
+    new() { A = 3, B = 5, N = 1000, Answer = 233168 }
   ];
 
   [TestMethod]
@@ -24,8 +25,8 @@ public class Euler001Test
 
     foreach (Euler001TestCase test in tests)
     {
-      result = Euler001.euler001(test.a, test.b, test.n);
-      Assert.AreEqual(test.answer, result);
+      result = Euler001.euler001(test.A, test.B, test.N);
+      Assert.AreEqual(test.Answer, result);
     }
   }
 }

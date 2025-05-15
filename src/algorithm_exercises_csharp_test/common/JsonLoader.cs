@@ -1,15 +1,19 @@
-namespace algorithm_exercises_csharp_test.lib;
+namespace algorithm_exercises_csharp_test.common;
+
 using algorithm_exercises_csharp;
 
 using System.Reflection;
 using System.Text;
+using System;
+
 using Newtonsoft.Json;
 
 public static class JsonLoader
 {
-  public static T? resourceLoad<T>(string _path)
+  public static T? resourceLoad<T>(string path)
   {
-    string path = _path;
+    ArgumentNullException.ThrowIfNull(path);
+
     path = path.Replace('/', '.');
     path = path.Replace('\\', '.');
 
@@ -23,11 +27,15 @@ public static class JsonLoader
         .GetExecutingAssembly()
         .GetManifestResourceStream($"{path}")!;
 
-
     using var streamReader = new StreamReader(stream, Encoding.UTF8);
 
     return JsonConvert.DeserializeObject<T>(
       streamReader.ReadToEnd()
     );
+  }
+
+  public static T? stringLoad<T>(string json)
+  {
+    return JsonConvert.DeserializeObject<T>(json);
   }
 }

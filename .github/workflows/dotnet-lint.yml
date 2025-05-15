@@ -15,8 +15,8 @@ on: # yamllint disable-line rule:truthy
   workflow_dispatch:
 
 jobs:
-  test:
-    name: "Run Tests"
+  lint:
+    name: "Run LINT"
     strategy:
       fail-fast: false
       matrix:
@@ -34,12 +34,5 @@ jobs:
           dotnet --version
       - name: Restore dependencies
         run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore
       - name: Lint (codestyle)
         run: dotnet format --verify-no-changes --verbosity normal
-      - name: Test
-        run: >
-          dotnet test --no-build
-          --verbosity normal
-          --logger "console;verbosity=detailed"

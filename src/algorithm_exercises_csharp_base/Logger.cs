@@ -12,6 +12,7 @@ public static class Log
     public static LoggerSingleton Instance => _instance.Value;
 
     public ILogger Logger { get; }
+    private readonly ILoggerFactory _loggerFactory;
 
     private LoggerSingleton()
     {
@@ -24,54 +25,66 @@ public static class Log
         logLevel = LogLevel.Information; // Set the minimum logging level
       }
 
-      var loggerFactory = LoggerFactory.Create(builder =>
+      _loggerFactory = LoggerFactory.Create(builder =>
       {
         builder
                 .AddConsole()
                 .SetMinimumLevel(logLevel); // set minimum logging level
       });
 
-      Logger = loggerFactory.CreateLogger("GlobalLogger");
+      Logger = _loggerFactory.CreateLogger("GlobalLogger");
 
-      Logger.LogInformation("Initializing");
-
-      Logger.LogInformation("Info level enabled");
-      Logger.LogWarning("Warning level enabled");
-      Logger.LogError("Error level enabled");
-      Logger.LogDebug("Debug level enabled");
+      _logInfo(Logger, "Initializing", Array.Empty<object>(), null);
+      _logInfo(Logger, "Info level enabled", Array.Empty<object>(), null);
+      _logWarning(Logger, "Warning level enabled", Array.Empty<object>(), null);
+      _logError(Logger, "Error level enabled", Array.Empty<object>(), null);
+      _logDebug(Logger, "Debug level enabled", Array.Empty<object>(), null);
     }
   }
 
-  public static ILogger getLogger()
-  {
-    return LoggerSingleton.Instance.Logger;
-  }
+  public static ILogger Logger => LoggerSingleton.Instance.Logger;
+
+  private static readonly Action<ILogger, string, object?[]?, Exception?> _logInfo =
+      LoggerMessage.Define<string, object?[]?>(
+          LogLevel.Information,
+          new EventId(3, nameof(info)),
+          "{Message} {Args}");
 
   public static void info(string message, params object?[] args)
   {
-#pragma warning disable CA2254 // Template should be a static expression
-    LoggerSingleton.Instance.Logger.LogInformation(message, args);
-#pragma warning restore CA2254 // Template should be a static expression
+    _logInfo(LoggerSingleton.Instance.Logger, message, args, null);
   }
+
+  private static readonly Action<ILogger, string, object?[]?, Exception?> _logWarning =
+      LoggerMessage.Define<string, object?[]?>(
+          LogLevel.Warning,
+          new EventId(2, nameof(warning)),
+          "{Message} {Args}");
 
   public static void warning(string message, params object?[] args)
   {
-#pragma warning disable CA2254 // Template should be a static expression
-    LoggerSingleton.Instance.Logger.LogWarning(message);
-#pragma warning restore CA2254 // Template should be a static expression
+    _logWarning(LoggerSingleton.Instance.Logger, message, args, null);
   }
+
+  private static readonly Action<ILogger, string, object?[]?, Exception?> _logError =
+      LoggerMessage.Define<string, object?[]?>(
+          LogLevel.Error,
+          new EventId(1, nameof(error)),
+          "{Message} {Args}");
 
   public static void error(string message, params object?[] args)
   {
-#pragma warning disable CA2254 // Template should be a static expression
-    LoggerSingleton.Instance.Logger.LogError(message);
-#pragma warning restore CA2254 // Template should be a static expression
+    _logError(LoggerSingleton.Instance.Logger, message, args, null);
   }
+
+  private static readonly Action<ILogger, string, object?[]?, Exception?> _logDebug =
+      LoggerMessage.Define<string, object?[]?>(
+          LogLevel.Debug,
+          new EventId(0, nameof(debug)),
+          "{Message} {Args}");
 
   public static void debug(string message, params object?[] args)
   {
-#pragma warning disable CA2254 // Template should be a static expression
-    LoggerSingleton.Instance.Logger.LogDebug(message);
-#pragma warning restore CA2254 // Template should be a static expression
+    _logDebug(LoggerSingleton.Instance.Logger, message, args, null);
   }
 }

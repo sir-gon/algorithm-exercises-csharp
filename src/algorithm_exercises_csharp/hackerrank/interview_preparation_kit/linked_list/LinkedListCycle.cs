@@ -1,15 +1,12 @@
 // @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/ctci_linked_list_cycle.md]]
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list;
-using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.common;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class LinkedListCycle
+public static class LinkedListCycle
 {
-  [ExcludeFromCodeCoverage]
-  protected LinkedListCycle() { }
-
   public static bool hasCycle<T>(LinkedList<T>.Node? head)
   {
     List<LinkedList<T>.Node> llindex = [];

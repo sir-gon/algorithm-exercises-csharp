@@ -1,5 +1,6 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
-using algorithm_exercises_csharp_test.lib;
+
+using algorithm_exercises_csharp_test.common;
 using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
 [TestClass]

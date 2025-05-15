@@ -1,11 +1,11 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.linked_list;
 using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list;
-using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.common;
 
 [TestClass]
 public class LinkedListCycleTest
 {
-  class LinkedListCycleTestCase
+  private sealed class LinkedListCycleTestCase
   {
     public string title = "";
     public LinkedList<string>.Node? llist;
@@ -65,6 +65,7 @@ public class LinkedListCycleTest
         test.expected,
         result,
         String.Format(
+          System.Globalization.CultureInfo.InvariantCulture,
           "{0} testLinkedListCycle({1}) => must be: {2}",
           test.title,
           test.llist,

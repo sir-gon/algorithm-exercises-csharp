@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays
 
 using System.Diagnostics.CodeAnalysis;
 
-public class ArraysLeftRotation
+public static class ArraysLeftRotation
 {
-  [ExcludeFromCodeCoverage]
-  protected ArraysLeftRotation() { }
-
   public const int FIRST_POSITION = 0;
 
   /**
@@ -16,6 +13,8 @@ public class ArraysLeftRotation
    */
   public static List<int> rotLeftOne(List<int> input)
   {
+    ArgumentNullException.ThrowIfNull(input);
+
     int first = input[FIRST_POSITION];
     input.RemoveAt(FIRST_POSITION);
     input.Add(first);
@@ -28,6 +27,8 @@ public class ArraysLeftRotation
    */
   public static List<int> rotLeft(List<int> input, int d)
   {
+    ArgumentNullException.ThrowIfNull(input);
+
     // Clone the list
     List<int> output = input.GetRange(FIRST_POSITION, input.Count);
 

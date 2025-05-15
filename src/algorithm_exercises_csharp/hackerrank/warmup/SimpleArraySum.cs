@@ -4,16 +4,15 @@ namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class SimpleArraySum
+public static class SimpleArraySum
 {
-  [ExcludeFromCodeCoverage]
-  protected SimpleArraySum() { }
-
-  public static int simpleArraySum(int[] inputs)
+  public static int simpleArraySum(List<int> ar)
   {
+    ArgumentNullException.ThrowIfNull(ar);
+
     var total = 0;
 
-    foreach (int i in inputs)
+    foreach (int i in ar)
     {
       total += i;
     }

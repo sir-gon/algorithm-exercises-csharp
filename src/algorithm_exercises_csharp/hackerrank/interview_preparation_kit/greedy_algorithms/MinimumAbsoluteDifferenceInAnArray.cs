@@ -4,18 +4,15 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.greedy
 
 using System.Diagnostics.CodeAnalysis;
 
-public class MinimumAbsoluteDifferenceInAnArray
+public static class MinimumAbsoluteDifferenceInAnArray
 {
-  [ExcludeFromCodeCoverage]
-  private MinimumAbsoluteDifferenceInAnArray()
-  {
-  }
-
   /**
    * minimumAbsoluteDifference.
    */
   public static int minimumAbsoluteDifference(List<int> arr)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     List<int> sortedNums = [.. arr.ConvertAll(x => x).OrderBy(x => x).ToList()];
 
     // Find the minimum absolute difference

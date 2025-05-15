@@ -3,13 +3,9 @@
 namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Text;
-using System.Diagnostics.CodeAnalysis;
 
-public class Staircase
+public static class Staircase
 {
-  [ExcludeFromCodeCoverage]
-  protected Staircase() { }
-
   public static string staircase(int _n)
   {
     List<string> result = [];
@@ -32,6 +28,6 @@ public class Staircase
 
       result.Add(line.ToString());
     }
-    return String.Join("\n", result);
+    return string.Join("\n", result);
   }
 }

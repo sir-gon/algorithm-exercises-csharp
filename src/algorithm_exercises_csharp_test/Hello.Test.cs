@@ -34,7 +34,7 @@ public class HelloWorldTest
   public void testHello()
   {
     string expected = "Hello World!";
-    string result = HelloWorld.hello();
+    string result = new HelloWorld().hello();
 
     Assert.AreEqual(expected, result);
   }

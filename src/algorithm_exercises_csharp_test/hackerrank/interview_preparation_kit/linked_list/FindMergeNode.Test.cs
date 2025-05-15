@@ -1,11 +1,11 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.linked_list;
 using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list;
-using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.common;
 
 [TestClass]
 public class FindMergeNodeTest
 {
-  class FindMergeNodeTestCase()
+  private sealed class FindMergeNodeTestCase()
   {
     public string title = "";
     public LinkedList<int>.Node llist1 = new(0);
@@ -81,7 +81,8 @@ public class FindMergeNodeTest
       Assert.AreEqual(
         test.expected,
         result,
-        String.Format(
+        string.Format(
+          System.Globalization.CultureInfo.InvariantCulture,
           "{0} findMergeNode({1}, {2}) => must be: {3}",
           test.title,
           test.llist1,

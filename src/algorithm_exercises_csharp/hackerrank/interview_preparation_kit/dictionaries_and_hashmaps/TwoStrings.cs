@@ -4,18 +4,18 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictio
 
 using System.Diagnostics.CodeAnalysis;
 
-public class TwoStrings
+public static class TwoStrings
 {
-  [ExcludeFromCodeCoverage]
-  protected TwoStrings() { }
-
-  private static readonly string __YES__ = "Yes";
-  private static readonly string __NO__ = "No";
-  private static readonly char __EMPTY_CHAR__ = '\0';
+  private const string __YES__ = "Yes";
+  private const string __NO__ = "No";
+  private const char __EMPTY_CHAR__ = '\0';
 
   public static bool twoStringsCompute(string s1, string s2)
   {
-    char occurrence = s1.FirstOrDefault(c => s2.Contains(c), __EMPTY_CHAR__);
+    ArgumentException.ThrowIfNullOrEmpty(s1);
+    ArgumentException.ThrowIfNullOrEmpty(s2);
+
+    char occurrence = s1.FirstOrDefault(s2.Contains, __EMPTY_CHAR__);
 
     if (occurrence != __EMPTY_CHAR__)
     {

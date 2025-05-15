@@ -9,7 +9,7 @@ public class HelloWorldBruteForceTest
   public void testInitialize()
   {
     var envValue = Environment.GetEnvironmentVariable("BRUTEFORCE");
-    envValue = envValue?.ToUpper();
+    envValue = envValue?.ToUpperInvariant();
     if (!allowedValues.Contains(envValue, StringComparer.OrdinalIgnoreCase))
     {
       Assert.Inconclusive($"Skipping BRUTEFORCE test because environment variable 'BRUTEFORCE' is not one of the expected values.");
@@ -20,7 +20,7 @@ public class HelloWorldBruteForceTest
   public void testHelloBruteForce()
   {
     string expected = "Hello World!";
-    string result = HelloWorld.hello();
+    string result = HelloWorld.create().hello();
 
     Assert.AreEqual(expected, result);
   }

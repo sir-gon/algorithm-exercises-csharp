@@ -4,13 +4,12 @@ namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class BirthdayCakeCandles
+public static class BirthdayCakeCandles
 {
-  [ExcludeFromCodeCoverage]
-  protected BirthdayCakeCandles() { }
-
   public static int birthdayCakeCandles(List<int> _arr)
   {
+    ArgumentNullException.ThrowIfNull(_arr);
+
     if (_arr.Count == 0)
     {
       throw new ArgumentException("Parameter cannot be empty", nameof(_arr));

@@ -3,15 +3,13 @@
 namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Globalization;
-using System.Diagnostics.CodeAnalysis;
 
-public class PlusMinus
+public static class PlusMinus
 {
-  [ExcludeFromCodeCoverage]
-  protected PlusMinus() { }
-
   public static string plusMinus(List<int> arr)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     int positives = 0;
     int negatives = 0;
     int zeros = 0;

@@ -1,10 +1,11 @@
-namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.linked_list.lib;
-using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.lib;
+namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.linked_list.common;
+
+using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.linked_list.common;
 
 [TestClass]
 public class NodeTest
 {
-  class NodeTestCase
+  private sealed class NodeTestCase
   {
     public string title = "";
     public LinkedList<int>.Node? llist;
@@ -45,15 +46,15 @@ public class NodeTest
   {
     foreach (NodeTestCase test in tests)
     {
-      StringWriter sw = new();
-
-      LinkedList<int>.printSinglyLinkedList(test.llist, test.separator, sw);
+      using StringWriter sw = new();
+      LinkedListPrinter.printSinglyLinkedList<int>(test.llist, test.separator, sw);
 
       string result = sw.ToString();
       Assert.AreEqual(
         test.expected,
         result,
-        String.Format(
+        string.Format(
+          System.Globalization.CultureInfo.InvariantCulture,
           "{0} testPrintLinkedList<int>(<Node>, {1}, <Textwriter>) => must be: {2}",
           test.title,
           test.separator,

@@ -1,15 +1,29 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
-using algorithm_exercises_csharp_test.lib;
+
+using algorithm_exercises_csharp_test.common;
 using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
 [TestClass]
 public class FrequencyQueriesTest
 {
-  public class FrequencyQueriesTestCase
+  public class FrequencyQueriesTestCase(string title, List<List<int>> input, List<int> expected)
   {
-    public string title { get; set; } = default!;
-    public List<List<int>> input { get; set; } = default!;
-    public List<int> expected { get; set; } = default!;
+    private string title = title;
+    private List<List<int>> input = input;
+    private List<int> expected = expected;
+
+    public string Title
+    {
+      get { return title; }
+    }
+    public List<List<int>> Input
+    {
+      get { return input; }
+    }
+    public List<int> Expected
+    {
+      get { return expected; }
+    }
   }
 
   List<FrequencyQueriesTestCase> testCases { get; set; } = default!;
@@ -44,11 +58,11 @@ public class FrequencyQueriesTest
 
     foreach (FrequencyQueriesTestCase test in testCases)
     {
-      solutionFound = FrequencyQueries.freqQuery(test.input);
+      solutionFound = FrequencyQueries.freqQuery(test.Input);
       CollectionAssert.AreEqual(
-        test.expected,
+        test.Expected,
         solutionFound,
-        $"FrequencyQueries.freqQuery({test.input}) answer must be: {test.expected}"
+        $"FrequencyQueries.freqQuery({test.Input}) answer must be: {test.Expected}"
       );
     }
   }
@@ -60,11 +74,11 @@ public class FrequencyQueriesTest
 
     foreach (FrequencyQueriesTestCase test in testCase6)
     {
-      solutionFound = FrequencyQueries.freqQuery(test.input);
+      solutionFound = FrequencyQueries.freqQuery(test.Input);
       CollectionAssert.AreEqual(
-        test.expected,
+        test.Expected,
         solutionFound,
-        $"FrequencyQueries.freqQuery({test.input}) answer must be: {test.expected}"
+        $"FrequencyQueries.freqQuery({test.Input}) answer must be: {test.Expected}"
       );
     }
   }
@@ -76,11 +90,11 @@ public class FrequencyQueriesTest
 
     foreach (FrequencyQueriesTestCase test in testCaseBorderCases)
     {
-      solutionFound = FrequencyQueries.freqQuery(test.input);
+      solutionFound = FrequencyQueries.freqQuery(test.Input);
       CollectionAssert.AreEqual(
-        test.expected,
+        test.Expected,
         solutionFound,
-        $"FrequencyQueries.freqQuery({test.input}) answer must be: {test.expected}"
+        $"FrequencyQueries.freqQuery({test.Input}) answer must be: {test.Expected}"
       );
     }
   }
@@ -90,7 +104,7 @@ public class FrequencyQueriesTest
   {
     foreach (FrequencyQueriesTestCase test in testCaseBorderCaseException)
     {
-      Assert.ThrowsExactly<InvalidOperationException>(() => _ = FrequencyQueries.freqQuery(test.input));
+      Assert.ThrowsExactly<InvalidOperationException>(() => _ = FrequencyQueries.freqQuery(test.Input));
     }
   }
 }

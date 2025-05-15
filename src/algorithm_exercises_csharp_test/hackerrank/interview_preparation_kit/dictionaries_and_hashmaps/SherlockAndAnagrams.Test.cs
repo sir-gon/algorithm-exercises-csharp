@@ -1,23 +1,30 @@
 namespace algorithm_exercises_csharp_test.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
-using algorithm_exercises_csharp_test.lib;
+
+using algorithm_exercises_csharp_test.common;
 using algorithm_exercises_csharp.hackerrank.interview_preparation_kit.dictionaries_and_hashmaps;
 
 [TestClass]
 public class SherlockAndAnagramsTest
 {
-  public class SherlockAndAnagramsTestCase
+  public class TestCase
   {
-    /**
-     * SherlockAndAnagramsTestCase.TestCase.
-     */
-    public class TestCase
-    {
-      public string input { get; set; } = default!;
-      public int expected { get; set; } = default!;
-    }
+    public string input { get; set; } = default!;
+    public int expected { get; set; } = default!;
+  }
 
-    public string title { get; set; } = default!;
-    public List<TestCase> tests { get; set; } = default!;
+  public class SherlockAndAnagramsTestCase(string title, List<TestCase> tests)
+  {
+    private string title = title;
+    private List<TestCase> tests = tests;
+
+    public string Title
+    {
+      get { return title; }
+    }
+    public List<TestCase> Tests
+    {
+      get { return tests; }
+    }
   }
 
   private List<SherlockAndAnagramsTestCase> testCases { get; set; } = default!;
@@ -37,7 +44,7 @@ public class SherlockAndAnagramsTest
 
     foreach (SherlockAndAnagramsTestCase testSet in testCases)
     {
-      foreach (SherlockAndAnagramsTestCase.TestCase test in testSet.tests)
+      foreach (SherlockAndAnagramsTest.TestCase test in testSet.Tests)
       {
         result = SherlockAndAnagrams.sherlockAndAnagrams(test.input);
         Assert.AreEqual(test.expected, result);

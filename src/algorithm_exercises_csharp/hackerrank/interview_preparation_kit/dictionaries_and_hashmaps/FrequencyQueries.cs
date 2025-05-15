@@ -13,14 +13,14 @@ public class FrequencyQueries
     reset();
   }
 
-  private static readonly long __INITIAL__ = 1L;
+  private const long __INITIAL__ = 1L;
 
   private const int __INSERT__ = 1;
   private const int __DELETE__ = 2;
   private const int __SELECT__ = 3;
 
-  private static readonly int __NOT_FOUND__ = 0;
-  private static readonly int __FOUND__ = 1;
+  private const int __NOT_FOUND__ = 0;
+  private const int __FOUND__ = 1;
 
   readonly Dictionary<long, long> valueFreqs = [];
   readonly Dictionary<long, List<long>> freqDictionary = [];
@@ -116,6 +116,8 @@ public class FrequencyQueries
    */
   public static List<int> freqQuery(List<List<int>> queries)
   {
+    ArgumentNullException.ThrowIfNull(queries);
+
     FrequencyQueries fq = new();
 
     foreach (List<int> query in queries)

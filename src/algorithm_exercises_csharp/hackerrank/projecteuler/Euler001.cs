@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.projecteuler;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class Euler001
+public static class Euler001
 {
-  [ExcludeFromCodeCoverage]
-  protected Euler001() { }
-
   public static int sumOfArithmeticProgression(int n, int d)
   {
     int new_n = n / d;

@@ -4,13 +4,13 @@ namespace algorithm_exercises_csharp.hackerrank.warmup;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class CompareTriplets
+public static class CompareTriplets
 {
-  [ExcludeFromCodeCoverage]
-  protected CompareTriplets() { }
-
   public static List<int> compareTriplets(List<int> _a, List<int> _b)
   {
+    ArgumentNullException.ThrowIfNull(_a);
+    ArgumentNullException.ThrowIfNull(_b);
+
     List<int> awards = [0, 0];
 
     for (int i = 0; i < _a.Count; i++)

@@ -2,20 +2,17 @@
 
 namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays;
 
-using System.Diagnostics.CodeAnalysis;
-
-public class NewYearChaos
+public static class NewYearChaos
 {
-  [ExcludeFromCodeCoverage]
-  protected NewYearChaos() { }
-
-  public const String TOO_CHAOTIC_ERROR = "Too chaotic";
+  public const string TOO_CHAOTIC_ERROR = "Too chaotic";
 
   /**
    * minimumBribesCalculate.
    */
   public static int minimumBribesCalculate(List<int> q)
   {
+    ArgumentNullException.ThrowIfNull(q);
+
     int bribes = 0;
     int i = 0;
 
@@ -46,16 +43,16 @@ public class NewYearChaos
   /**
    * minimumBribes.
    */
-  public static String minimumBribesText(List<int> q)
+  public static string minimumBribesText(List<int> q)
   {
     try
     {
       int bribes = minimumBribesCalculate(q);
-      return String.Format("{0}", bribes);
+      return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", bribes);
     }
     catch (InvalidOperationException e)
     {
-      return String.Format(e.Message);
+      return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", e.Message);
     }
   }
 
@@ -64,6 +61,6 @@ public class NewYearChaos
    */
   public static void minimumBribes(List<int> q)
   {
-    Console.WriteLine("{0}", minimumBribesText(q));
+    Console.WriteLine(minimumBribesText(q));
   }
 }

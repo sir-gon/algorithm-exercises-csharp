@@ -6,11 +6,8 @@ namespace algorithm_exercises_csharp.hackerrank.projecteuler;
 
 using System.Diagnostics.CodeAnalysis;
 
-public class Euler003
+public static class Euler003
 {
-  [ExcludeFromCodeCoverage]
-  protected Euler003() { }
-
   public static int? primeFactor(int n)
   {
     if (n < 2)

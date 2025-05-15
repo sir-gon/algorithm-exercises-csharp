@@ -4,11 +4,8 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays
 
 using System.Diagnostics.CodeAnalysis;
 
-public class TwoDArray
+public static class TwoDArray
 {
-  [ExcludeFromCodeCoverage]
-  protected TwoDArray() { }
-
   private static List<int> getHourGlass(List<List<int>> arr, int positionX, int positionY)
   {
     List<int> result = [];
@@ -31,6 +28,8 @@ public class TwoDArray
 
   public static int hourglassSum(List<List<int>> arr)
   {
+    ArgumentNullException.ThrowIfNull(arr);
+
     int matrixSize = arr.Count;
 
     int matrixStartIndex = 1;

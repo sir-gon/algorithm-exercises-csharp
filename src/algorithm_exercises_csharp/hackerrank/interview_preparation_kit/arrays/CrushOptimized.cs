@@ -5,16 +5,15 @@ namespace algorithm_exercises_csharp.hackerrank.interview_preparation_kit.arrays
 
 using System.Diagnostics.CodeAnalysis;
 
-public class CrushOptimized
+public static class CrushOptimized
 {
-  [ExcludeFromCodeCoverage]
-  private CrushOptimized() { }
-
   /**
   // arrayManipulation.
    */
   public static long arrayManipulation(int n, List<List<int>> queries)
   {
+    ArgumentNullException.ThrowIfNull(queries);
+
     // why adding 2?
     //   first slot to adjust 1-based index and
     //   last slot for storing accumSum result

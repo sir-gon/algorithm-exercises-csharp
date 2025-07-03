@@ -8,26 +8,10 @@ public class CrushOptimizedTest
 {
   public class CrushOptimizedTestCase(string title, List<List<int>> queries, int n, long expected)
   {
-    private string title = title;
-    private List<List<int>> queries = queries;
-    private int n = n;
-    private long expected = expected;
-    public string Title
-    {
-      get { return title; }
-    }
-    public List<List<int>> Queries
-    {
-      get { return queries; }
-    }
-    public int N
-    {
-      get { return n; }
-    }
-    public long Expected
-    {
-      get { return expected; }
-    }
+    public string Title { get; } = title;
+    public List<List<int>> Queries { get; } = queries;
+    public int N { get; } = n;
+    public long Expected { get; } = expected;
   }
 
   private List<CrushOptimizedTestCase> testCases { get; set; } = default!;

@@ -8,22 +8,9 @@ public class ArraysLeftRotationTest
 {
   public class ArraysLeftRotationsTestCase(List<int> input, int d_rotations, List<int> expected)
   {
-    private List<int> input = input;
-    private int d_rotations = d_rotations;
-    private List<int> expected = expected;
-
-    public List<int> Input
-    {
-      get { return input; }
-    }
-    public int D_rotations
-    {
-      get { return d_rotations; }
-    }
-    public List<int> Expected
-    {
-      get { return expected; }
-    }
+    public List<int> Input { get; } = input;
+    public int D_rotations { get; } = d_rotations;
+    public List<int> Expected { get; } = expected;
   }
 
   private List<ArraysLeftRotationsTestCase> testCases = default!;

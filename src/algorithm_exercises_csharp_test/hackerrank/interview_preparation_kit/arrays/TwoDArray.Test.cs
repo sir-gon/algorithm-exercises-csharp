@@ -8,22 +8,9 @@ public class TwoDArrayTest
 {
   public class TwoDArrayTestCase(string title, List<List<int>> input, long expected)
   {
-    private string title = title;
-    private List<List<int>> input = input;
-    private long expected = expected;
-
-    public string Title
-    {
-      get { return title; }
-    }
-    public List<List<int>> Input
-    {
-      get { return input; }
-    }
-    public long Expected
-    {
-      get { return expected; }
-    }
+    public string Title { get; } = title;
+    public List<List<int>> Input { get; } = input;
+    public long Expected { get; } = expected;
   }
 
   private List<TwoDArrayTestCase> testCases { get; set; } = default!;

@@ -8,24 +8,9 @@ public class NewYearChaosTest
 {
   public class NewYearChaosTestCase(string title, int[] input, string expected)
   {
-    private readonly string title = title;
-    private readonly List<int> input = [.. input];
-    private readonly string expected = expected;
-
-    public string Title
-    {
-      get { return title; }
-    }
-
-    public List<int> Input
-    {
-      get { return input; }
-    }
-
-    public string Expected
-    {
-      get { return expected; }
-    }
+    public string Title { get; } = title;
+    public List<int> Input { get; } = [.. input];
+    public string Expected { get; } = expected;
   }
 
   private List<NewYearChaosTestCase> testCases { get; set; } = default!;

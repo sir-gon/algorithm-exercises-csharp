@@ -8,22 +8,9 @@ public class MinimumAbsoluteDifferenceInAnArrayTest
 {
   public class MinimumAbsoluteDifferenceInAnArrayTestCase(string title, List<int> input, int expected)
   {
-    private readonly string title = title;
-    private readonly List<int> input = [.. input];
-    private readonly int expected = expected;
-
-    public string Title
-    {
-      get { return title; }
-    }
-    public List<int> Input
-    {
-      get { return input; }
-    }
-    public int Expected
-    {
-      get { return expected; }
-    }
+    public string Title { get; } = title;
+    public List<int> Input { get; } = [.. input];
+    public int Expected { get; } = expected;
   }
 
   private List<MinimumAbsoluteDifferenceInAnArrayTestCase> testCases { get; set; } = default!;

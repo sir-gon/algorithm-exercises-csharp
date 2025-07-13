@@ -9,23 +9,23 @@ public static class FlippingBits
 {
   public static long flippingBits(long n)
   {
-    string n_bin_str = Convert.ToString(n, 2);
-    n_bin_str = n_bin_str.PadLeft(32, '0'); // Ensure 32 bits
-    StringBuilder result_bin_str = new StringBuilder();
+    string binaryString = Convert.ToString(n, 2);
+    binaryString = binaryString.PadLeft(32, '0'); // Ensure 32 bits
+    StringBuilder flippedBinaryString = new StringBuilder();
 
-    foreach (char bin_digit in n_bin_str)
+    foreach (char binaryDigit in binaryString)
     {
-      if (bin_digit == '1')
+      if (binaryDigit == '1')
       {
-        result_bin_str.Append('0');
+        flippedBinaryString.Append('0');
       }
       else
       {
-        result_bin_str.Append('1');
+        flippedBinaryString.Append('1');
       }
     }
 
-    long number = Convert.ToUInt32(result_bin_str.ToString(), 2);
+    long number = Convert.ToUInt32(flippedBinaryString.ToString(), 2);
 
     return number;
   }

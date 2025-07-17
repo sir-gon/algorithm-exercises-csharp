@@ -32,16 +32,9 @@ public static class RansomNote
     ArgumentNullException.ThrowIfNull(magazine);
     ArgumentNullException.ThrowIfNull(note);
 
-    Dictionary<string, int> dictionary = [];
-
-    foreach (string word in magazine)
-    {
-      if (!dictionary.TryAdd(word, 1))
-      {
-        int currentValue = dictionary[word];
-        dictionary[word] = currentValue + 1;
-      }
-    }
+    Dictionary<string, int> dictionary = magazine
+      .GroupBy(word => word)
+      .ToDictionary(g => g.Key, g => g.Count());
 
     foreach (string word in note)
     {

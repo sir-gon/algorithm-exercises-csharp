@@ -41,7 +41,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="3.9.3" />
     <PackageReference Include="MSTest.TestFramework" Version="3.9.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="ReportGenerator" Version="5.4.8" />
+    <PackageReference Include="ReportGenerator" Version="5.4.9" />
   </ItemGroup>
 
   <!-- Exclude test project from coverage -->

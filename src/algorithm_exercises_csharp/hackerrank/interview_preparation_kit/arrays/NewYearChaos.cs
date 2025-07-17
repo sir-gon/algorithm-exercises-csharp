@@ -27,13 +27,8 @@ public static class NewYearChaos
 
       List<int> fragment = q[Math.Min(Math.Max(value - 2, 0), i)..i];
 
-      foreach (int k in fragment)
-      {
-        if (k > value)
-        {
-          bribes += 1;
-        }
-      }
+      bribes += fragment.Count(k => k > value);
+
       i += 1;
     }
 

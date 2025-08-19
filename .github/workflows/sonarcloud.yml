@@ -51,7 +51,7 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin `
           /k:"sir-gon_algorithm-exercises-csharp" `
-          /o:"sir-gon" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" `
+          /o:"sir-gon" /d:sonar.token="${{ env.SONAR_TOKEN }}" `
           /d:sonar.host.url="https://sonarcloud.io" `
           /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
 
@@ -59,4 +59,4 @@ jobs:
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
           .\.sonar\scanner\dotnet-sonarscanner end `
-          /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          /d:sonar.token="${{ env.SONAR_TOKEN }}"

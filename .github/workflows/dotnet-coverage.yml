@@ -35,6 +35,6 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@39a2af19d997be74586469d4062e173ecae614f6
+        uses: codecov/codecov-action@3cb13a12348ef4ffcf9783ac0f74954f92113e33
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

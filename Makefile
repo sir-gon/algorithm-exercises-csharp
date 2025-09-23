@@ -33,6 +33,15 @@ RUNTIME_TOOL=dotnet
 PACKAGE_TOOL=dotnet
 VERBOSITY_LEVEL=normal
 
+define crono
+	@start=$$(date +%s); \
+		$(1); \
+		end=$$(date +%s); \
+		diff=$$((end - start)); \
+		printf "Total time: %02d:%02d:%02d\n" $$((diff/3600)) $$((diff%3600/60)) $$((diff%60))
+endef
+
+
 help: list
 	@echo ""
 	@echo "Note: create and activate the environment in your local shell type (example):"
@@ -146,7 +155,10 @@ compose/test: compose/build
 compose/run: compose/build
 	${DOCKER_COMPOSE} --profile production run --rm algorithm-exercises-csharp make run
 
-all: lint coverage
+all:
+	$(call crono, make clean; make dependencies; make build; make test; make lint; make coverage/html)
+
+run:
 
 run:
 	ls -alh

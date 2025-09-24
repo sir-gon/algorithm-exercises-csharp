@@ -156,9 +156,7 @@ compose/run: compose/build
 	${DOCKER_COMPOSE} --profile production run --rm algorithm-exercises-csharp make run
 
 all:
-	$(call crono, make clean; make dependencies; make build; make test; make lint; make coverage/html)
-
-run:
+	$(call crono, make clean && make dependencies && make build && make test && make lint && make coverage/html)
 
 run:
 	ls -alh

@@ -27,7 +27,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore algorithm_exercises_csharp.sln
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/dotnet@e2221410bff24446ba09102212d8bc75a567237d
+        uses: snyk/actions/dotnet@de2dda699bf7276d103ed6a72a5bc5a1871ad658
         continue-on-error: true # To make sure that SARIF upload gets called
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

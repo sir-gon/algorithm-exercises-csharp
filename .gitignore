@@ -147,3 +147,6 @@ coverage-report/*
 # Static Analysis Results Interchange Format
 *.sarif
 .dccache
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md

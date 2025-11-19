@@ -1,5 +1,5 @@
-ARG BUILDTIME_IMAGE=mcr.microsoft.com/dotnet/sdk:8.0.402-alpine3.19
-ARG RUNTIME_IMAGE=mcr.microsoft.com/dotnet/runtime:8.0.8-alpine3.19
+ARG BUILDTIME_IMAGE=mcr.microsoft.com/dotnet/sdk:10.0.100-alpine3.22-amd64
+ARG RUNTIME_IMAGE=mcr.microsoft.com/dotnet/runtime:10.0.0-alpine3.22-amd64
 
 ###############################################################################
 FROM ${BUILDTIME_IMAGE} AS init

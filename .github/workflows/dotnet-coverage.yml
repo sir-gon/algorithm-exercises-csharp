@@ -28,6 +28,9 @@ jobs:
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.0.x
+      - name: Tooling check
+        run: >
+          dotnet --version
       - name: Restore dependencies
         run: dotnet restore --verbosity normal
       - name: Build

@@ -26,7 +26,7 @@ jobs:
           java-version: 21
           # Alternative distribution options are available.
           distribution: "temurin"
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           # Shallow clones should be disabled for a better relevancy of analysis
           fetch-depth: 0

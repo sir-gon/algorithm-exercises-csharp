@@ -75,7 +75,7 @@ jobs:
     needs: build
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}_lint
           path: /tmp/
@@ -95,7 +95,7 @@ jobs:
     needs: build
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}_test
           path: /tmp/
@@ -169,7 +169,7 @@ jobs:
       security-events: write
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}_prod
           path: /tmp/

@@ -80,8 +80,8 @@ You can run tests in the following ways:
 installed in your SO.
 - [Install and run with make](#install-and-run-using-make) require runtime tools
 and "make" installed in your SO.
-- [Install and run in Docker](#install-and-running-with-docker-) require Docker and
-docker-compose installed.
+- [Install and run in Docker](#install-and-running-with-docker-) require Docker
+and docker-compose installed.
 - (⭐️)
 [Install and in Docker with make](#install-and-running-with-docker--using-make)
 require docker-compose and make installed.

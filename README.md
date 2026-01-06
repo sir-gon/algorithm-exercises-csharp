@@ -1,6 +1,7 @@
 # Algorithm Exercises (C# / .NET 8.0)
 
-[![.NET](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet.yml)
+[![.NET CI/CD Test](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet-test.yml)
+[![.NET CI/CD Lint](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet-lint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/dotnet-lint.yml)
 [![Markdown Lint](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/markdown-lint.yml)
 [![YAML lint](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/yamllint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-csharp/actions/workflows/yamllint.yml)
 

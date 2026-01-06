@@ -4,7 +4,7 @@
 # yamllint enable rule:line-length
 
 ---
-name: dotNET Tests
+name: dotNET Lint
 
 on: # yamllint disable-line rule:truthy
   push:

@@ -14,5 +14,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "omnisharp.enableEditorConfigSupport": true,
-  "snyk.advanced.additionalParameters": "--exclude=.trunk,coverage-report"
+  "snyk.advanced.additionalParameters": "--exclude=.trunk,coverage-report",
+  "snyk.advanced.organization": "52c13fa7-37a8-4c92-a695-3352fb0c3586",
+  "snyk.advanced.autoSelectOrganization": true
 }

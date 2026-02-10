@@ -1,4 +1,4 @@
-ARG BUILDTIME_IMAGE=mcr.microsoft.com/dotnet/sdk:10.0.102-alpine3.22-amd64
+ARG BUILDTIME_IMAGE=mcr.microsoft.com/dotnet/sdk:10.0.103-alpine3.22-amd64
 ARG RUNTIME_IMAGE=mcr.microsoft.com/dotnet/runtime:10.0.2-alpine3.22-amd64
 
 ###############################################################################

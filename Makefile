@@ -106,7 +106,13 @@ coverage: dependencies test
 	cat coverage-report/Summary.txt
 
 coverage/html: dependencies test
-	open coverage-report/index.html
+	@if [ "$$(uname)" = "Darwin" ]; then \
+		open coverage-report/index.html; \
+	elif [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "mingw32" ] || [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "mingw64" ] || [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "cygwin" ]; then \
+		cmd /c start coverage-report/index.html; \
+	else \
+		echo "Coverage HTML generated: coverage-report/index.html"; \
+	fi
 
 outdated:
 

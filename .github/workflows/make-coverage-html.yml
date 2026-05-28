@@ -1,0 +1,46 @@
+# yamllint disable rule:line-length
+# This workflow runs make coverage/html and verifies that the coverage HTML report is generated.
+# yamllint enable rule:line-length
+
+---
+name: Make Coverage HTML
+
+on: # yamllint disable-line rule:truthy
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  make-coverage-html:
+    name: "Run make coverage/html and verify coverage HTML"
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+      - name: Verify tooling
+        run: |
+          dotnet --version
+          make --version
+      - name: Run coverage HTML target
+        run: make coverage/html
+      - name: Verify coverage HTML artifact
+        shell: bash
+        run: |
+          if [ ! -f coverage-report/index.html ]; then
+            echo "Coverage HTML file not found: coverage-report/index.html"
+            exit 1
+          fi
+          if [ ! -s coverage-report/index.html ]; then
+            echo "Coverage HTML file is empty: coverage-report/index.html"
+            exit 1
+          fi
+      - name: Upload coverage HTML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage-report

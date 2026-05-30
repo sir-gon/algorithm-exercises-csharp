@@ -27,7 +27,7 @@ jobs:
           sudo apt install pipenv
       - name: Install yamllint
         run: >
-          pipenv install --deploy --ignore-pipfile
+          pipenv sync --dev
 
       - name: Lint YAML files
         run: >

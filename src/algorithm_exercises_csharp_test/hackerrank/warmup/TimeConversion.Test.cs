@@ -31,7 +31,8 @@ public class TimeConversionTest
     testCases = JsonLoader.stringLoad<List<TimeConversionTestCase>>(/*lang=json,strict*/ @"
       [
         { ""input"": ""12:01:00PM"", ""expected"": ""12:01:00"" },
-        { ""input"": ""12:01:00AM"", ""expected"": ""00:01:00"" }
+        { ""input"": ""12:01:00AM"", ""expected"": ""00:01:00"" },
+        { ""input"": ""06:01:00PM"", ""expected"": ""18:01:00"" }
       ]
     ") ?? [];
   }

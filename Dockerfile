@@ -32,7 +32,7 @@ WORKDIR ${WORKDIR}
 
 RUN  apk add --update --no-cache make nodejs npm \
   && apk add --update --no-cache yamllint \
-  && npm install -g --ignore-scripts markdownlint-cli@0.47.0
+  && npm install -g --ignore-scripts markdownlint-cli@0.49.1
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage
@@ -57,7 +57,7 @@ COPY ./src/algorithm_exercises_csharp_test ${WORKDIR}/src/algorithm_exercises_cs
 COPY ./.editorconfig ${WORKDIR}/
 
 # markdownlint conf
-COPY ./.markdownlint.yaml ${WORKDIR}/
+COPY ./.markdownlint.json ${WORKDIR}/
 
 # yamllint conf
 COPY ./.yamllint ${WORKDIR}/

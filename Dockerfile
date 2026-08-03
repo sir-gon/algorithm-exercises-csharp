@@ -1,8 +1,5 @@
-ARG BUILDTIME_IMAGE=mcr.microsoft.com/dotnet/sdk:10.0.103-alpine3.22-amd64
-ARG RUNTIME_IMAGE=mcr.microsoft.com/dotnet/runtime:10.0.3-alpine3.22-amd64
-
 ###############################################################################
-FROM ${BUILDTIME_IMAGE} AS init
+FROM mcr.microsoft.com/dotnet/sdk:10.0.302-alpine3.24-amd64 AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
@@ -13,6 +10,7 @@ RUN   apk add --update --no-cache make \
 ###############################################################################
 FROM init AS base
 
+ENV DOTNET_ROLL_FORWARD=LatestMajor
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
@@ -107,11 +105,12 @@ CMD ["make", "test"]
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM ${RUNTIME_IMAGE} AS production
+FROM mcr.microsoft.com/dotnet/runtime:10.0.10-alpine3.24-extra-amd64 AS production
 
 RUN   apk add --update --no-cache make \
   &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.
 
+ENV DOTNET_ROLL_FORWARD=LatestMajor
 ENV LOG_LEVEL=info
 ENV BRUTEFORCE=false
 ENV WORKDIR=/app

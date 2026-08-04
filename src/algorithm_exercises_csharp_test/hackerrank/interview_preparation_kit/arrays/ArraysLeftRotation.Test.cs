@@ -31,7 +31,7 @@ public class ArraysLeftRotationTest
     foreach (ArraysLeftRotationsTestCase test in testCases)
     {
       result = ArraysLeftRotation.rotLeft(test.Input, test.D_rotations);
-      CollectionAssert.AreEquivalent(test.Expected, result);
+      Assert.AreSequenceEqual(test.Expected, result);
     }
   }
 }

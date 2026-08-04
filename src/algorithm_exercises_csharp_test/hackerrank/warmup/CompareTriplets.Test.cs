@@ -55,7 +55,7 @@ public class CompareTripletsTest
     foreach (CompareTripletsTestCase test in testCases)
     {
       result = CompareTriplets.compareTriplets(test.A, test.B);
-      CollectionAssert.AreEquivalent(test.Expected, result);
+      Assert.AreSequenceEqual(test.Expected, result);
     }
   }
 }

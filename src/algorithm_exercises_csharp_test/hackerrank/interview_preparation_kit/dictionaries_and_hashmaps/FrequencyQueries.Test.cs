@@ -59,7 +59,7 @@ public class FrequencyQueriesTest
     foreach (FrequencyQueriesTestCase test in testCases)
     {
       solutionFound = FrequencyQueries.freqQuery(test.Input);
-      CollectionAssert.AreEqual(
+      Assert.AreSequenceEqual(
         test.Expected,
         solutionFound,
         $"FrequencyQueries.freqQuery({test.Input}) answer must be: {test.Expected}"
@@ -75,7 +75,7 @@ public class FrequencyQueriesTest
     foreach (FrequencyQueriesTestCase test in testCase6)
     {
       solutionFound = FrequencyQueries.freqQuery(test.Input);
-      CollectionAssert.AreEqual(
+      Assert.AreSequenceEqual(
         test.Expected,
         solutionFound,
         $"FrequencyQueries.freqQuery({test.Input}) answer must be: {test.Expected}"
@@ -91,7 +91,7 @@ public class FrequencyQueriesTest
     foreach (FrequencyQueriesTestCase test in testCaseBorderCases)
     {
       solutionFound = FrequencyQueries.freqQuery(test.Input);
-      CollectionAssert.AreEqual(
+      Assert.AreSequenceEqual(
         test.Expected,
         solutionFound,
         $"FrequencyQueries.freqQuery({test.Input}) answer must be: {test.Expected}"

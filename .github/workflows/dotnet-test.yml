@@ -20,7 +20,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["windows-2022", "windows-2025", "ubuntu-24.04", "macos-14"]
+        os:
+          - "windows-2022"
+          - "windows-2025"
+          - "ubuntu-24.04"
+          - "ubuntu-26.04"
+          - "macos-15"
+          - "macos-15-intel"
+          - "macos-26"
+          - "macos-26-intel"
+
         dotnet-version: [9.0.x, 10.0.x]
     runs-on: ${{ matrix.os }}
     steps:

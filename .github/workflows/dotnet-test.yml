@@ -20,15 +20,38 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["windows-2022", "windows-2025", "ubuntu-24.04", "macos-14"]
-        dotnet-version: [9.0.x, 10.0.x]
+        os:
+          - "windows-2022"
+          - "windows-2025"
+          - "ubuntu-24.04"
+          - "ubuntu-26.04"
+          - "macos-15"
+          - "macos-15-intel"
+          - "macos-26"
+          - "macos-26-intel"
+        dotnet-version: [8.0.x, 9.0.x, 10.0.x]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - name: Setup .NET ${{ matrix.dotnet-version }}
+      - id: setup-dotnet
+        name: Setup .NET ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v6
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+      # FIX: Dynamically generate global.json so the CLI doesn't default
+      # to the highest pre-installed version
+      - name: Enforce Matrix .NET SDK Version
+        shell: bash
+        run: |
+          cat <<'EOF' > ./global.json
+          {
+            "sdk": {
+              "version": "${{ steps.setup-dotnet.outputs.dotnet-version }}",
+              "rollForward": "latestPatch"
+            }
+          }
+          EOF
+
       - name: Tooling check
         run: >
           dotnet --version

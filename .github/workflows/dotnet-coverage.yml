@@ -10,7 +10,6 @@ on: # yamllint disable-line rule:truthy
   push:
     branches: ["main"]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: ["main"]
   workflow_dispatch:
 
@@ -38,15 +37,12 @@ jobs:
             }
           }
           EOF
-      - name: Tooling check
-        run: >
+      - name: Verify tooling
+        run: |
           dotnet --version
-      - name: Restore dependencies
-        run: dotnet restore --verbosity normal
-      - name: Build
-        run: dotnet build --no-restore --verbosity normal
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
+          make --version
+      - name: Run coverage HTML target
+        run: make coverage
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
         with:

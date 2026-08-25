@@ -21,7 +21,7 @@ jobs:
         run: >
           dotnet --version
       - name: Set up JDK
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           java-version: 21
           # Alternative distribution options are available.

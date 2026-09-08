@@ -1,5 +1,5 @@
 ###############################################################################
-FROM mcr.microsoft.com/dotnet/sdk:10.0.400-alpine3.24-amd64 AS init
+FROM mcr.microsoft.com/dotnet/sdk:10.0.401-alpine3.24-amd64 AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
@@ -94,7 +94,7 @@ CMD ["make", "test"]
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM mcr.microsoft.com/dotnet/runtime:10.0.11-alpine3.24-extra-amd64 AS production
+FROM mcr.microsoft.com/dotnet/runtime:10.0.12-alpine3.24-extra-amd64 AS production
 
 RUN   apk add --update --no-cache make \
   &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.

@@ -283,3 +283,8 @@ Dockerfile
 # .env file contains default environment variables for docker
 .env
 .git/
+
+# .NET build / binaries / objects
+
+**/bin/*
+**/obj/*

@@ -64,3 +64,4 @@ jobs:
           dotnet test --no-build
           --verbosity normal
           --logger "console;verbosity=detailed"
+          /p:CollectCoverage=false

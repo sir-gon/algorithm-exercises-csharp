@@ -57,7 +57,7 @@
     <ProjectReference Include="../algorithm_exercises_csharp/algorithm_exercises_csharp.csproj" />
   </ItemGroup>
 
-  <Target Name="GenerateHtmlCoverageReport" AfterTargets="GenerateCoverageResultAfterTest">
+  <Target Name="GenerateHtmlCoverageReport" AfterTargets="GenerateCoverageResultAfterTest" Condition="'$(CollectCoverage)' == 'true'">
     <ReportGenerator ReportFiles="@(CoverletReport)" TargetDirectory="../../coverage-report" ReportTypes="TextSummary;Html" />
   </Target>
 

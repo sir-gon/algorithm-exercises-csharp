@@ -91,8 +91,13 @@ test/static: dependencies
 test/styling: dependencies
 	${PACKAGE_TOOL} format --verify-no-changes --verbosity ${VERBOSITY_LEVEL}
 
-format:
+format/json:
+	prettier --write ./**/*.json
+
+format/sources:
 	${PACKAGE_TOOL} format --verbosity ${VERBOSITY_LEVEL}
+
+format: format/sources format/json
 
 build: env dependencies
 	${PACKAGE_TOOL} build --verbosity ${VERBOSITY_LEVEL}

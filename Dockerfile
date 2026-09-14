@@ -94,7 +94,7 @@ CMD ["make", "test"]
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM mcr.microsoft.com/dotnet/runtime:10.0.12-alpine3.24-extra-amd64 AS production
+FROM mcr.microsoft.com/dotnet/runtime:11.0-alpine3.24-extra-amd64 AS production
 
 RUN   apk add --update --no-cache make \
   &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.

@@ -110,7 +110,12 @@ test: build
 		--collect:"Code Coverage" \
 		--logger "console;verbosity=detailed"
 
-coverage: dependencies test
+coverage: dependencies
+	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL} \
+		--collect:"Code Coverage" \
+		--logger "console;verbosity=detailed" \
+		--property:CollectCoverage=true
+
 	cat coverage-report/Summary.txt
 
 coverage/html: dependencies test

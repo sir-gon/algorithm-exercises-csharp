@@ -3,10 +3,10 @@ name: Docker Image CI
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
 
 env:
@@ -15,7 +15,7 @@ env:
 
 jobs:
   build-lint:
-    name: "Build Docker LINT image"
+    name: 'Build Docker LINT image'
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -23,7 +23,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
-      - name: "LINT: Build and push"
+      - name: 'LINT: Build and push'
         uses: docker/build-push-action@v7
         with:
           context: .
@@ -32,13 +32,13 @@ jobs:
             type=docker,dest=/tmp/${{ env.ARTIFACT_NAME }}_lint.tar
           tags: |
             ${{ env.IMAGE_NAME }}:lint
-      - name: "LINT: Upload artifact"
+      - name: 'LINT: Upload artifact'
         uses: actions/upload-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}_lint
           path: /tmp/${{ env.ARTIFACT_NAME }}_lint.tar
   build-test:
-    name: "Build Docker TEST image"
+    name: 'Build Docker TEST image'
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -46,7 +46,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
-      - name: "TEST: Build and push"
+      - name: 'TEST: Build and push'
         uses: docker/build-push-action@v7
         with:
           context: .
@@ -55,21 +55,21 @@ jobs:
             type=docker,dest=/tmp/${{ env.ARTIFACT_NAME }}_test.tar
           tags: |
             ${{ env.IMAGE_NAME }}:test
-      - name: "TEST: Upload artifact"
+      - name: 'TEST: Upload artifact'
         uses: actions/upload-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}_test
           path: /tmp/${{ env.ARTIFACT_NAME }}_test.tar
 
   build-prod:
-    name: "Build Docker PRODUCTION image"
+    name: 'Build Docker PRODUCTION image'
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
-      - name: "PRODUCTION: Build and push"
+      - name: 'PRODUCTION: Build and push'
         uses: docker/build-push-action@v7
         with:
           context: .
@@ -79,14 +79,14 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
-      - name: "PRODUCTION: Upload artifact"
+      - name: 'PRODUCTION: Upload artifact'
         uses: actions/upload-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}_prod
           path: /tmp/${{ env.ARTIFACT_NAME }}_prod.tar
 
   run-lint-markdown:
-    name: "Run in docker: Markdown LINT"
+    name: 'Run in docker: Markdown LINT'
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -96,7 +96,7 @@ jobs:
           make compose/lint/markdown
 
   run-lint-yaml:
-    name: "Run in docker: YAML LINT"
+    name: 'Run in docker: YAML LINT'
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -105,8 +105,18 @@ jobs:
         run: >
           make compose/lint/yaml
 
+  run-lint-json:
+    name: 'Run in docker: JSON LINT'
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Run JSON lint
+        run: >
+          make compose/lint/json
+
   run-lint:
-    name: "Run in docker: LINT"
+    name: 'Run in docker: LINT'
     runs-on: ubuntu-26.04
     needs: build-lint
     steps:
@@ -131,7 +141,7 @@ jobs:
           make lint
 
   run-test:
-    name: "Run in docker: TEST"
+    name: 'Run in docker: TEST'
     runs-on: ubuntu-26.04
     needs: build-test
     steps:
@@ -206,7 +216,7 @@ jobs:
   # yamllint enable rule:line-length
 
   scan:
-    name: "Trivy"
+    name: 'Trivy'
     runs-on: ubuntu-26.04
     needs: build-prod
     permissions:
@@ -229,7 +239,7 @@ jobs:
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          format: "table"
+          format: 'table'
         env:
           TRIVY_DB_REPOSITORY: ${{ vars.TRIVY_DB_REPOSITORY }}
 
@@ -237,12 +247,12 @@ jobs:
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          format: "sarif"
-          output: "trivy-results.sarif"
+          format: 'sarif'
+          output: 'trivy-results.sarif'
         env:
           TRIVY_DB_REPOSITORY: ${{ vars.TRIVY_DB_REPOSITORY }}
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: "trivy-results.sarif"
+          sarif_file: 'trivy-results.sarif'

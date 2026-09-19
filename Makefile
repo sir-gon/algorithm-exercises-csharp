@@ -82,9 +82,12 @@ lint/markdown:
 lint/yaml:
 	yamllint --strict . && echo '✔  Your code looks good.'
 
+lint/json:
+	prettier --check ./src/**/*.json
+
 lint: test/styling test/static
 
-lint/all: lint/markdown lint/yaml test/styling test/static
+lint/all: lint/markdown lint/yaml lint/json test/styling test/static
 
 test/static: dependencies
 
@@ -169,13 +172,22 @@ compose/lint/yaml:
  	yamllint --strict . \
   && echo '✔  Your code looks good.'
 
+compose/lint/json:
+	${DOCKER_COMPOSE} --profile lint run --rm \
+    --workdir /workspace \
+    -v "$$(pwd):/workspace" \
+    prettier --check /workspace/**/*.json \
+		&& echo '✔  Your code looks good.'
+
 compose/test/styling: compose/build
 	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-csharp-lint make test/styling
 
 compose/test/static: compose/build
 	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-csharp-lint make test/static
 
-compose/lint: compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
+compose/lint: compose/test/styling compose/test/static
+
+compose/lint/all: compose/lint/markdown compose/lint/yaml compose/lint/json compose/test/styling compose/test/static
 
 compose/test: compose/build
 	${DOCKER_COMPOSE} --profile testing run --rm algorithm-exercises-csharp-test make test

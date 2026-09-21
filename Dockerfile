@@ -4,8 +4,8 @@ FROM mcr.microsoft.com/dotnet/sdk:11.0-alpine3.24-amd64 AS init
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN   apk add --update --no-cache make \
-  &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.
+RUN apk add --update --no-cache "make=4.4.1-r4" \
+  && apk upgrade --no-cache # Avoid some CVE reports updating basic packages.
 
 ###############################################################################
 FROM init AS base
@@ -96,8 +96,8 @@ CMD ["make", "test"]
 ##
 FROM mcr.microsoft.com/dotnet/runtime:11.0-alpine3.24-extra-amd64 AS production
 
-RUN   apk add --update --no-cache make \
-  &&  apk upgrade --no-cache # Avoid some CVE reports updating basic packages.
+RUN apk add --update --no-cache "make=4.4.1-r4" \
+  && apk upgrade --no-cache # Avoid some CVE reports updating basic packages.
 
 ENV DOTNET_ROLL_FORWARD=LatestMajor
 ENV LOG_LEVEL=info
@@ -105,7 +105,7 @@ ENV BRUTEFORCE=false
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN  adduser -D worker \
+RUN adduser -D -u 1000 worker \
   && mkdir -p /app \
   && chown worker:worker /app
 
@@ -115,7 +115,7 @@ COPY --from=builder /app/src/algorithm_exercises_csharp/bin/Release/net8.0/algor
 
 RUN ls -alh
 
-USER worker
+USER 1000
 CMD ["make", "run"]
 
 # checkov:skip= CKV_DOCKER_2: production image isn't a service process (yet)

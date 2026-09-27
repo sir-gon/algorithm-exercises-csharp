@@ -7,15 +7,18 @@ name: Make Coverage HTML
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   make-coverage-html:
-    name: "Run make coverage/html and verify coverage HTML"
-    runs-on: "windows-2025"
+    name: 'Run make coverage/html and verify coverage HTML'
+    runs-on: 'windows-2025'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Setup .NET

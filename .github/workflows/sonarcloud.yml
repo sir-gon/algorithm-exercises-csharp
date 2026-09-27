@@ -3,10 +3,13 @@ name: SonarCloud
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -25,7 +28,7 @@ jobs:
         with:
           java-version: 25
           # Alternative distribution options are available.
-          distribution: "temurin"
+          distribution: 'temurin'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           # Shallow clones should be disabled for a better relevancy of analysis

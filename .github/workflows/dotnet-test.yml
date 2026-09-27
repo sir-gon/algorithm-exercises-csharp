@@ -8,27 +8,30 @@ name: dotNET Tests
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test:
-    name: "Run Tests"
+    name: 'Run Tests'
     strategy:
       fail-fast: false
       matrix:
         os:
-          - "windows-2022"
-          - "windows-2025"
-          - "ubuntu-24.04"
-          - "ubuntu-26.04"
-          - "macos-15"
-          - "macos-15-intel"
-          - "macos-26"
-          - "macos-26-intel"
+          - 'windows-2022'
+          - 'windows-2025'
+          - 'ubuntu-24.04'
+          - 'ubuntu-26.04'
+          - 'macos-15'
+          - 'macos-15-intel'
+          - 'macos-26'
+          - 'macos-26-intel'
         dotnet-version: [8.0.x, 9.0.x, 10.0.x]
     runs-on: ${{ matrix.os }}
     steps:

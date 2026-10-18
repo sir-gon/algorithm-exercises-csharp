@@ -113,15 +113,22 @@ test: build
 		--collect:"Code Coverage" \
 		--logger "console;verbosity=detailed"
 
-coverage: dependencies
+coverage/test:
 	${PACKAGE_TOOL} test --verbosity ${VERBOSITY_LEVEL} \
 		--collect:"Code Coverage" \
 		--logger "console;verbosity=detailed" \
 		--property:CollectCoverage=true
 
+coverage/summary: coverage/test
+	@echo "################################################################################"
+	@echo "## Coverage Summary: ###########################################################"
+	@echo "################################################################################"
 	cat coverage-report/Summary.txt
+	@echo "################################################################################"
 
-coverage/html: dependencies test
+coverage: coverage/test coverage/summary
+
+coverage/html: dependencies coverage/test
 	@if [ "$$(uname)" = "Darwin" ]; then \
 		open coverage-report/index.html; \
 	elif [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "mingw32" ] || [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "mingw64" ] || [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "cygwin" ]; then \

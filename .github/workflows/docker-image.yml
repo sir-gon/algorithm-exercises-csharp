@@ -166,7 +166,7 @@ jobs:
           docker
           compose --profile test
           run --rm ${{ env.IMAGE_NAME }}-test
-          make test
+          make coverage
 
   # yamllint disable rule:line-length
   # security:

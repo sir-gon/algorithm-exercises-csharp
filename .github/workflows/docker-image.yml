@@ -169,7 +169,6 @@ jobs:
           run --rm ${{ env.IMAGE_NAME }}-test
           make coverage
 
-  # yamllint disable rule:line-length
   # security:
   #   name: "Snyk Container"
   #   runs-on: ubuntu-26.04
@@ -217,7 +216,6 @@ jobs:
   #       uses: github/codeql-action/upload-sarif@v3
   #       with:
   #         sarif_file: 'snyk.sarif'
-  # yamllint enable rule:line-length
 
   scan:
     name: 'Trivy'

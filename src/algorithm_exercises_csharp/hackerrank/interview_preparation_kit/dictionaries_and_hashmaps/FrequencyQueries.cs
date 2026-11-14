@@ -30,9 +30,7 @@ public class FrequencyQueries
   {
     bool currentValueFreqCountExists = valueFreqs.TryGetValue(value, out long currentValueFreqCount);
 
-    long newFreqCount;
-
-    newFreqCount = !currentValueFreqCountExists ? __INITIAL__ : currentValueFreqCount + 1;
+    long newFreqCount = !currentValueFreqCountExists ? __INITIAL__ : currentValueFreqCount + 1;
     valueFreqs[value] = newFreqCount;
 
     freqDictionary.TryGetValue(newFreqCount, out List<long>? newFreq);

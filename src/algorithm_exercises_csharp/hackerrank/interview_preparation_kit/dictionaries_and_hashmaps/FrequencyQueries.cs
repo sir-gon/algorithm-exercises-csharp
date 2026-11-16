@@ -62,9 +62,7 @@ public class FrequencyQueries
   {
     bool currentValueFreqCountExists = valueFreqs.TryGetValue(value, out long currentValueFreqCount);
 
-    long newFreqCount;
-
-    newFreqCount = !currentValueFreqCountExists ? 0 : currentValueFreqCount - 1;
+    long newFreqCount = !currentValueFreqCountExists ? 0 : currentValueFreqCount - 1;
     if (newFreqCount > 0)
     {
       valueFreqs[value] = newFreqCount;

@@ -67,7 +67,10 @@ RUN  make build \
 ###############################################################################
 FROM development AS builder
 
-RUN  dotnet publish --self-contained --runtime linux-musl-x64 \
+RUN dotnet publish \
+    --self-contained \
+    --runtime linux-musl-x64 \
+    --output /app/publish \
   && ls -alh
 
 CMD ["ls", "-alh"]
@@ -110,8 +113,8 @@ RUN adduser -D -u 1000 worker \
   && chown worker:worker /app
 
 COPY ./Makefile ${WORKDIR}/
-COPY --from=builder /app/src/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.dll ${WORKDIR}/
-COPY --from=builder /app/src/algorithm_exercises_csharp/bin/Release/net8.0/algorithm_exercises_csharp.runtimeconfig.json ${WORKDIR}/
+COPY --from=builder /app/publish/algorithm_exercises_csharp.dll ${WORKDIR}/
+COPY --from=builder /app/publish/algorithm_exercises_csharp.runtimeconfig.json ${WORKDIR}/
 
 RUN ls -alh
 

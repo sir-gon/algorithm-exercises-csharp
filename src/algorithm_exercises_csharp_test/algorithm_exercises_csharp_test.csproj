@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <SatelliteResourceLanguages Condition="'$(DOTNET_RUNNING_IN_CONTAINER)' == 'true'">en</SatelliteResourceLanguages>
     <RootNamespace>algorithm_exercises_csharp_test</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
